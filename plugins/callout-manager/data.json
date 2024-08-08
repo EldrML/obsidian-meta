@@ -1,0 +1,93 @@
+{
+  "callouts": {
+    "custom": [
+      "tip",
+      "info",
+      "todo"
+    ],
+    "settings": {
+      "tip": [
+        {
+          "changes": {
+            "color": "68, 207, 110"
+          }
+        }
+      ],
+      "info": [
+        {
+          "changes": {
+            "color": "158, 158, 158"
+          }
+        }
+      ],
+      "todo": [
+        {
+          "changes": {
+            "color": "227, 107, 167"
+          }
+        }
+      ],
+      "warning": [
+        {
+          "changes": {
+            "color": "208, 181, 48"
+          }
+        }
+      ],
+      "caution": [
+        {
+          "changes": {
+            "color": "251, 70, 76"
+          }
+        }
+      ],
+      "bug": [
+        {
+          "changes": {
+            "color": "251, 70, 76"
+          }
+        }
+      ],
+      "danger": [
+        {
+          "changes": {
+            "color": "251, 70, 76"
+          }
+        }
+      ],
+      "error": [
+        {
+          "changes": {
+            "color": "251, 70, 76"
+          }
+        }
+      ],
+      "fail": [
+        {
+          "changes": {
+            "color": "251, 70, 76"
+          }
+        }
+      ],
+      "failure": [
+        {
+          "changes": {
+            "color": "251, 70, 76"
+          }
+        }
+      ],
+      "missing": [
+        {
+          "changes": {
+            "color": "251, 70, 76"
+          }
+        }
+      ]
+    }
+  },
+  "calloutDetection": {
+    "obsidian": true,
+    "theme": false,
+    "snippet": false
+  }
+}

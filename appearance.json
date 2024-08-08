@@ -1,0 +1,9 @@
+{
+  "cssTheme": "AnuPpuccin",
+  "baseFontSize": 15,
+  "enabledCssSnippets": [
+    "clean_embed"
+  ],
+  "accentColor": "",
+  "theme": "moonstone"
+}

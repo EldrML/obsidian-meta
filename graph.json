@@ -1,0 +1,72 @@
+{
+  "collapse-filter": false,
+  "search": "-tag:#onboarding-training",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag:#meeting",
+      "color": {
+        "a": 1,
+        "rgb": 5855577
+      }
+    },
+    {
+      "query": "tag:#person",
+      "color": {
+        "a": 1,
+        "rgb": 8948050
+      }
+    },
+    {
+      "query": "tag:#hub",
+      "color": {
+        "a": 1,
+        "rgb": 15953353
+      }
+    },
+    {
+      "query": "tag:#sysml1",
+      "color": {
+        "a": 1,
+        "rgb": 6249941
+      }
+    },
+    {
+      "query": "tag:#onboarding-training",
+      "color": {
+        "a": 1,
+        "rgb": 7636530
+      }
+    },
+    {
+      "query": "tag:#afsim",
+      "color": {
+        "a": 1,
+        "rgb": 4508322
+      }
+    },
+    {
+      "query": "tag:#programming",
+      "color": {
+        "a": 1,
+        "rgb": 5395168
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 0.95,
+  "lineSizeMultiplier": 0.925,
+  "collapse-forces": false,
+  "centerStrength": 0.48469387755102,
+  "repelStrength": 8.96995708154506,
+  "linkStrength": 1,
+  "linkDistance": 61,
+  "scale": 0.39487308372051105,
+  "close": false
+}
