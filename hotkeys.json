@@ -176,7 +176,7 @@
       "modifiers": [
         "Alt"
       ],
-      "key": "F1"
+      "key": "F12"
     }
   ],
   "file-explorer:reveal-active-file": [
@@ -192,7 +192,7 @@
       "modifiers": [
         "Alt"
       ],
-      "key": "F2"
+      "key": "F1"
     }
   ],
   "omnisearch:show-modal": [

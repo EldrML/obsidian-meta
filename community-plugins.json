@@ -5,7 +5,6 @@
   "table-editor-obsidian",
   "obsidian-link-converter",
   "obsidian-tasks-plugin",
-  "obsidian-annotator",
   "omnisearch",
   "templater-obsidian",
   "homepage",
@@ -18,5 +17,9 @@
   "find-unlinked-files",
   "image-inline",
   "obsidian-paste-image-rename",
-  "code-styler"
+  "code-styler",
+  "dataview",
+  "quick-latex",
+  "vscode-editor",
+  "make-md"
 ]
