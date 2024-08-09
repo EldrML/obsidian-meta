@@ -1,2 +1,4 @@
-obsidian-minimal-settings
-.obsidian_old/*
+.obsidian_old
+
+# Ignore Calendarium Data Specifically
+/plugins/calendarium/data.json
