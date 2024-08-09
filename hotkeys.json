@@ -176,7 +176,7 @@
       "modifiers": [
         "Alt"
       ],
-      "key": "F1"
+      "key": "F11"
     }
   ],
   "file-explorer:reveal-active-file": [
@@ -192,7 +192,7 @@
       "modifiers": [
         "Alt"
       ],
-      "key": "F2"
+      "key": "F5"
     }
   ],
   "omnisearch:show-modal": [
@@ -219,6 +219,61 @@
         "Mod"
       ],
       "key": "F"
+    }
+  ],
+  "cm-typewriter-scroll-obsidian:toggle-typewriter-sroll-zen": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "F4"
+    }
+  ],
+  "cm-typewriter-scroll-obsidian:toggle-typewriter-sroll": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "F3"
+    }
+  ],
+  "editor:insert-wikilink": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "Q"
+    }
+  ],
+  "obsidian-focus-mode:toggle-focus-mode": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "Z"
+    },
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "F1"
+    }
+  ],
+  "obsidian-focus-mode:toggle-super-focus-mode": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod",
+        "Shift"
+      ],
+      "key": "Z"
+    },
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "F2"
     }
   ]
 }

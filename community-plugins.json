@@ -3,7 +3,6 @@
   "tag-wrangler",
   "obsidian-style-settings",
   "table-editor-obsidian",
-  "obsidian-link-converter",
   "obsidian-tasks-plugin",
   "obsidian-annotator",
   "omnisearch",
@@ -17,6 +16,14 @@
   "optimize-canvas-connections",
   "find-unlinked-files",
   "image-inline",
-  "obsidian-paste-image-rename",
-  "code-styler"
+  "better-word-count",
+  "calendarium",
+  "obsidian-focus-mode",
+  "longform",
+  "obsidian-reading-time",
+  "obsidian-mind-map",
+  "novel-word-count",
+  "obsidian-smart-typography",
+  "cm-typewriter-scroll-obsidian",
+  "cmenu-plugin"
 ]

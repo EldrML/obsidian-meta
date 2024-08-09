@@ -2,10 +2,10 @@
   "version": 4,
   "homepages": {
     "Main Homepage": {
-      "value": "Homepage.canvas",
+      "value": "Home.canvas",
       "kind": "File",
       "openOnStartup": true,
-      "openMode": "Replace all open notes",
+      "openMode": "Keep open notes",
       "manualOpenMode": "Keep open notes",
       "view": "Default view",
       "revertView": true,
