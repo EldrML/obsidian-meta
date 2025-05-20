@@ -1,0 +1,319 @@
+{
+  "main": {
+    "id": "07c913a68a9625e7",
+    "type": "split",
+    "children": [
+      {
+        "id": "6cb87b6dc13727ef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9b65ffea719faea0",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          },
+          {
+            "id": "f2560ff9c87363a2",
+            "type": "leaf",
+            "state": {
+              "type": "mk-space",
+              "state": {
+                "path": "_Inbox"
+              },
+              "icon": "lucide-file",
+              "title": "_Inbox"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0d6585d0fe496e02",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2f8b7a4d497738b",
+        "type": "tabs",
+        "dimension": 60.3125,
+        "children": [
+          {
+            "id": "1c5f3e2b9753e9f7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5e47774f25444913",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#programming/java",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "fdbb81b09895d581",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Spaces"
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "3ba5ce15d3e06f50",
+        "type": "tabs",
+        "dimension": 39.6875,
+        "children": [
+          {
+            "id": "c3b55cfaec20228f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "4c4ee25b3a07081f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 293
+  },
+  "right": {
+    "id": "25bd613315b21625",
+    "type": "split",
+    "children": [
+      {
+        "id": "b9061128a37ee63e",
+        "type": "tabs",
+        "dimension": 45.97701149425288,
+        "children": [
+          {
+            "id": "7256d6496473d42d",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "options": {
+                  "collapse-filter": false,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": true,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": false,
+                  "showArrow": false,
+                  "textFadeMultiplier": -1.1,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.497448979591837,
+                  "repelStrength": 9.13265306122449,
+                  "linkStrength": 1,
+                  "linkDistance": 161,
+                  "scale": 0.9097290007238602,
+                  "close": true
+                }
+              },
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "d9f25e98b4d6205a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e3721f071ca5179b",
+        "type": "tabs",
+        "dimension": 27.063740856844305,
+        "children": [
+          {
+            "id": "3064e0c7f245f5e9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "804b4c752d992821",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          }
+        ]
+      },
+      {
+        "id": "402b3b3866524235",
+        "type": "tabs",
+        "dimension": 26.959247648902824,
+        "children": [
+          {
+            "id": "1e2739fca085986f",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "spreadsheet",
+              "title": "Advanced Tables"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 364.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "hide-folders:Hide hidden folders again": false,
+      "callout-manager:Insert Callout": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "workspaces:Manage workspace layouts": false,
+      "publish:Publish changes...": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "omnisearch:Omnisearch": false,
+      "templates:Insert template": false,
+      "templater-obsidian:Templater": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
+    }
+  },
+  "active": "9b65ffea719faea0",
+  "lastOpenFiles": [
+    "_Inbox/_Inbox.md",
+    "Tags",
+    "3. Programming/The Grug Brained Developer.md",
+    "Untitled.md",
+    "1. Projects/AMF/AMF Hub.canvas",
+    "brain/publickey",
+    "brain/preamble.sty",
+    "brain/key.ppk",
+    "brain/desktop.ini",
+    "brain/_Resources/Working effectively with legacy code (2013) (Michael Feathers).pdf",
+    "brain/_Resources/SysML Distilled A Brief Guide to the Systems Modeling Language - Lenny Delligatti.pdf",
+    "brain/_Resources/Refactoring - Improving the Design of Existing Code (Martin Fowler).pdf",
+    "brain/_Resources/Object Modeling with the OCL (Tony Clark, Jos Warmer.pdf",
+    "brain/_Resources/Effective Java, 3rd Edition - Joshua Bloch.pdf",
+    "brain/_Obsidian Info/How to implement GIT in Obsidian/attachments/Pasted image 20220310195657.png",
+    "brain/_Obsidian Info/How to implement GIT in Obsidian/The Plan to Implement GIT S.md",
+    "brain/_Obsidian Info/Plugin Notes.md",
+    "brain/_Obsidian Info/Obsidian Tricks.md",
+    "brain/Systems Engineering/attachments/Pasted image 20220319182409.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319181846.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319182250.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319181441.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319181034.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319180535.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319175937.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319180100.png",
+    "brain/Systems Engineering/attachments/Pasted image 20220319175907.png",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/neo4j.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/Py4J.md",
+    "brain/Statistics/Standard Deviation.md",
+    "brain/Statistics/Variance.md",
+    "brain/Statistics/Mean.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/ModelCenter.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/MagicDraw.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/Full System Info.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/JPype.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/IO Standardization.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/Gaphor.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/AWB Interfacing - BLUF.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/AWB.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/AWB Interfacing Summary.md",
+    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/12312021_Dees_Meeting.md",
+    "brain/Systems Engineering/SysML & Visual Modeling/SysML V2 - Copy.md",
+    "brain/Systems Engineering/SysML & Visual Modeling/SysML V1.md",
+    "brain/Systems Engineering/DOORS.md",
+    "brain/Math/Acronyms/Higher Order Terms.md",
+    "brain/Math/Acronyms/Left Hand Side.md",
+    "brain/LEGO/LEGO Hub.canvas",
+    "brain/LEGO Design/LEGO Hub.canvas",
+    "brain/Home.canvas",
+    "brain/Game Dev/Tech Art/Beginners Guide to VFX/Beginners Guide to VFX Hub.canvas",
+    "brain/Game Dev/Tech Art/Tech Art Hub.canvas",
+    "brain/Game Dev/Game Dev Hub.canvas",
+    "Homepage.canvas",
+    "1. Projects/AMF/AMF Release Flowchart.canvas",
+    "1. Projects/AMF/AMPEX Flowchart.canvas"
+  ]
+}

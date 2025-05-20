@@ -2,7 +2,9 @@
   "cssTheme": "AnuPpuccin",
   "baseFontSize": 15,
   "enabledCssSnippets": [
-    "clean_embed"
+    "clean_embed",
+    "color_unresolved_links",
+    "custom_canvas_colors"
   ],
   "accentColor": "",
   "theme": "moonstone"

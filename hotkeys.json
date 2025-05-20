@@ -220,5 +220,27 @@
       ],
       "key": "F"
     }
+  ],
+  "app:reload": [
+    {
+      "modifiers": [],
+      "key": "F5"
+    }
+  ],
+  "editor:toggle-strikethrough": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": ","
+    }
+  ],
+  "editor:toggle-source": [
+    {
+      "modifiers": [
+        "Meta"
+      ],
+      "key": "*"
+    }
   ]
 }

@@ -1,0 +1,276 @@
+{
+  "workspaces": {
+    "Fullscreen": {
+      "main": {
+        "id": "07c913a68a9625e7",
+        "type": "split",
+        "children": [
+          {
+            "id": "6cb87b6dc13727ef",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9b65ffea719faea0",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "3. Programming/The Grug Brained Developer.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": true
+                  }
+                }
+              },
+              {
+                "id": "c8cb60a8724acb78",
+                "type": "leaf",
+                "state": {
+                  "type": "canvas",
+                  "state": {
+                    "file": "1. Projects/AMF/AMF Hub.canvas",
+                    "viewState": {
+                      "x": -76.84819872473491,
+                      "y": -349.7842796346555,
+                      "zoom": -0.11280178396458529
+                    }
+                  }
+                }
+              },
+              {
+                "id": "b751d8f2ff67e209",
+                "type": "leaf",
+                "state": {
+                  "type": "canvas",
+                  "state": {
+                    "file": "Homepage.canvas",
+                    "viewState": {
+                      "x": -932.0031638336045,
+                      "y": 727.9490533632978,
+                      "zoom": -1.2944908967514615
+                    }
+                  }
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "0d6585d0fe496e02",
+        "type": "split",
+        "children": [
+          {
+            "id": "a2f8b7a4d497738b",
+            "type": "tabs",
+            "dimension": 60.3125,
+            "children": [
+              {
+                "id": "1c5f3e2b9753e9f7",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "5e47774f25444913",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "tag:#programming/java",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "fdbb81b09895d581",
+                "type": "leaf",
+                "state": {
+                  "type": "mk-path-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 2
+          },
+          {
+            "id": "3ba5ce15d3e06f50",
+            "type": "tabs",
+            "dimension": 39.6875,
+            "children": [
+              {
+                "id": "c3b55cfaec20228f",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              },
+              {
+                "id": "4c4ee25b3a07081f",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "1. Projects/AMF/AMF Hub.canvas"
+                  }
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 262,
+        "collapsed": true
+      },
+      "right": {
+        "id": "25bd613315b21625",
+        "type": "split",
+        "children": [
+          {
+            "id": "b9061128a37ee63e",
+            "type": "tabs",
+            "dimension": 45.97701149425288,
+            "children": [
+              {
+                "id": "7256d6496473d42d",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "1. Projects/AMF/AMF Hub.canvas",
+                    "options": {
+                      "collapse-filter": false,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": true,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [],
+                      "collapse-display": false,
+                      "showArrow": false,
+                      "textFadeMultiplier": -1.1,
+                      "nodeSizeMultiplier": 1,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.497448979591837,
+                      "repelStrength": 9.13265306122449,
+                      "linkStrength": 1,
+                      "linkDistance": 161,
+                      "scale": 0.9097290007238602,
+                      "close": true
+                    }
+                  }
+                }
+              },
+              {
+                "id": "d9f25e98b4d6205a",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "e3721f071ca5179b",
+            "type": "tabs",
+            "dimension": 27.063740856844305,
+            "children": [
+              {
+                "id": "3064e0c7f245f5e9",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "1. Projects/AMF/AMF Hub.canvas",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "804b4c752d992821",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "1. Projects/AMF/AMF Hub.canvas",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "402b3b3866524235",
+            "type": "tabs",
+            "dimension": 26.959247648902824,
+            "children": [
+              {
+                "id": "1e2739fca085986f",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 364.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "hide-folders:Hide hidden folders again": false,
+          "callout-manager:Insert Callout": false,
+          "switcher:Open quick switcher": false,
+          "graph:Open graph view": false,
+          "canvas:Create new canvas": false,
+          "command-palette:Open command palette": false,
+          "markdown-importer:Open format converter": false,
+          "workspaces:Manage workspace layouts": false,
+          "publish:Publish changes...": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "omnisearch:Omnisearch": false,
+          "templates:Insert template": false,
+          "templater-obsidian:Templater": false,
+          "homepage:Open homepage": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false
+        }
+      },
+      "active": "c8cb60a8724acb78",
+      "mtime": "2024-09-18T16:14:00-05:00"
+    }
+  },
+  "active": "Fullscreen"
+}

@@ -642,9 +642,9 @@ var require_lodash = __commonJS({
         }
         return result;
       }
-      function mapToArray(map4) {
-        var index = -1, result = Array(map4.size);
-        map4.forEach(function(value, key) {
+      function mapToArray(map5) {
+        var index = -1, result = Array(map5.size);
+        map5.forEach(function(value, key) {
           result[++index] = [key, value];
         });
         return result;
@@ -758,7 +758,7 @@ var require_lodash = __commonJS({
         var dataViewCtorString = toSource(DataView), mapCtorString = toSource(Map2), promiseCtorString = toSource(Promise2), setCtorString = toSource(Set2), weakMapCtorString = toSource(WeakMap);
         var symbolProto = Symbol2 ? Symbol2.prototype : undefined2, symbolValueOf = symbolProto ? symbolProto.valueOf : undefined2, symbolToString = symbolProto ? symbolProto.toString : undefined2;
         function lodash(value) {
-          if (isObjectLike(value) && !isArray(value) && !(value instanceof LazyWrapper)) {
+          if (isObjectLike(value) && !isArray2(value) && !(value instanceof LazyWrapper)) {
             if (value instanceof LodashWrapper) {
               return value;
             }
@@ -873,7 +873,7 @@ var require_lodash = __commonJS({
           return result2;
         }
         function lazyValue() {
-          var array = this.__wrapped__.value(), dir = this.__dir__, isArr = isArray(array), isRight = dir < 0, arrLength = isArr ? array.length : 0, view = getView(0, arrLength, this.__views__), start = view.start, end = view.end, length = end - start, index = isRight ? end : start - 1, iteratees = this.__iteratees__, iterLength = iteratees.length, resIndex = 0, takeCount = nativeMin(length, this.__takeCount__);
+          var array = this.__wrapped__.value(), dir = this.__dir__, isArr = isArray2(array), isRight = dir < 0, arrLength = isArr ? array.length : 0, view = getView(0, arrLength, this.__views__), start = view.start, end = view.end, length = end - start, index = isRight ? end : start - 1, iteratees = this.__iteratees__, iterLength = iteratees.length, resIndex = 0, takeCount = nativeMin(length, this.__takeCount__);
           if (!isArr || !isRight && arrLength == length && takeCount == length) {
             return baseWrapperValue(array, this.__actions__);
           }
@@ -1082,7 +1082,7 @@ var require_lodash = __commonJS({
         Stack.prototype.has = stackHas;
         Stack.prototype.set = stackSet;
         function arrayLikeKeys(value, inherited) {
-          var isArr = isArray(value), isArg = !isArr && isArguments(value), isBuff = !isArr && !isArg && isBuffer(value), isType = !isArr && !isArg && !isBuff && isTypedArray(value), skipIndexes = isArr || isArg || isBuff || isType, result2 = skipIndexes ? baseTimes(value.length, String2) : [], length = result2.length;
+          var isArr = isArray2(value), isArg = !isArr && isArguments(value), isBuff = !isArr && !isArg && isBuffer(value), isType = !isArr && !isArg && !isBuff && isTypedArray(value), skipIndexes = isArr || isArg || isBuff || isType, result2 = skipIndexes ? baseTimes(value.length, String2) : [], length = result2.length;
           for (var key in value) {
             if ((inherited || hasOwnProperty.call(value, key)) && !(skipIndexes && // Safari 9 has enumerable `arguments.length` in strict mode.
             (key == "length" || // Node.js 0.10 has enumerable non-index properties on buffers.
@@ -1177,7 +1177,7 @@ var require_lodash = __commonJS({
           if (!isObject(value)) {
             return value;
           }
-          var isArr = isArray(value);
+          var isArr = isArray2(value);
           if (isArr) {
             result2 = initCloneArray(value);
             if (!isDeep) {
@@ -1374,7 +1374,7 @@ var require_lodash = __commonJS({
         }
         function baseGetAllKeys(object, keysFunc, symbolsFunc) {
           var result2 = keysFunc(object);
-          return isArray(object) ? result2 : arrayPush(result2, symbolsFunc(object));
+          return isArray2(object) ? result2 : arrayPush(result2, symbolsFunc(object));
         }
         function baseGetTag(value) {
           if (value == null) {
@@ -1457,7 +1457,7 @@ var require_lodash = __commonJS({
           return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual, stack);
         }
         function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
-          var objIsArr = isArray(object), othIsArr = isArray(other), objTag = objIsArr ? arrayTag : getTag(object), othTag = othIsArr ? arrayTag : getTag(other);
+          var objIsArr = isArray2(object), othIsArr = isArray2(other), objTag = objIsArr ? arrayTag : getTag(object), othTag = othIsArr ? arrayTag : getTag(other);
           objTag = objTag == argsTag ? objectTag : objTag;
           othTag = othTag == argsTag ? objectTag : othTag;
           var objIsObj = objTag == objectTag, othIsObj = othTag == objectTag, isSameTag = objTag == othTag;
@@ -1544,7 +1544,7 @@ var require_lodash = __commonJS({
             return identity;
           }
           if (typeof value == "object") {
-            return isArray(value) ? baseMatchesProperty(value[0], value[1]) : baseMatches(value);
+            return isArray2(value) ? baseMatchesProperty(value[0], value[1]) : baseMatches(value);
           }
           return property(value);
         }
@@ -1626,10 +1626,10 @@ var require_lodash = __commonJS({
           var newValue = customizer ? customizer(objValue, srcValue, key + "", object, source, stack) : undefined2;
           var isCommon = newValue === undefined2;
           if (isCommon) {
-            var isArr = isArray(srcValue), isBuff = !isArr && isBuffer(srcValue), isTyped = !isArr && !isBuff && isTypedArray(srcValue);
+            var isArr = isArray2(srcValue), isBuff = !isArr && isBuffer(srcValue), isTyped = !isArr && !isBuff && isTypedArray(srcValue);
             newValue = srcValue;
             if (isArr || isBuff || isTyped) {
-              if (isArray(objValue)) {
+              if (isArray2(objValue)) {
                 newValue = objValue;
               } else if (isArrayLikeObject(objValue)) {
                 newValue = copyArray(objValue);
@@ -1671,7 +1671,7 @@ var require_lodash = __commonJS({
         function baseOrderBy(collection, iteratees, orders) {
           if (iteratees.length) {
             iteratees = arrayMap(iteratees, function(iteratee2) {
-              if (isArray(iteratee2)) {
+              if (isArray2(iteratee2)) {
                 return function(value) {
                   return baseGet(value, iteratee2.length === 1 ? iteratee2[0] : iteratee2);
                 };
@@ -1916,7 +1916,7 @@ var require_lodash = __commonJS({
           if (typeof value == "string") {
             return value;
           }
-          if (isArray(value)) {
+          if (isArray2(value)) {
             return arrayMap(value, baseToString) + "";
           }
           if (isSymbol(value)) {
@@ -2019,7 +2019,7 @@ var require_lodash = __commonJS({
           return typeof value == "function" ? value : identity;
         }
         function castPath(value, object) {
-          if (isArray(value)) {
+          if (isArray2(value)) {
             return value;
           }
           return isKey(value, object) ? [value] : stringToPath(toString(value));
@@ -2154,7 +2154,7 @@ var require_lodash = __commonJS({
         }
         function createAggregator(setter, initializer) {
           return function(collection, iteratee2) {
-            var func = isArray(collection) ? arrayAggregator : baseAggregator, accumulator = initializer ? initializer() : {};
+            var func = isArray2(collection) ? arrayAggregator : baseAggregator, accumulator = initializer ? initializer() : {};
             return func(collection, setter, getIteratee(iteratee2, 2), accumulator);
           };
         }
@@ -2321,7 +2321,7 @@ var require_lodash = __commonJS({
             }
             return function() {
               var args = arguments, value = args[0];
-              if (wrapper && args.length == 1 && isArray(value)) {
+              if (wrapper && args.length == 1 && isArray2(value)) {
                 return wrapper.plant(value).value();
               }
               var index2 = 0, result2 = length ? funcs[index2].apply(this, args) : value;
@@ -2758,8 +2758,8 @@ var require_lodash = __commonJS({
           result2 = result2 === iteratee ? baseIteratee : result2;
           return arguments.length ? result2(arguments[0], arguments[1]) : result2;
         }
-        function getMapData(map5, key) {
-          var data = map5.__data__;
+        function getMapData(map6, key) {
+          var data = map6.__data__;
           return isKeyable(key) ? data[typeof key == "string" ? "string" : "hash"] : data.map;
         }
         function getMatchData(object) {
@@ -2868,7 +2868,7 @@ var require_lodash = __commonJS({
             return result2;
           }
           length = object == null ? 0 : object.length;
-          return !!length && isLength(length) && isIndex(key, length) && (isArray(object) || isArguments(object));
+          return !!length && isLength(length) && isIndex(key, length) && (isArray2(object) || isArguments(object));
         }
         function initCloneArray(array) {
           var length = array.length, result2 = new array.constructor(length);
@@ -2925,7 +2925,7 @@ var require_lodash = __commonJS({
           return source.replace(reWrapComment, "{\n/* [wrapped with " + details + "] */\n");
         }
         function isFlattenable(value) {
-          return isArray(value) || isArguments(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
+          return isArray2(value) || isArguments(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
         }
         function isIndex(value, length) {
           var type = typeof value;
@@ -2943,7 +2943,7 @@ var require_lodash = __commonJS({
           return false;
         }
         function isKey(value, object) {
-          if (isArray(value)) {
+          if (isArray2(value)) {
             return false;
           }
           var type = typeof value;
@@ -3199,9 +3199,9 @@ var require_lodash = __commonJS({
           while (index--) {
             args[index - 1] = arguments[index];
           }
-          return arrayPush(isArray(array) ? copyArray(array) : [array], baseFlatten(args, 1));
+          return arrayPush(isArray2(array) ? copyArray(array) : [array], baseFlatten(args, 1));
         }
-        var difference = baseRest(function(array, values2) {
+        var difference2 = baseRest(function(array, values2) {
           return isArrayLikeObject(array) ? baseDifference(array, baseFlatten(values2, 1, isArrayLikeObject, true)) : [];
         });
         var differenceBy = baseRest(function(array, values2) {
@@ -3650,34 +3650,34 @@ var require_lodash = __commonJS({
           }
         });
         function every(collection, predicate, guard) {
-          var func = isArray(collection) ? arrayEvery : baseEvery;
+          var func = isArray2(collection) ? arrayEvery : baseEvery;
           if (guard && isIterateeCall(collection, predicate, guard)) {
             predicate = undefined2;
           }
           return func(collection, getIteratee(predicate, 3));
         }
-        function filter(collection, predicate) {
-          var func = isArray(collection) ? arrayFilter : baseFilter;
+        function filter2(collection, predicate) {
+          var func = isArray2(collection) ? arrayFilter : baseFilter;
           return func(collection, getIteratee(predicate, 3));
         }
         var find = createFind(findIndex);
         var findLast = createFind(findLastIndex);
         function flatMap(collection, iteratee2) {
-          return baseFlatten(map4(collection, iteratee2), 1);
+          return baseFlatten(map5(collection, iteratee2), 1);
         }
         function flatMapDeep(collection, iteratee2) {
-          return baseFlatten(map4(collection, iteratee2), INFINITY);
+          return baseFlatten(map5(collection, iteratee2), INFINITY);
         }
         function flatMapDepth(collection, iteratee2, depth) {
           depth = depth === undefined2 ? 1 : toInteger(depth);
-          return baseFlatten(map4(collection, iteratee2), depth);
+          return baseFlatten(map5(collection, iteratee2), depth);
         }
         function forEach(collection, iteratee2) {
-          var func = isArray(collection) ? arrayEach : baseEach;
+          var func = isArray2(collection) ? arrayEach : baseEach;
           return func(collection, getIteratee(iteratee2, 3));
         }
         function forEachRight(collection, iteratee2) {
-          var func = isArray(collection) ? arrayEachRight : baseEachRight;
+          var func = isArray2(collection) ? arrayEachRight : baseEachRight;
           return func(collection, getIteratee(iteratee2, 3));
         }
         var groupBy = createAggregator(function(result2, value, key) {
@@ -3706,19 +3706,19 @@ var require_lodash = __commonJS({
         var keyBy = createAggregator(function(result2, value, key) {
           baseAssignValue(result2, key, value);
         });
-        function map4(collection, iteratee2) {
-          var func = isArray(collection) ? arrayMap : baseMap;
+        function map5(collection, iteratee2) {
+          var func = isArray2(collection) ? arrayMap : baseMap;
           return func(collection, getIteratee(iteratee2, 3));
         }
         function orderBy(collection, iteratees, orders, guard) {
           if (collection == null) {
             return [];
           }
-          if (!isArray(iteratees)) {
+          if (!isArray2(iteratees)) {
             iteratees = iteratees == null ? [] : [iteratees];
           }
           orders = guard ? undefined2 : orders;
-          if (!isArray(orders)) {
+          if (!isArray2(orders)) {
             orders = orders == null ? [] : [orders];
           }
           return baseOrderBy(collection, iteratees, orders);
@@ -3729,19 +3729,19 @@ var require_lodash = __commonJS({
           return [[], []];
         });
         function reduce(collection, iteratee2, accumulator) {
-          var func = isArray(collection) ? arrayReduce : baseReduce, initAccum = arguments.length < 3;
+          var func = isArray2(collection) ? arrayReduce : baseReduce, initAccum = arguments.length < 3;
           return func(collection, getIteratee(iteratee2, 4), accumulator, initAccum, baseEach);
         }
         function reduceRight(collection, iteratee2, accumulator) {
-          var func = isArray(collection) ? arrayReduceRight : baseReduce, initAccum = arguments.length < 3;
+          var func = isArray2(collection) ? arrayReduceRight : baseReduce, initAccum = arguments.length < 3;
           return func(collection, getIteratee(iteratee2, 4), accumulator, initAccum, baseEachRight);
         }
         function reject(collection, predicate) {
-          var func = isArray(collection) ? arrayFilter : baseFilter;
+          var func = isArray2(collection) ? arrayFilter : baseFilter;
           return func(collection, negate(getIteratee(predicate, 3)));
         }
         function sample(collection) {
-          var func = isArray(collection) ? arraySample : baseSample;
+          var func = isArray2(collection) ? arraySample : baseSample;
           return func(collection);
         }
         function sampleSize(collection, n, guard) {
@@ -3750,11 +3750,11 @@ var require_lodash = __commonJS({
           } else {
             n = toInteger(n);
           }
-          var func = isArray(collection) ? arraySampleSize : baseSampleSize;
+          var func = isArray2(collection) ? arraySampleSize : baseSampleSize;
           return func(collection, n);
         }
         function shuffle(collection) {
-          var func = isArray(collection) ? arrayShuffle : baseShuffle;
+          var func = isArray2(collection) ? arrayShuffle : baseShuffle;
           return func(collection);
         }
         function size(collection) {
@@ -3771,7 +3771,7 @@ var require_lodash = __commonJS({
           return baseKeys(collection).length;
         }
         function some(collection, predicate, guard) {
-          var func = isArray(collection) ? arraySome : baseSome;
+          var func = isArray2(collection) ? arraySome : baseSome;
           if (guard && isIterateeCall(collection, predicate, guard)) {
             predicate = undefined2;
           }
@@ -3982,7 +3982,7 @@ var require_lodash = __commonJS({
           return before(2, func);
         }
         var overArgs = castRest(function(func, transforms) {
-          transforms = transforms.length == 1 && isArray(transforms[0]) ? arrayMap(transforms[0], baseUnary(getIteratee())) : arrayMap(baseFlatten(transforms, 1), baseUnary(getIteratee()));
+          transforms = transforms.length == 1 && isArray2(transforms[0]) ? arrayMap(transforms[0], baseUnary(getIteratee())) : arrayMap(baseFlatten(transforms, 1), baseUnary(getIteratee()));
           var funcsLength = transforms.length;
           return baseRest(function(args) {
             var index = -1, length = nativeMin(args.length, funcsLength);
@@ -4049,7 +4049,7 @@ var require_lodash = __commonJS({
             return [];
           }
           var value = arguments[0];
-          return isArray(value) ? value : [value];
+          return isArray2(value) ? value : [value];
         }
         function clone(value) {
           return baseClone(value, CLONE_SYMBOLS_FLAG);
@@ -4080,7 +4080,7 @@ var require_lodash = __commonJS({
         }()) ? baseIsArguments : function(value) {
           return isObjectLike(value) && hasOwnProperty.call(value, "callee") && !propertyIsEnumerable.call(value, "callee");
         };
-        var isArray = Array2.isArray;
+        var isArray2 = Array2.isArray;
         var isArrayBuffer = nodeIsArrayBuffer ? baseUnary(nodeIsArrayBuffer) : baseIsArrayBuffer;
         function isArrayLike(value) {
           return value != null && isLength(value.length) && !isFunction(value);
@@ -4096,11 +4096,11 @@ var require_lodash = __commonJS({
         function isElement(value) {
           return isObjectLike(value) && value.nodeType === 1 && !isPlainObject(value);
         }
-        function isEmpty4(value) {
+        function isEmpty5(value) {
           if (value == null) {
             return true;
           }
-          if (isArrayLike(value) && (isArray(value) || typeof value == "string" || typeof value.splice == "function" || isBuffer(value) || isTypedArray(value) || isArguments(value))) {
+          if (isArrayLike(value) && (isArray2(value) || typeof value == "string" || typeof value.splice == "function" || isBuffer(value) || isTypedArray(value) || isArguments(value))) {
             return !value.length;
           }
           var tag = getTag(value);
@@ -4198,7 +4198,7 @@ var require_lodash = __commonJS({
         }
         var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
         function isString(value) {
-          return typeof value == "string" || !isArray(value) && isObjectLike(value) && baseGetTag(value) == stringTag;
+          return typeof value == "string" || !isArray2(value) && isObjectLike(value) && baseGetTag(value) == stringTag;
         }
         function isSymbol(value) {
           return typeof value == "symbol" || isObjectLike(value) && baseGetTag(value) == symbolTag;
@@ -4472,7 +4472,7 @@ var require_lodash = __commonJS({
         var toPairs = createToPairs(keys);
         var toPairsIn = createToPairs(keysIn);
         function transform(object, iteratee2, accumulator) {
-          var isArr = isArray(object), isArrLike = isArr || isBuffer(object) || isTypedArray(object);
+          var isArr = isArray2(object), isArrLike = isArr || isBuffer(object) || isTypedArray(object);
           iteratee2 = getIteratee(iteratee2, 4);
           if (accumulator == null) {
             var Ctor = object && object.constructor;
@@ -4975,7 +4975,7 @@ var require_lodash = __commonJS({
           return result2;
         }
         function toPath(value) {
-          if (isArray(value)) {
+          if (isArray2(value)) {
             return arrayMap(value, toKey);
           }
           return isSymbol(value) ? [value] : copyArray(stringToPath(toString(value)));
@@ -5051,7 +5051,7 @@ var require_lodash = __commonJS({
         lodash.defaultsDeep = defaultsDeep;
         lodash.defer = defer;
         lodash.delay = delay;
-        lodash.difference = difference;
+        lodash.difference = difference2;
         lodash.differenceBy = differenceBy;
         lodash.differenceWith = differenceWith;
         lodash.drop = drop;
@@ -5059,7 +5059,7 @@ var require_lodash = __commonJS({
         lodash.dropRightWhile = dropRightWhile;
         lodash.dropWhile = dropWhile;
         lodash.fill = fill;
-        lodash.filter = filter;
+        lodash.filter = filter2;
         lodash.flatMap = flatMap;
         lodash.flatMapDeep = flatMapDeep;
         lodash.flatMapDepth = flatMapDepth;
@@ -5084,7 +5084,7 @@ var require_lodash = __commonJS({
         lodash.keyBy = keyBy;
         lodash.keys = keys;
         lodash.keysIn = keysIn;
-        lodash.map = map4;
+        lodash.map = map5;
         lodash.mapKeys = mapKeys;
         lodash.mapValues = mapValues;
         lodash.matches = matches;
@@ -5221,7 +5221,7 @@ var require_lodash = __commonJS({
         lodash.inRange = inRange;
         lodash.invoke = invoke;
         lodash.isArguments = isArguments;
-        lodash.isArray = isArray;
+        lodash.isArray = isArray2;
         lodash.isArrayBuffer = isArrayBuffer;
         lodash.isArrayLike = isArrayLike;
         lodash.isArrayLikeObject = isArrayLikeObject;
@@ -5229,7 +5229,7 @@ var require_lodash = __commonJS({
         lodash.isBuffer = isBuffer;
         lodash.isDate = isDate;
         lodash.isElement = isElement;
-        lodash.isEmpty = isEmpty4;
+        lodash.isEmpty = isEmpty5;
         lodash.isEqual = isEqual;
         lodash.isEqualWith = isEqualWith;
         lodash.isError = isError;
@@ -5433,7 +5433,7 @@ var require_lodash = __commonJS({
             return;
           }
           lodash.prototype[methodName] = function() {
-            var value = this.__wrapped__, args = isTaker ? [1] : arguments, isLazy = value instanceof LazyWrapper, iteratee2 = args[0], useLazy = isLazy || isArray(value);
+            var value = this.__wrapped__, args = isTaker ? [1] : arguments, isLazy = value instanceof LazyWrapper, iteratee2 = args[0], useLazy = isLazy || isArray2(value);
             var interceptor = function(value2) {
               var result3 = lodashFunc.apply(lodash, arrayPush([value2], args));
               return isTaker && chainAll ? result3[0] : result3;
@@ -5461,10 +5461,10 @@ var require_lodash = __commonJS({
             var args = arguments;
             if (retUnwrapped && !this.__chain__) {
               var value = this.value();
-              return func.apply(isArray(value) ? value : [], args);
+              return func.apply(isArray2(value) ? value : [], args);
             }
             return this[chainName](function(value2) {
-              return func.apply(isArray(value2) ? value2 : [], args);
+              return func.apply(isArray2(value2) ? value2 : [], args);
             });
           };
         });
@@ -5520,7 +5520,7 @@ __export(main_exports, {
   default: () => ConfluenceLink
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian6 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 
 // lib/settings.ts
 var import_obsidian4 = require("obsidian");
@@ -5584,7 +5584,10 @@ var BaseClient = class {
     ).toString("base64");
     const method = requestConfig.method;
     const url = new URL(`/wiki/${requestConfig.url}`, this.config.host);
-    const params = removeUndefinedProperties(requestConfig.params || {});
+    let params = requestConfig.params;
+    if (!(0, import_lodash2.isArray)(params)) {
+      params = removeUndefinedProperties(params || {});
+    }
     const requestParams = {
       url: url.toString(),
       method
@@ -5730,10 +5733,24 @@ var Space = class {
   constructor(client) {
     this.client = client;
   }
-  async getSpaces() {
+  async getSpaces(limit = 250) {
     const config = {
       url: "api/v2/spaces",
-      method: "GET"
+      method: "GET",
+      params: {
+        limit
+      }
+    };
+    return await this.client.sendRequest(config);
+  }
+  async getSpacesByKeys(keys) {
+    const config = {
+      url: "api/v2/spaces",
+      method: "GET",
+      params: {
+        limit: 250,
+        keys
+      }
     };
     return await this.client.sendRequest(config);
   }
@@ -5820,6 +5837,25 @@ Content uploaded using Obsidian\r
   }
 };
 
+// lib/confluence/label.ts
+var import_lodash3 = __toESM(require_lodash());
+var Label = class {
+  constructor(client) {
+    this.client = client;
+  }
+  async addLabel(pageId, labels) {
+    const labelObjects = (0, import_lodash3.map)(labels, (label) => {
+      return { prefix: "global", name: label.replaceAll("#", "") };
+    });
+    const config = {
+      url: `rest/api/content/${pageId}/label`,
+      method: "POST",
+      params: labelObjects
+    };
+    return await this.client.sendRequest(config);
+  }
+};
+
 // lib/confluence/client.ts
 var ConfluenceClient = class extends BaseClient {
   constructor(config) {
@@ -5828,28 +5864,48 @@ var ConfluenceClient = class extends BaseClient {
     this.page = new Page(this);
     this.space = new Space(this);
     this.attachement = new Attachements(this);
+    this.label = new Label(this);
   }
 };
 
 // lib/modal.ts
 var import_obsidian3 = require("obsidian");
-var import_lodash3 = __toESM(require_lodash());
+var import_lodash4 = __toESM(require_lodash());
 var SpaceSearchModal = class extends import_obsidian3.FuzzySuggestModal {
-  constructor(app, client, callback) {
+  constructor(app, plugin, client, callback) {
     super(app);
     this.client = client;
+    this.plugin = plugin;
     this.callback = callback;
     this.spaces = [];
   }
   async onOpen() {
+    const favSpaces = this.plugin.settings.favSpaces;
+    const spaces = [];
+    if (favSpaces.length) {
+      const favSpacesResponse = await this.client.space.getSpacesByKeys(
+        favSpaces
+      );
+      (0, import_lodash4.map)(favSpacesResponse.results, (item) => {
+        spaces.push({
+          title: item.name,
+          id: item.id,
+          key: item.key
+        });
+      });
+    }
     const resp = await this.client.space.getSpaces();
-    const spaces = (0, import_lodash3.map)(resp.results, (item) => {
-      return {
-        title: item.name,
-        id: item.id
-      };
-    });
-    this.spaces = spaces;
+    const nonFavSpaces = (0, import_lodash4.map)(
+      (0, import_lodash4.filter)(resp.results, (item) => !favSpaces.includes(item.key)),
+      (item) => {
+        return {
+          title: item.name,
+          id: item.id,
+          key: item.key
+        };
+      }
+    );
+    this.spaces = [...spaces, ...nonFavSpaces];
     this.render();
   }
   getItems() {
@@ -5862,21 +5918,84 @@ var SpaceSearchModal = class extends import_obsidian3.FuzzySuggestModal {
     this.callback(space);
     this.close();
   }
+  // @ts-ignore
+  async getSuggestions(query) {
+    if (!query.startsWith("??")) {
+      return super.getSuggestions(query);
+    }
+    const searchQ = query.replaceAll("??", "").trim();
+    if (!searchQ) {
+      return [];
+    }
+    const fuzzySpacesSearch = await this.client.search.searchByCQL({
+      cql: `space.title~'${searchQ}' and type = 'space'`
+    });
+    const spaceKeys = (0, import_lodash4.map)(fuzzySpacesSearch.results, "space.key");
+    if (spaceKeys.length == 0) {
+      return [];
+    }
+    const spacesResponse = await this.client.space.getSpacesByKeys(
+      spaceKeys
+    );
+    const spaces = (0, import_lodash4.map)(spacesResponse.results, (item) => {
+      return {
+        item: {
+          title: item.name,
+          id: item.id,
+          key: item.key
+        }
+      };
+    });
+    return spaces;
+  }
+  renderSuggestion(item, el) {
+    const { item: space } = item;
+    const favSpaces = this.plugin.settings.favSpaces;
+    const div = createDiv("suggestion-item space-container");
+    const icon = createSpan();
+    (0, import_obsidian3.setIcon)(icon, "star");
+    icon.classList.add("fav-icon");
+    if (favSpaces.includes(space.key)) {
+      icon.classList.add("is-fav");
+    }
+    const span = createSpan();
+    span.textContent = this.getItemText(space);
+    div.appendChild(span);
+    div.appendChild(icon);
+    div.addEventListener("mouseenter", () => {
+      div.classList.add("is-selected");
+    });
+    div.addEventListener("mouseleave", () => {
+      div.classList.remove("is-selected");
+    });
+    div.addEventListener("click", (e) => {
+      if (e.targetNode instanceof SVGElement) {
+        e.stopPropagation();
+        icon.classList.toggle("is-fav");
+        if (icon.classList.contains("is-fav")) {
+          favSpaces.push(space.key);
+        } else {
+          const spaceIdx = favSpaces.indexOf(space.key);
+          favSpaces.splice(spaceIdx, 1);
+        }
+        this.plugin.saveSettings();
+        return;
+      }
+      this.onChooseItem(space);
+    });
+    if (el.classList.contains("suggestion-item")) {
+      el.replaceWith(div);
+    } else {
+      el.appendChild(div);
+    }
+  }
   render() {
     this.resultContainerEl.empty();
     for (const space of this.spaces) {
-      const div = createDiv("suggestion-item");
-      div.textContent = this.getItemText(space);
-      div.addEventListener("mouseenter", () => {
-        div.classList.add("is-selected");
-      });
-      div.addEventListener("mouseleave", () => {
-        div.classList.remove("is-selected");
-      });
-      div.addEventListener("click", () => {
-        this.onChooseItem(space);
-      });
-      this.resultContainerEl.appendChild(div);
+      this.renderSuggestion(
+        { item: space, match: { score: 0, matches: [] } },
+        this.resultContainerEl
+      );
     }
   }
 };
@@ -5935,9 +6054,9 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
           await client.search.searchByCQL({
             cql: "id != 0 order by lastmodified desc"
           });
-          new import_obsidian4.Notice("Obs2Con Flux: Connection established!");
+          new import_obsidian4.Notice("Confluence Link: Connection established!");
         } catch (e) {
-          new import_obsidian4.Notice("Obs2Con Flux: Connection failed!");
+          new import_obsidian4.Notice("Confluence Link: Connection failed!");
         }
         button.setButtonText("Test Connection");
         button.setDisabled(false);
@@ -5965,6 +6084,7 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
         });
         new SpaceSearchModal(
           this.app,
+          this.plugin,
           client,
           async (result) => {
             this.plugin.settings.confluenceDefaultSpaceId = result.id;
@@ -5993,10 +6113,20 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
       });
     });
     new import_obsidian4.Setting(containerEl).setName("Follow links").setDesc(
-      "Enabled to follow internal link and create those as confluence pages as well"
+      "Enable to follow internal links and create those as confluence pages as well"
     ).addToggle((cb) => {
+      cb.setValue(this.plugin.settings.followLinks || false);
       cb.onChange((value) => {
         this.plugin.settings.followLinks = value;
+        this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian4.Setting(containerEl).setName("Upload tags").setDesc(
+      "Enable to add the tags from the obsidian file to the confluence page as well"
+    ).addToggle((cb) => {
+      cb.setValue(this.plugin.settings.uploadTags || false);
+      cb.onChange((value) => {
+        this.plugin.settings.uploadTags = value;
         this.plugin.saveSettings();
       });
     });
@@ -6004,7 +6134,7 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
 };
 
 // lib/adaptors/properties.ts
-var import_lodash4 = __toESM(require_lodash());
+var import_lodash5 = __toESM(require_lodash());
 
 // node_modules/yaml/browser/dist/nodes/identity.js
 var ALIAS = Symbol.for("yaml.alias");
@@ -6649,9 +6779,9 @@ function createNode(value, tagName, ctx) {
   if (isNode(value))
     return value;
   if (isPair(value)) {
-    const map4 = (_b = (_a = ctx.schema[MAP]).createNode) == null ? void 0 : _b.call(_a, ctx.schema, null, ctx);
-    map4.items.push(value);
-    return map4;
+    const map5 = (_b = (_a = ctx.schema[MAP]).createNode) == null ? void 0 : _b.call(_a, ctx.schema, null, ctx);
+    map5.items.push(value);
+    return map5;
   }
   if (value instanceof String || value instanceof Number || value instanceof Boolean || typeof BigInt !== "undefined" && value instanceof BigInt) {
     value = value.valueOf();
@@ -7485,53 +7615,53 @@ function warn(logLevel, warning) {
 
 // node_modules/yaml/browser/dist/nodes/addPairToJSMap.js
 var MERGE_KEY = "<<";
-function addPairToJSMap(ctx, map4, { key, value }) {
+function addPairToJSMap(ctx, map5, { key, value }) {
   if ((ctx == null ? void 0 : ctx.doc.schema.merge) && isMergeKey(key)) {
     value = isAlias(value) ? value.resolve(ctx.doc) : value;
     if (isSeq(value))
       for (const it of value.items)
-        mergeToJSMap(ctx, map4, it);
+        mergeToJSMap(ctx, map5, it);
     else if (Array.isArray(value))
       for (const it of value)
-        mergeToJSMap(ctx, map4, it);
+        mergeToJSMap(ctx, map5, it);
     else
-      mergeToJSMap(ctx, map4, value);
+      mergeToJSMap(ctx, map5, value);
   } else {
     const jsKey = toJS(key, "", ctx);
-    if (map4 instanceof Map) {
-      map4.set(jsKey, toJS(value, jsKey, ctx));
-    } else if (map4 instanceof Set) {
-      map4.add(jsKey);
+    if (map5 instanceof Map) {
+      map5.set(jsKey, toJS(value, jsKey, ctx));
+    } else if (map5 instanceof Set) {
+      map5.add(jsKey);
     } else {
       const stringKey = stringifyKey(key, jsKey, ctx);
       const jsValue = toJS(value, stringKey, ctx);
-      if (stringKey in map4)
-        Object.defineProperty(map4, stringKey, {
+      if (stringKey in map5)
+        Object.defineProperty(map5, stringKey, {
           value: jsValue,
           writable: true,
           enumerable: true,
           configurable: true
         });
       else
-        map4[stringKey] = jsValue;
+        map5[stringKey] = jsValue;
     }
   }
-  return map4;
+  return map5;
 }
 var isMergeKey = (key) => key === MERGE_KEY || isScalar(key) && key.value === MERGE_KEY && (!key.type || key.type === Scalar.PLAIN);
-function mergeToJSMap(ctx, map4, value) {
+function mergeToJSMap(ctx, map5, value) {
   const source = ctx && isAlias(value) ? value.resolve(ctx.doc) : value;
   if (!isMap(source))
     throw new Error("Merge sources must be maps or map aliases");
   const srcMap = source.toJSON(null, ctx, Map);
   for (const [key, value2] of srcMap) {
-    if (map4 instanceof Map) {
-      if (!map4.has(key))
-        map4.set(key, value2);
-    } else if (map4 instanceof Set) {
-      map4.add(key);
-    } else if (!Object.prototype.hasOwnProperty.call(map4, key)) {
-      Object.defineProperty(map4, key, {
+    if (map5 instanceof Map) {
+      if (!map5.has(key))
+        map5.set(key, value2);
+    } else if (map5 instanceof Set) {
+      map5.add(key);
+    } else if (!Object.prototype.hasOwnProperty.call(map5, key)) {
+      Object.defineProperty(map5, key, {
         value: value2,
         writable: true,
         enumerable: true,
@@ -7539,7 +7669,7 @@ function mergeToJSMap(ctx, map4, value) {
       });
     }
   }
-  return map4;
+  return map5;
 }
 function stringifyKey(key, jsKey, ctx) {
   if (jsKey === null)
@@ -7758,14 +7888,14 @@ var YAMLMap = class extends Collection {
    */
   static from(schema4, obj, ctx) {
     const { keepUndefined, replacer } = ctx;
-    const map4 = new this(schema4);
+    const map5 = new this(schema4);
     const add = (key, value) => {
       if (typeof replacer === "function")
         value = replacer.call(obj, key, value);
       else if (Array.isArray(replacer) && !replacer.includes(key))
         return;
       if (value !== void 0 || keepUndefined)
-        map4.items.push(createPair(key, value, ctx));
+        map5.items.push(createPair(key, value, ctx));
     };
     if (obj instanceof Map) {
       for (const [key, value] of obj)
@@ -7775,9 +7905,9 @@ var YAMLMap = class extends Collection {
         add(key, obj[key]);
     }
     if (typeof schema4.sortMapEntries === "function") {
-      map4.items.sort(schema4.sortMapEntries);
+      map5.items.sort(schema4.sortMapEntries);
     }
-    return map4;
+    return map5;
   }
   /**
    * Adds a value to the collection.
@@ -7838,12 +7968,12 @@ var YAMLMap = class extends Collection {
    * @returns Instance of Type, Map, or Object
    */
   toJSON(_, ctx, Type) {
-    const map4 = Type ? new Type() : (ctx == null ? void 0 : ctx.mapAsMap) ? /* @__PURE__ */ new Map() : {};
+    const map5 = Type ? new Type() : (ctx == null ? void 0 : ctx.mapAsMap) ? /* @__PURE__ */ new Map() : {};
     if (ctx == null ? void 0 : ctx.onCreate)
-      ctx.onCreate(map4);
+      ctx.onCreate(map5);
     for (const item of this.items)
-      addPairToJSMap(ctx, map4, item);
-    return map4;
+      addPairToJSMap(ctx, map5, item);
+    return map5;
   }
   toString(ctx, onComment, onChompKeep) {
     if (!ctx)
@@ -7865,15 +7995,15 @@ var YAMLMap = class extends Collection {
 };
 
 // node_modules/yaml/browser/dist/schema/common/map.js
-var map3 = {
+var map4 = {
   collection: "map",
   default: true,
   nodeClass: YAMLMap,
   tag: "tag:yaml.org,2002:map",
-  resolve(map4, onError) {
-    if (!isMap(map4))
+  resolve(map5, onError) {
+    if (!isMap(map5))
       onError("Expected a mapping for this tag");
-    return map4;
+    return map5;
   },
   createNode: (schema4, obj, ctx) => YAMLMap.from(schema4, obj, ctx)
 };
@@ -8131,7 +8261,7 @@ var intHex = {
 
 // node_modules/yaml/browser/dist/schema/core/schema.js
 var schema = [
-  map3,
+  map4,
   seq,
   string,
   nullTag,
@@ -8200,7 +8330,7 @@ var jsonError = {
     return str;
   }
 };
-var schema2 = [map3, seq].concat(jsonScalars, jsonError);
+var schema2 = [map4, seq].concat(jsonScalars, jsonError);
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/binary.js
 var binary = {
@@ -8343,9 +8473,9 @@ var YAMLOMap = class extends YAMLSeq {
   toJSON(_, ctx) {
     if (!ctx)
       return super.toJSON(_);
-    const map4 = /* @__PURE__ */ new Map();
+    const map5 = /* @__PURE__ */ new Map();
     if (ctx == null ? void 0 : ctx.onCreate)
-      ctx.onCreate(map4);
+      ctx.onCreate(map5);
     for (const pair of this.items) {
       let key, value;
       if (isPair(pair)) {
@@ -8354,11 +8484,11 @@ var YAMLOMap = class extends YAMLSeq {
       } else {
         key = toJS(pair, "", ctx);
       }
-      if (map4.has(key))
+      if (map5.has(key))
         throw new Error("Ordered maps must not include duplicate keys");
-      map4.set(key, value);
+      map5.set(key, value);
     }
-    return map4;
+    return map5;
   }
   static from(schema4, iterable, ctx) {
     const pairs2 = createPairs(schema4, iterable, ctx);
@@ -8590,15 +8720,15 @@ var set = {
   default: false,
   tag: "tag:yaml.org,2002:set",
   createNode: (schema4, iterable, ctx) => YAMLSet.from(schema4, iterable, ctx),
-  resolve(map4, onError) {
-    if (isMap(map4)) {
-      if (map4.hasAllNullValues(true))
-        return Object.assign(new YAMLSet(), map4);
+  resolve(map5, onError) {
+    if (isMap(map5)) {
+      if (map5.hasAllNullValues(true))
+        return Object.assign(new YAMLSet(), map5);
       else
         onError("Set items must all have null values");
     } else
       onError("Expected a mapping for this tag");
-    return map4;
+    return map5;
   }
 };
 
@@ -8683,7 +8813,7 @@ var timestamp = {
 
 // node_modules/yaml/browser/dist/schema/yaml-1.1/schema.js
 var schema3 = [
-  map3,
+  map4,
   seq,
   string,
   nullTag,
@@ -8708,7 +8838,7 @@ var schema3 = [
 // node_modules/yaml/browser/dist/schema/tags.js
 var schemas = /* @__PURE__ */ new Map([
   ["core", schema],
-  ["failsafe", [map3, seq, string]],
+  ["failsafe", [map4, seq, string]],
   ["json", schema2],
   ["yaml11", schema3],
   ["yaml-1.1", schema3]
@@ -8724,7 +8854,7 @@ var tagsByName = {
   intHex,
   intOct,
   intTime,
-  map: map3,
+  map: map4,
   null: nullTag,
   omap,
   pairs,
@@ -8776,7 +8906,7 @@ var Schema = class {
     this.knownTags = resolveKnownTags ? coreKnownTags : {};
     this.tags = getTags(customTags, this.name);
     this.toStringOptions = toStringDefaults != null ? toStringDefaults : null;
-    Object.defineProperty(this, MAP, { value: map3 });
+    Object.defineProperty(this, MAP, { value: map4 });
     Object.defineProperty(this, SCALAR, { value: string });
     Object.defineProperty(this, SEQ, { value: seq });
     this.sortMapEntries = typeof sortMapEntries === "function" ? sortMapEntries : sortMapEntries === true ? sortMapEntriesByKey : null;
@@ -9397,7 +9527,7 @@ var startColMsg = "All mapping items must start at the same column";
 function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeEmptyNode2 }, ctx, bm, onError, tag) {
   var _a, _b;
   const NodeClass = (_a = tag == null ? void 0 : tag.nodeClass) != null ? _a : YAMLMap;
-  const map4 = new NodeClass(ctx.schema);
+  const map5 = new NodeClass(ctx.schema);
   if (ctx.atRoot)
     ctx.atRoot = false;
   let offset = bm.offset;
@@ -9423,10 +9553,10 @@ function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeE
       if (!keyProps.anchor && !keyProps.tag && !sep) {
         commentEnd = keyProps.end;
         if (keyProps.comment) {
-          if (map4.comment)
-            map4.comment += "\n" + keyProps.comment;
+          if (map5.comment)
+            map5.comment += "\n" + keyProps.comment;
           else
-            map4.comment = keyProps.comment;
+            map5.comment = keyProps.comment;
         }
         continue;
       }
@@ -9440,7 +9570,7 @@ function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeE
     const keyNode = key ? composeNode2(ctx, key, keyProps, onError) : composeEmptyNode2(ctx, keyStart, start, null, keyProps, onError);
     if (ctx.schema.compat)
       flowIndentCheck(bm.indent, key, onError);
-    if (mapIncludes(ctx, map4.items, keyNode))
+    if (mapIncludes(ctx, map5.items, keyNode))
       onError(keyStart, "DUPLICATE_KEY", "Map keys must be unique");
     const valueProps = resolveProps(sep != null ? sep : [], {
       indicator: "map-value-ind",
@@ -9465,7 +9595,7 @@ function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeE
       const pair = new Pair(keyNode, valueNode);
       if (ctx.options.keepSourceTokens)
         pair.srcToken = collItem;
-      map4.items.push(pair);
+      map5.items.push(pair);
     } else {
       if (implicitKey)
         onError(keyNode.range, "MISSING_CHAR", "Implicit map keys need to be followed by map values");
@@ -9478,13 +9608,13 @@ function resolveBlockMap({ composeNode: composeNode2, composeEmptyNode: composeE
       const pair = new Pair(keyNode);
       if (ctx.options.keepSourceTokens)
         pair.srcToken = collItem;
-      map4.items.push(pair);
+      map5.items.push(pair);
     }
   }
   if (commentEnd && commentEnd < offset)
     onError(commentEnd, "IMPOSSIBLE", "Map comment with trailing content");
-  map4.range = [bm.offset, offset, commentEnd != null ? commentEnd : offset];
-  return map4;
+  map5.range = [bm.offset, offset, commentEnd != null ? commentEnd : offset];
+  return map5;
 }
 
 // node_modules/yaml/browser/dist/compose/resolve-block-seq.js
@@ -9701,15 +9831,15 @@ function resolveFlowCollection({ composeNode: composeNode2, composeEmptyNode: co
       if (ctx.options.keepSourceTokens)
         pair.srcToken = collItem;
       if (isMap2) {
-        const map4 = coll;
-        if (mapIncludes(ctx, map4.items, keyNode))
+        const map5 = coll;
+        if (mapIncludes(ctx, map5.items, keyNode))
           onError(keyStart, "DUPLICATE_KEY", "Map keys must be unique");
-        map4.items.push(pair);
+        map5.items.push(pair);
       } else {
-        const map4 = new YAMLMap(ctx.schema);
-        map4.flow = true;
-        map4.items.push(pair);
-        coll.items.push(map4);
+        const map5 = new YAMLMap(ctx.schema);
+        map5.flow = true;
+        map5.items.push(pair);
+        coll.items.push(map5);
       }
       offset = valueNode ? valueNode.range[2] : valueProps.end;
     }
@@ -11662,14 +11792,14 @@ var Parser = class {
         delete scalar.end;
       } else
         sep = [this.sourceToken];
-      const map4 = {
+      const map5 = {
         type: "block-map",
         offset: scalar.offset,
         indent: scalar.indent,
         items: [{ start, key: scalar, sep }]
       };
       this.onKeyLine = true;
-      this.stack[this.stack.length - 1] = map4;
+      this.stack[this.stack.length - 1] = map5;
     } else
       yield* this.lineEnd(scalar);
   }
@@ -11698,9 +11828,9 @@ var Parser = class {
         yield* this.step();
     }
   }
-  *blockMap(map4) {
+  *blockMap(map5) {
     var _a;
-    const it = map4.items[map4.items.length - 1];
+    const it = map5.items[map5.items.length - 1];
     switch (this.type) {
       case "newline":
         this.onKeyLine = false;
@@ -11710,7 +11840,7 @@ var Parser = class {
           if ((last == null ? void 0 : last.type) === "comment")
             end == null ? void 0 : end.push(this.sourceToken);
           else
-            map4.items.push({ start: [this.sourceToken] });
+            map5.items.push({ start: [this.sourceToken] });
         } else if (it.sep) {
           it.sep.push(this.sourceToken);
         } else {
@@ -11720,17 +11850,17 @@ var Parser = class {
       case "space":
       case "comment":
         if (it.value) {
-          map4.items.push({ start: [this.sourceToken] });
+          map5.items.push({ start: [this.sourceToken] });
         } else if (it.sep) {
           it.sep.push(this.sourceToken);
         } else {
-          if (this.atIndentedComment(it.start, map4.indent)) {
-            const prev = map4.items[map4.items.length - 2];
+          if (this.atIndentedComment(it.start, map5.indent)) {
+            const prev = map5.items[map5.items.length - 2];
             const end = (_a = prev == null ? void 0 : prev.value) == null ? void 0 : _a.end;
             if (Array.isArray(end)) {
               Array.prototype.push.apply(end, it.start);
               end.push(this.sourceToken);
-              map4.items.pop();
+              map5.items.pop();
               return;
             }
           }
@@ -11738,8 +11868,8 @@ var Parser = class {
         }
         return;
     }
-    if (this.indent >= map4.indent) {
-      const atMapIndent = !this.onKeyLine && this.indent === map4.indent;
+    if (this.indent >= map5.indent) {
+      const atMapIndent = !this.onKeyLine && this.indent === map5.indent;
       const atNextItem = atMapIndent && (it.sep || it.explicitKey) && this.type !== "seq-item-ind";
       let start = [];
       if (atNextItem && it.sep && !it.value) {
@@ -11753,7 +11883,7 @@ var Parser = class {
             case "space":
               break;
             case "comment":
-              if (st.indent > map4.indent)
+              if (st.indent > map5.indent)
                 nl.length = 0;
               break;
             default:
@@ -11768,7 +11898,7 @@ var Parser = class {
         case "tag":
           if (atNextItem || it.value) {
             start.push(this.sourceToken);
-            map4.items.push({ start });
+            map5.items.push({ start });
             this.onKeyLine = true;
           } else if (it.sep) {
             it.sep.push(this.sourceToken);
@@ -11782,7 +11912,7 @@ var Parser = class {
             it.explicitKey = true;
           } else if (atNextItem || it.value) {
             start.push(this.sourceToken);
-            map4.items.push({ start, explicitKey: true });
+            map5.items.push({ start, explicitKey: true });
           } else {
             this.stack.push({
               type: "block-map",
@@ -11808,7 +11938,7 @@ var Parser = class {
                 });
               }
             } else if (it.value) {
-              map4.items.push({ start: [], key: null, sep: [this.sourceToken] });
+              map5.items.push({ start: [], key: null, sep: [this.sourceToken] });
             } else if (includesToken(it.sep, "map-value-ind")) {
               this.stack.push({
                 type: "block-map",
@@ -11837,7 +11967,7 @@ var Parser = class {
             if (!it.sep) {
               Object.assign(it, { key: null, sep: [this.sourceToken] });
             } else if (it.value || atNextItem) {
-              map4.items.push({ start, key: null, sep: [this.sourceToken] });
+              map5.items.push({ start, key: null, sep: [this.sourceToken] });
             } else if (includesToken(it.sep, "map-value-ind")) {
               this.stack.push({
                 type: "block-map",
@@ -11857,7 +11987,7 @@ var Parser = class {
         case "double-quoted-scalar": {
           const fs = this.flowScalar(this.type);
           if (atNextItem || it.value) {
-            map4.items.push({ start, key: fs, sep: [] });
+            map5.items.push({ start, key: fs, sep: [] });
             this.onKeyLine = true;
           } else if (it.sep) {
             this.stack.push(fs);
@@ -11868,10 +11998,10 @@ var Parser = class {
           return;
         }
         default: {
-          const bv = this.startBlockValue(map4);
+          const bv = this.startBlockValue(map5);
           if (bv) {
             if (atMapIndent && bv.type !== "block-seq") {
-              map4.items.push({ start });
+              map5.items.push({ start });
             }
             this.stack.push(bv);
             return;
@@ -12013,14 +12143,14 @@ var Parser = class {
         fixFlowSeqItems(fc);
         const sep = fc.end.splice(1, fc.end.length);
         sep.push(this.sourceToken);
-        const map4 = {
+        const map5 = {
           type: "block-map",
           offset: fc.offset,
           indent: fc.indent,
           items: [{ start, key: fc, sep }]
         };
         this.onKeyLine = true;
-        this.stack[this.stack.length - 1] = map4;
+        this.stack[this.stack.length - 1] = map5;
       } else {
         yield* this.lineEnd(fc);
       }
@@ -12232,9 +12362,20 @@ var PropertiesAdaptor = class {
     };
     return this;
   }
+  addTags(tags) {
+    const props = { ...this.properties };
+    const propTags = props.tags;
+    if ((0, import_lodash5.isEmpty)(propTags)) {
+      this.addProperties({ tags });
+      return this;
+    }
+    const newTags = (0, import_lodash5.difference)(tags, propTags);
+    this.addProperties({ tags: propTags.concat(newTags) });
+    return this;
+  }
   toFile(str) {
     const frontMatterMatch = str.match(/^---\n([\s\S]+?)\n---\n/);
-    if ((0, import_lodash4.isEmpty)(this.properties)) {
+    if ((0, import_lodash5.isEmpty)(this.properties)) {
       return "";
     }
     if (!frontMatterMatch) {
@@ -12254,7 +12395,7 @@ ${stringify3(this.properties)}
 };
 
 // lib/adaptors/file.ts
-var import_obsidian5 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 
 // lib/builder/adf.ts
 var ADFBuilder = class {
@@ -12290,7 +12431,7 @@ var ADFBuilder = class {
   tableRowItem(cells) {
     const tableRow = {
       type: "tableRow",
-      content: cells.map((cellText) => ({
+      content: cells.map((cell) => ({
         type: "tableCell",
         attrs: {
           background: "",
@@ -12298,17 +12439,7 @@ var ADFBuilder = class {
           colspan: 1,
           rowspan: 1
         },
-        content: [
-          {
-            type: "paragraph",
-            content: [
-              {
-                type: "text",
-                text: cellText || ""
-              }
-            ]
-          }
-        ]
+        content: cell
       }))
     };
     return tableRow;
@@ -12406,20 +12537,10 @@ var ADFBuilder = class {
       marks: [this.markEm()]
     };
   }
-  listItem(text) {
+  listItem(content) {
     return {
       type: "listItem",
-      content: [
-        {
-          type: "paragraph",
-          content: [
-            {
-              type: "text",
-              text: text.trim()
-            }
-          ]
-        }
-      ]
+      content
     };
   }
   taskItem(text, isChecked) {
@@ -12490,28 +12611,333 @@ var ADFBuilder = class {
   }
 };
 
+// lib/directors/media.ts
+var import_obsidian5 = require("obsidian");
+var MediaDirector = class {
+  constructor(builder, app, client) {
+    this.builder = builder;
+    this.app = app;
+    this.client = client;
+  }
+  async build_item(node, filePath) {
+    const modEmpty = node.classList.contains("mod-empty-attachment");
+    if (modEmpty) {
+      return null;
+    }
+    const file = this.app.metadataCache.getFirstLinkpathDest(filePath, ".");
+    if (!(file instanceof import_obsidian5.TFile)) {
+      return null;
+    }
+    const canvasEmbed = node.classList.contains("canvas-embed");
+    if (canvasEmbed) {
+      return null;
+    }
+    const imageEmbed = node.classList.contains("image-embed");
+    const pdfEmbed = node.classList.contains("pdf-embed");
+    const videoEmbed = node.classList.contains("video-embed");
+    const formData = new FormData();
+    const fileData = await this.app.vault.read(file);
+    const props = new PropertiesAdaptor().loadProperties(fileData);
+    const pageId = props.properties.pageId;
+    const src = node.getAttr("src");
+    if (imageEmbed) {
+      const imgFile = this.app.metadataCache.getFirstLinkpathDest(
+        src,
+        "."
+      );
+      if (!imgFile) {
+        console.error("not know path", node);
+        return null;
+      }
+      const fileData2 = new File(
+        [await this.app.vault.readBinary(imgFile)],
+        imgFile.name
+      );
+      formData.append("file", fileData2);
+    } else if (pdfEmbed || videoEmbed) {
+      const fileEmbed = this.app.metadataCache.getFirstLinkpathDest(
+        src,
+        "."
+      );
+      if (!fileEmbed) {
+        console.error("not know path", node);
+        return null;
+      }
+      const fileData2 = new File(
+        [await this.app.vault.readBinary(fileEmbed)],
+        fileEmbed.name
+      );
+      formData.append("file", fileData2);
+    }
+    const attachmentResponse = await this.client.attachement.uploadFile(
+      pageId,
+      formData
+    );
+    const { extensions } = attachmentResponse.results[0];
+    return this.builder.mediaSingleItem(
+      extensions.fileId,
+      extensions.collectionName
+    );
+  }
+};
+var media_default = MediaDirector;
+
+// lib/directors/label.ts
+var import_lodash6 = __toESM(require_lodash());
+var import_obsidian6 = require("obsidian");
+var LabelDirector = class {
+  constructor(app, client) {
+    this.app = app;
+    this.client = client;
+  }
+  async addTags(filePath, uploadTags, htmlTags = []) {
+    if (!uploadTags) {
+      return null;
+    }
+    const file = this.app.metadataCache.getFirstLinkpathDest(filePath, ".");
+    if (!(file instanceof import_obsidian6.TFile)) {
+      return null;
+    }
+    let allTags = [];
+    const fileData = await this.app.vault.read(file);
+    const propAdaptor = new PropertiesAdaptor().loadProperties(fileData);
+    const { pageId, tags } = propAdaptor.properties;
+    if (!(0, import_lodash6.isEmpty)(tags)) {
+      allTags = tags;
+    }
+    for (const tag of htmlTags) {
+      allTags.push(tag.textContent);
+    }
+    if (allTags.length == 0) {
+      return null;
+    }
+    await this.client.label.addLabel(pageId, allTags);
+    return;
+  }
+};
+
+// lib/directors/link.ts
+var LinkDirector = class {
+  constructor(builder, fileAdaptor) {
+    this.builder = builder;
+    this.fileAdaptor = fileAdaptor;
+  }
+  async build_item(node, followLinks) {
+    const classList = node.classList;
+    if (classList.contains("tag")) {
+      return null;
+    }
+    if (!followLinks) {
+      return null;
+    }
+    const href = await this.findLink(node);
+    if (classList.contains("internal-link") && node.getAttr("href") == node.getAttr("data-href")) {
+      return this.builder.cardItem(href);
+    }
+    return this.builder.linkItem(node.textContent, href);
+  }
+  async findLink(linkEl) {
+    let href = linkEl.href;
+    if (linkEl.classList.contains("internal-link")) {
+      const dataLink = linkEl.getAttr("data-href");
+      if (dataLink.contains("#")) {
+        const paths = dataLink.split("#");
+        const newPageLink = paths.length > 1;
+        if (newPageLink) {
+          href = await this.fileAdaptor.getConfluenceLink(
+            paths[0] + ".md"
+          ) + "#" + paths[1];
+          href = href.replaceAll(" ", "-");
+        } else {
+          href = dataLink.replaceAll(" ", "-");
+        }
+      } else {
+        href = await this.fileAdaptor.getConfluenceLink(
+          linkEl.dataset.href + ".md"
+        );
+      }
+    }
+    return href;
+  }
+};
+var link_default = LinkDirector;
+
+// lib/directors/paragraph.ts
+var ParagraphDirector = class {
+  constructor(builder, fileAdaptor, app, client, settings) {
+    this.builder = builder;
+    this.fileAdaptor = fileAdaptor;
+    this.app = app;
+    this.client = client;
+    this.settings = settings;
+  }
+  async addItems(node, filePath, ignoreTags = false) {
+    const pItem = this.builder.paragraphItem();
+    const tags = node.querySelectorAll('a[class="tag"]');
+    if (!ignoreTags && tags.length > 0 && tags.length == node.children.length) {
+      new LabelDirector(this.app, this.client).addTags(
+        filePath,
+        this.settings.uploadTags,
+        tags
+      );
+      return;
+    }
+    for (const innerNode of Array.from(node.childNodes)) {
+      if (innerNode.nodeType === Node.TEXT_NODE) {
+        const textItem = this.builder.textItem(innerNode.textContent);
+        pItem.content.push(textItem);
+        continue;
+      }
+      if (innerNode.nodeType === Node.ELEMENT_NODE && innerNode.nodeName !== "SPAN") {
+        const nestedItem = await this.findNestedItem(
+          innerNode
+        );
+        if (nestedItem) {
+          pItem.content.push(nestedItem);
+        }
+        continue;
+      }
+      if (innerNode.nodeType === Node.ELEMENT_NODE && innerNode.nodeName == "SPAN") {
+        const dir = new media_default(
+          this.builder,
+          this.app,
+          this.client
+        );
+        const mediaItem = await dir.build_item(
+          innerNode,
+          filePath
+        );
+        this.builder.addItem(pItem);
+        if (mediaItem) {
+          this.builder.addItem(mediaItem);
+        }
+        return;
+      }
+    }
+    this.builder.addItem(pItem);
+  }
+  async findNestedItem(node) {
+    let item = null;
+    switch (node.nodeName) {
+      case "A":
+        item = await new link_default(
+          this.builder,
+          this.fileAdaptor
+        ).build_item(
+          node,
+          this.settings.followLinks
+        );
+        break;
+      case "STRONG":
+        item = this.builder.strongItem(node.textContent);
+        break;
+      case "EM":
+        item = this.builder.emphasisItem(node.textContent);
+        break;
+      case "CODE":
+        item = this.builder.codeItem(node.textContent);
+        break;
+      case "U":
+        item = this.builder.underlineItem(node.textContent);
+        break;
+      case "S":
+        item = this.builder.strikeItem(node.textContent);
+        break;
+    }
+    if (item) {
+      const marks = await this.findAllMarks(node);
+      if (marks.length > 0) {
+        item = {
+          ...item,
+          marks: [...item.marks, ...marks]
+        };
+      }
+    }
+    return item;
+  }
+  async findAllMarks(node) {
+    let marks = [];
+    for (const _node of Array.from(node.childNodes)) {
+      if (_node.nodeType == Node.TEXT_NODE) {
+        break;
+      }
+      if (_node.nodeType == Node.ELEMENT_NODE) {
+        switch (_node.nodeName) {
+          case "A":
+            const link = await new link_default(
+              this.builder,
+              this.fileAdaptor
+            ).findLink(_node);
+            marks.push(this.builder.markLink(link));
+          case "STRONG":
+            marks.push(this.builder.markStrong());
+            break;
+          case "EM":
+            marks.push(this.builder.markEm());
+            break;
+          case "CODE":
+            marks.push(this.builder.markCode());
+            break;
+          case "U":
+            marks.push(this.builder.markUnderline());
+            break;
+          case "S":
+            marks.push(this.builder.markStrike());
+            break;
+        }
+        const moreMarks = await this.findAllMarks(_node);
+        if (moreMarks.length > 0) {
+          marks = marks.concat(moreMarks);
+        }
+      }
+    }
+    return marks;
+  }
+};
+var paragraph_default = ParagraphDirector;
+
+// lib/directors/table.ts
+var TableDirector = class extends paragraph_default {
+  async addItems(node, filePath) {
+    if (node.children.length == 0) {
+      this.builder.addItem(this.builder.paragraphItem(node.textContent));
+      return;
+    }
+    const p = createEl("p");
+    for (const cellNode of Array.from(node.childNodes)) {
+      if (cellNode.nodeName == "BR") {
+        await super.addItems(p, filePath, true);
+        p.empty();
+        continue;
+      }
+      p.appendChild(cellNode);
+    }
+    if (p.children.length > 0) {
+      await super.addItems(p, filePath, true);
+    }
+  }
+};
+var table_default = TableDirector;
+
 // lib/adaptors/file.ts
 var FileAdaptor = class {
-  constructor(app, client, spaceId, followLinks) {
+  constructor(app, client, spaceId, settings) {
     this.app = app;
     this.client = client;
     this.spaceId = spaceId;
-    this.followLinks = followLinks;
-    this.app = app;
-    this.client = client;
-    this.spaceId = spaceId;
-    this.followLinks = followLinks;
+    this.settings = settings;
   }
   async convertObs2Adf(text, path) {
     const container = document.createElement("div");
-    import_obsidian5.MarkdownRenderer.render(
+    import_obsidian7.MarkdownRenderer.render(
       this.app,
       text,
       container,
       path,
-      new import_obsidian5.Component()
+      new import_obsidian7.Component()
     );
-    return await this.htmlToAdf(container, path);
+    const adf = await this.htmlToAdf(container, path);
+    return adf;
   }
   async htmlToAdf(container, filePath) {
     const builder = new ADFBuilder();
@@ -12522,12 +12948,12 @@ var FileAdaptor = class {
   }
   async getConfluenceLink(path) {
     const file = this.app.metadataCache.getFirstLinkpathDest(path, ".");
-    if (!(file instanceof import_obsidian5.TFile)) {
+    if (!(file instanceof import_obsidian7.TFile)) {
       return "#";
     }
     const fileData = await this.app.vault.read(file);
-    const props = new PropertiesAdaptor().loadProperties(fileData);
-    let { confluenceUrl } = props.properties;
+    const propAdaptor = new PropertiesAdaptor().loadProperties(fileData);
+    let { confluenceUrl } = propAdaptor.properties;
     if (confluenceUrl) {
       return confluenceUrl;
     }
@@ -12536,203 +12962,20 @@ var FileAdaptor = class {
       pageTitle: file.name
     });
     confluenceUrl = response._links.base + response._links.webui;
-    props.addProperties({
+    propAdaptor.addProperties({
       pageId: response.id,
       spaceId: response.spaceId,
       confluenceUrl
     });
-    await this.app.vault.modify(file, props.toFile(fileData));
+    await this.app.vault.modify(file, propAdaptor.toFile(fileData));
     const adf = await this.convertObs2Adf(fileData, path);
     await this.client.page.updatePage({
-      pageId: props.properties.pageId,
+      pageId: propAdaptor.properties.pageId,
       pageTitle: file.name,
       adf
     });
-    new import_obsidian5.Notice(`Page Created: ${file.name}`);
+    new import_obsidian7.Notice(`Page Created: ${file.name}`);
     return confluenceUrl;
-  }
-  async findNestedElement(node, builder, filePath) {
-    let item = null;
-    let type = null;
-    switch (node.nodeName) {
-      case "A":
-        const linkEl = node;
-        const linkText = node.textContent;
-        if (linkEl.classList.contains("tag")) {
-          break;
-        }
-        if (!this.followLinks) {
-          break;
-        }
-        const href = await this.findLink(linkEl);
-        if (linkEl.classList.contains("internal-link") && linkEl.getAttr("href") == linkEl.getAttr("data-href")) {
-          item = builder.cardItem(href);
-          type = "inline";
-          break;
-        }
-        item = builder.linkItem(linkText, href);
-        type = "inline";
-        break;
-      case "STRONG":
-        item = builder.strongItem(node.textContent);
-        type = "inline";
-        break;
-      case "EM":
-        item = builder.emphasisItem(node.textContent);
-        type = "inline";
-        break;
-      case "CODE":
-        item = builder.codeItem(node.textContent);
-        type = "inline";
-        break;
-      case "U":
-        item = builder.underlineItem(node.textContent);
-        type = "inline";
-        break;
-      case "S":
-        item = builder.strikeItem(node.textContent);
-        type = "inline";
-        break;
-      case "SPAN":
-        const file = this.app.metadataCache.getFirstLinkpathDest(
-          filePath,
-          "."
-        );
-        if (!(file instanceof import_obsidian5.TFile)) {
-          break;
-        }
-        const formData = new FormData();
-        const fileData = await this.app.vault.read(file);
-        const props = new PropertiesAdaptor().loadProperties(fileData);
-        const pageId = props.properties.pageId;
-        const src = node.getAttr("src");
-        const canvasEmbed = node.classList.contains("canvas-embed");
-        const imageEmbed = node.classList.contains("image-embed");
-        const pdfEmbed = node.classList.contains("pdf-embed");
-        const videoEmbed = node.classList.contains("video-embed");
-        if (canvasEmbed) {
-          break;
-          if (!this.followLinks) {
-            break;
-          }
-          const canvasFile = this.app.vault.getFileByPath(src);
-          await this.app.workspace.openLinkText(src, ".", true, {
-            state: false,
-            eState: "hidden",
-            active: false
-          });
-        } else if (imageEmbed) {
-          const imgFile = this.app.metadataCache.getFirstLinkpathDest(
-            src,
-            "."
-          );
-          if (!imgFile) {
-            console.error("not know path", node);
-            break;
-          }
-          const fileData2 = new File(
-            [await this.app.vault.readBinary(imgFile)],
-            imgFile.name
-          );
-          formData.append("file", fileData2);
-        } else if (pdfEmbed || videoEmbed) {
-          const fileEmbed = this.app.metadataCache.getFirstLinkpathDest(src, ".");
-          if (!fileEmbed) {
-            console.error("not know path", node);
-            break;
-          }
-          const fileData2 = new File(
-            [await this.app.vault.readBinary(fileEmbed)],
-            fileEmbed.name
-          );
-          formData.append("file", fileData2);
-        }
-        const attachmentResponse = await this.client.attachement.uploadFile(
-          pageId,
-          formData
-        );
-        const { extensions } = attachmentResponse.results[0];
-        item = builder.mediaSingleItem(
-          extensions.fileId,
-          extensions.collectionName
-        );
-        type = "block";
-        break;
-    }
-    if (item && type == "inline") {
-      const extraMarks = await this.findAllMarks(node, builder);
-      if (extraMarks.length > 0) {
-        item = {
-          ...item,
-          // @ts-nocheck
-          marks: [...item.marks, ...extraMarks]
-          // @ts-nocheck
-        };
-      }
-    }
-    return { item, type };
-  }
-  async findAllMarks(node, builder) {
-    let marks = [];
-    for (const _node of Array.from(node.childNodes)) {
-      if (_node.nodeType == Node.TEXT_NODE) {
-        break;
-      }
-      if (_node.nodeType == Node.ELEMENT_NODE) {
-        switch (_node.nodeName) {
-          case "A":
-            const link = await this.findLink(
-              _node
-            );
-            marks.push(builder.markLink(link));
-            break;
-          case "STRONG":
-            marks.push(builder.markStrong());
-            break;
-          case "EM":
-            marks.push(builder.markEm());
-            break;
-          case "CODE":
-            marks.push(builder.markCode());
-            break;
-          case "U":
-            marks.push(builder.markUnderline());
-            break;
-          case "S":
-            marks.push(builder.markStrike());
-            break;
-        }
-        const moreMarks = await this.findAllMarks(
-          _node,
-          builder
-        );
-        if (moreMarks.length > 0) {
-          marks = marks.concat(moreMarks);
-        }
-      }
-    }
-    return marks;
-  }
-  async findLink(linkEl) {
-    let href = linkEl.href;
-    if (linkEl.classList.contains("internal-link")) {
-      const dataLink = linkEl.getAttr("data-href");
-      if (dataLink.contains("#")) {
-        const paths = dataLink.split("#");
-        const newPageLink = paths.length > 1;
-        if (newPageLink) {
-          href = await this.getConfluenceLink(paths[0] + ".md") + "#" + paths[1];
-          href = href.replaceAll(" ", "-");
-        } else {
-          href = dataLink.replaceAll(" ", "-");
-        }
-      } else {
-        href = await this.getConfluenceLink(
-          linkEl.dataset.href + ".md"
-        );
-      }
-    }
-    return href;
   }
   async traverse(node, builder, filePath) {
     switch (node.nodeName) {
@@ -12751,12 +12994,30 @@ var FileAdaptor = class {
         break;
       case "TABLE":
         const tableRows = Array.from(node.querySelectorAll("tr"));
-        const tableContent = tableRows.map((row) => {
-          const cells = Array.from(
-            row.querySelectorAll("td, th")
-          ).map((cell) => cell.textContent);
-          return builder.tableRowItem(cells);
-        });
+        const tableContent = await Promise.all(
+          tableRows.map(async (row) => {
+            const cells = await Promise.all(
+              Array.from(row.querySelectorAll("td, th")).map(
+                async (cell) => {
+                  const cellAdf = new ADFBuilder();
+                  const director = new table_default(
+                    cellAdf,
+                    this,
+                    this.app,
+                    this.client,
+                    this.settings
+                  );
+                  await director.addItems(
+                    cell,
+                    filePath
+                  );
+                  return cellAdf.build();
+                }
+              )
+            );
+            return builder.tableRowItem(cells);
+          })
+        );
         builder.addItem(builder.tableItem(tableContent));
         break;
       case "PRE":
@@ -12767,69 +13028,62 @@ var FileAdaptor = class {
         }
         break;
       case "P":
-        const p = builder.paragraphItem();
-        let needsToAdd = false;
-        for (const _node of Array.from(node.childNodes)) {
-          const elementNode = _node;
-          if (elementNode.nodeType == Node.TEXT_NODE) {
-            p.content.push(
-              builder.textItem(elementNode.textContent)
-            );
-            needsToAdd = true;
-            continue;
-          }
-          if (elementNode.nodeType == Node.ELEMENT_NODE) {
-            let { item, type } = await this.findNestedElement(
-              elementNode,
-              builder,
-              filePath
-            );
-            if (item && type == "inline") {
-              p.content.push(item);
-              needsToAdd = true;
-            } else if (item) {
-              builder.addItem(p);
-              builder.addItem(item);
-              needsToAdd = false;
-            }
-          }
-        }
-        if (needsToAdd) {
-          builder.addItem(p);
-        }
+        const paragraphDirector = new paragraph_default(
+          builder,
+          this,
+          this.app,
+          this.client,
+          this.settings
+        );
+        await paragraphDirector.addItems(
+          node,
+          filePath
+        );
         break;
       case "OL":
       case "UL":
-        let isTaskList = false;
-        const listItems = Array.from(node.querySelectorAll("li")).map(
-          (li) => {
+        const isTaskList = node.querySelectorAll("li").length === node.querySelectorAll('input[type="checkbox"]').length;
+        const listItems = await Promise.all(
+          Array.from(node.children).map(async (li) => {
             var _a;
-            isTaskList = li.classList.contains("task-list-item");
+            const listAdf = new ADFBuilder();
+            const listDirector = new paragraph_default(
+              listAdf,
+              this,
+              this.app,
+              this.client,
+              this.settings
+            );
             if (isTaskList) {
               return builder.taskItem(
                 (_a = li.textContent) == null ? void 0 : _a.trim(),
                 Boolean(li.getAttr("data-task"))
               );
             }
-            return builder.listItem(li.textContent);
-          }
+            const p = createEl("p");
+            for (const child of Array.from(li.childNodes)) {
+              p.append(child);
+            }
+            await listDirector.addItems(p, filePath);
+            return builder.listItem(listAdf.build());
+          })
         );
         if (isTaskList) {
           builder.addItem(
             builder.taskListItem(listItems)
           );
           break;
-        } else if (node.nodeName === "OL") {
+        }
+        if (node.nodeName == "OL") {
           builder.addItem(
             builder.orderedListItem(listItems)
           );
           break;
-        } else {
-          builder.addItem(
-            builder.bulletListItem(listItems)
-          );
-          break;
         }
+        builder.addItem(
+          builder.bulletListItem(listItems)
+        );
+        break;
       case "BLOCKQUOTE":
         builder.addItem(builder.blockquoteItem(node.textContent));
         break;
@@ -12841,51 +13095,95 @@ var FileAdaptor = class {
 };
 
 // main.ts
-var ConfluenceLink = class extends import_obsidian6.Plugin {
+var ConfluenceLink = class extends import_obsidian8.Plugin {
   async onload() {
     await this.loadSettings();
     this.addSettingTab(new ConfluenceLinkSettingsTab(this.app, this));
     this.addCommand({
       id: "upload-file-to-confluence",
       name: "Upload file to confluence using default space",
-      editorCallback: async (editor, ctx) => {
+      editorCallback: (editor, ctx) => {
         var _a;
         const { confluenceDefaultSpaceId } = this.settings;
-        this.uploadFile(((_a = ctx.file) == null ? void 0 : _a.path) || "", confluenceDefaultSpaceId);
+        this.addProgress(
+          async () => {
+            var _a2;
+            return this.uploadFile(
+              ((_a2 = ctx.file) == null ? void 0 : _a2.path) || "",
+              confluenceDefaultSpaceId
+            );
+          },
+          (_a = ctx.file) == null ? void 0 : _a.name
+        );
       }
     });
     this.addCommand({
       id: "upload-file-to-space",
       name: "Upload file to space",
-      editorCallback: async (editor, ctx) => {
+      editorCallback: (editor, ctx) => {
         var _a;
-        this.uploadFile(((_a = ctx.file) == null ? void 0 : _a.path) || "", null);
+        this.addProgress(
+          async () => {
+            var _a2;
+            return this.uploadFile(((_a2 = ctx.file) == null ? void 0 : _a2.path) || "", null);
+          },
+          (_a = ctx.file) == null ? void 0 : _a.name
+        );
       }
     });
   }
+  async addProgress(callback, filename) {
+    const statusBar = this.addStatusBarItem();
+    (0, import_obsidian8.setIcon)(statusBar, "loader");
+    const loader = statusBar.querySelector("svg");
+    statusBar.createEl("span", {
+      text: `Uploading ${filename}`,
+      attr: { style: "padding-rigth: 10px; padding-left: 5px" }
+    });
+    loader.animate(
+      [
+        {
+          // from
+          transform: "rotate(0deg)"
+        },
+        {
+          // to
+          transform: "rotate(360deg)"
+        }
+      ],
+      {
+        duration: 2e3,
+        iterations: Infinity
+        // Repeat the animation infinitely
+      }
+    );
+    try {
+      await callback();
+    } catch (e) {
+      console.error(e);
+      statusBar.detach();
+      return;
+    }
+    statusBar.detach();
+  }
   getActiveCanvas() {
     var _a;
-    let currentView = (_a = this.app.workspace) == null ? void 0 : _a.getActiveViewOfType(import_obsidian6.FileView);
+    let currentView = (_a = this.app.workspace) == null ? void 0 : _a.getActiveViewOfType(import_obsidian8.FileView);
     if ((currentView == null ? void 0 : currentView.getViewType()) !== "canvas") {
       return null;
     }
     return currentView["canvas"];
   }
   async uploadFile(filePath, spaceId) {
-    const {
-      atlassianUsername,
-      atlassianApiToken,
-      confluenceDomain,
-      followLinks
-    } = this.settings;
+    const { atlassianUsername, atlassianApiToken, confluenceDomain } = this.settings;
     if (!atlassianApiToken || !atlassianUsername || !confluenceDomain) {
-      new import_obsidian6.Notice(
+      new import_obsidian8.Notice(
         "Settings not set up. Please open the settings page of the plugin"
       );
       return;
     }
     const file = this.app.vault.getAbstractFileByPath(filePath || "");
-    if (!(file instanceof import_obsidian6.TFile)) {
+    if (!(file instanceof import_obsidian8.TFile)) {
       throw new Error("Not a TFile");
     }
     const fileData = await this.app.vault.read(file);
@@ -12896,12 +13194,12 @@ var ConfluenceLink = class extends import_obsidian6.Plugin {
         apiToken: atlassianApiToken
       }
     });
-    const props = new PropertiesAdaptor().loadProperties(fileData);
-    const { pageId } = props.properties;
+    const propAdaptor = new PropertiesAdaptor().loadProperties(fileData);
+    const { pageId, tags } = propAdaptor.properties;
     let response = null;
     if (!spaceId && !pageId) {
       await new Promise((resolve) => {
-        new SpaceSearchModal(this.app, client, (result) => {
+        new SpaceSearchModal(this.app, this, client, (result) => {
           spaceId = result.id;
           resolve();
         }).open();
@@ -12912,30 +13210,36 @@ var ConfluenceLink = class extends import_obsidian6.Plugin {
         spaceId,
         pageTitle: file.name.replace(".md", "")
       });
-      props.addProperties({
+      propAdaptor.addProperties({
         pageId: response.id,
         spaceId: response.spaceId,
         confluenceUrl: response._links.base + response._links.webui
       });
     }
-    await this.app.vault.modify(file, props.toFile(fileData));
+    await this.app.vault.modify(file, propAdaptor.toFile(fileData));
     const adf = await new FileAdaptor(
       this.app,
       client,
       spaceId,
-      followLinks
+      this.settings
     ).convertObs2Adf(fileData, filePath || "");
     client.page.updatePage({
-      pageId: props.properties.pageId,
+      pageId: propAdaptor.properties.pageId,
       pageTitle: file.name.replace(".md", ""),
       adf
     });
-    new import_obsidian6.Notice(`File uploaded to confluence`);
+    if (tags) {
+      new LabelDirector(this.app, client).addTags(
+        filePath,
+        this.settings.uploadTags
+      );
+    }
+    new import_obsidian8.Notice(`File uploaded to confluence`);
   }
   async onunload() {
   }
   async loadSettings() {
-    this.settings = Object.assign({}, await this.loadData());
+    this.settings = Object.assign({ favSpaces: [] }, await this.loadData());
   }
   async saveSettings() {
     await this.saveData(this.settings);

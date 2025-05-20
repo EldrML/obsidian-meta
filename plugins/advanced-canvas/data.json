@@ -13,7 +13,7 @@
   "edgesStylingFeatureEnabled": true,
   "customEdgeStyleAttributes": [],
   "defaultEdgeStyleAttributes": {},
-  "edgeStyleDirectRotateArrow": false,
+  "edgeStyleDirectRotateArrow": true,
   "edgeStylePathfinderGridResolution": 10,
   "edgeStylePathfinderPathLiveUpdate": true,
   "edgeStylePathfinderPathRounded": true,
