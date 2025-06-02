@@ -8,10 +8,14 @@
   "showFrontmatter": true,
   "newFileLocation": "current",
   "pdfExportSettings": {
+    "includeName": false,
     "pageSize": "Letter",
     "landscape": false,
     "margin": "0",
-    "downscalePercent": 100
+    "downscalePercent": 90
   },
-  "showRibbon": false
+  "showRibbon": false,
+  "useMarkdownLinks": false,
+  "showUnsupportedFiles": true,
+  "useTab": false
 }

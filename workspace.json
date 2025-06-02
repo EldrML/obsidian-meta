@@ -1,50 +1,105 @@
 {
   "main": {
-    "id": "07c913a68a9625e7",
+    "id": "9945d2572e910e59",
     "type": "split",
     "children": [
       {
-        "id": "6cb87b6dc13727ef",
+        "id": "277538f7faec3a8c",
         "type": "tabs",
         "children": [
           {
-            "id": "9b65ffea719faea0",
+            "id": "309fda078e162945",
             "type": "leaf",
+            "pinned": true,
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "00. Daily Notes/Daily Dashboard.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": true
+              },
+              "pinned": true,
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Daily Dashboard"
             }
           },
           {
-            "id": "f2560ff9c87363a2",
+            "id": "11216378b1c5e6ff",
             "type": "leaf",
             "state": {
-              "type": "mk-space",
+              "type": "markdown",
               "state": {
-                "path": "_Inbox"
+                "file": "00. Daily Notes/_Notes To Inbox.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": true
               },
               "icon": "lucide-file",
-              "title": "_Inbox"
+              "title": "_Notes To Inbox"
+            }
+          },
+          {
+            "id": "7f94b4237e5b0366",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00. Daily Notes/DN_06-02-2025_Mon.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "DN_06-02-2025_Mon"
+            }
+          },
+          {
+            "id": "10241f35e10367e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.6b.9 Release Notes.md",
+                "mode": "preview",
+                "backlinks": true,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "AMF v0.6b.9 Release Notes"
+            }
+          },
+          {
+            "id": "35655aa3a87d2584",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2. Tools & Software/Cameo/Cameo Scripting Templates Cheatsheet.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "Cameo Scripting Templates Cheatsheet"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "0d6585d0fe496e02",
+    "id": "beed78b1e0ccd10b",
     "type": "split",
     "children": [
       {
-        "id": "a2f8b7a4d497738b",
+        "id": "2ea4013472472734",
         "type": "tabs",
-        "dimension": 60.3125,
         "children": [
           {
-            "id": "1c5f3e2b9753e9f7",
+            "id": "10eb3f53632ddf2c",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -56,12 +111,12 @@
             }
           },
           {
-            "id": "5e47774f25444913",
+            "id": "a82acfb300f0b8bd",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#programming/java",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,25 +128,7 @@
             }
           },
           {
-            "id": "fdbb81b09895d581",
-            "type": "leaf",
-            "state": {
-              "type": "mk-path-view",
-              "state": {},
-              "icon": "layout-grid",
-              "title": "Spaces"
-            }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "3ba5ce15d3e06f50",
-        "type": "tabs",
-        "dimension": 39.6875,
-        "children": [
-          {
-            "id": "c3b55cfaec20228f",
+            "id": "b771012b55088628",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -101,69 +138,17 @@
             }
           },
           {
-            "id": "4c4ee25b3a07081f",
+            "id": "ba5af774fa82a1ad",
             "type": "leaf",
             "state": {
-              "type": "outline",
+              "type": "mk-path-view",
               "state": {},
-              "icon": "lucide-list",
-              "title": "Outline"
-            }
-          }
-        ],
-        "currentTab": 1
-      }
-    ],
-    "direction": "horizontal",
-    "width": 293
-  },
-  "right": {
-    "id": "25bd613315b21625",
-    "type": "split",
-    "children": [
-      {
-        "id": "b9061128a37ee63e",
-        "type": "tabs",
-        "dimension": 45.97701149425288,
-        "children": [
-          {
-            "id": "7256d6496473d42d",
-            "type": "leaf",
-            "state": {
-              "type": "localgraph",
-              "state": {
-                "options": {
-                  "collapse-filter": false,
-                  "search": "",
-                  "localJumps": 1,
-                  "localBacklinks": true,
-                  "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": true,
-                  "showAttachments": false,
-                  "hideUnresolved": false,
-                  "collapse-color-groups": true,
-                  "colorGroups": [],
-                  "collapse-display": false,
-                  "showArrow": false,
-                  "textFadeMultiplier": -1.1,
-                  "nodeSizeMultiplier": 1,
-                  "lineSizeMultiplier": 1,
-                  "collapse-forces": true,
-                  "centerStrength": 0.497448979591837,
-                  "repelStrength": 9.13265306122449,
-                  "linkStrength": 1,
-                  "linkDistance": 161,
-                  "scale": 0.9097290007238602,
-                  "close": true
-                }
-              },
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
-            "id": "d9f25e98b4d6205a",
+            "id": "8ef38787c35df149",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -176,144 +161,195 @@
             }
           }
         ]
-      },
+      }
+    ],
+    "direction": "horizontal",
+    "width": 332
+  },
+  "right": {
+    "id": "5334efa3fb614f9a",
+    "type": "split",
+    "children": [
       {
-        "id": "e3721f071ca5179b",
+        "id": "a5ef160326779de8",
         "type": "tabs",
-        "dimension": 27.063740856844305,
+        "dimension": 32.95652173913044,
         "children": [
           {
-            "id": "3064e0c7f245f5e9",
+            "id": "7d42e3bc8a201be4",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "00. Daily Notes/DN_06-02-2025_Mon.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.6906394964510804,
+                  "close": true
+                }
+              },
+              "icon": "lucide-git-fork",
+              "title": "Graph of DN_06-02-2025_Mon"
+            }
+          }
+        ]
+      },
+      {
+        "id": "35ac08e2183267e1",
+        "type": "tabs",
+        "dimension": 67.04347826086956,
+        "children": [
+          {
+            "id": "7bff4c23fd0d00f5",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "1. Projects/AMF/AMF Hub.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
                 "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for AMF Hub"
             }
           },
           {
-            "id": "804b4c752d992821",
+            "id": "0d226bf4ef215c02",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "00. Daily Notes/DN_Mon-02-10-2025.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from DN_Mon-02-10-2025"
             }
-          }
-        ]
-      },
-      {
-        "id": "402b3b3866524235",
-        "type": "tabs",
-        "dimension": 26.959247648902824,
-        "children": [
+          },
           {
-            "id": "1e2739fca085986f",
+            "id": "5ccf9ccdb62e941c",
             "type": "leaf",
             "state": {
-              "type": "advanced-tables-toolbar",
-              "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
+              "type": "outline",
+              "state": {
+                "file": "00. Daily Notes/DN_06-02-2025_Mon.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of DN_06-02-2025_Mon"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 364.5,
+    "width": 372,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
       "hide-folders:Hide hidden folders again": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "homepage:Open homepage": false,
+      "omnisearch:Omnisearch": false,
       "callout-manager:Insert Callout": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
+      "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
       "workspaces:Manage workspace layouts": false,
       "publish:Publish changes...": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "omnisearch:Omnisearch": false,
-      "templates:Insert template": false,
-      "templater-obsidian:Templater": false,
-      "pdf-plus:PDF++: Toggle auto-copy": false,
-      "pdf-plus:PDF++: Toggle auto-focus": false,
-      "pdf-plus:PDF++: Toggle auto-paste": false
+      "daily-notes:Open today's daily note": false
     }
   },
-  "active": "9b65ffea719faea0",
+  "active": "7f94b4237e5b0366",
   "lastOpenFiles": [
-    "_Inbox/_Inbox.md",
-    "Tags",
-    "3. Programming/The Grug Brained Developer.md",
-    "Untitled.md",
-    "1. Projects/AMF/AMF Hub.canvas",
-    "brain/publickey",
-    "brain/preamble.sty",
-    "brain/key.ppk",
-    "brain/desktop.ini",
-    "brain/_Resources/Working effectively with legacy code (2013) (Michael Feathers).pdf",
-    "brain/_Resources/SysML Distilled A Brief Guide to the Systems Modeling Language - Lenny Delligatti.pdf",
-    "brain/_Resources/Refactoring - Improving the Design of Existing Code (Martin Fowler).pdf",
-    "brain/_Resources/Object Modeling with the OCL (Tony Clark, Jos Warmer.pdf",
-    "brain/_Resources/Effective Java, 3rd Edition - Joshua Bloch.pdf",
-    "brain/_Obsidian Info/How to implement GIT in Obsidian/attachments/Pasted image 20220310195657.png",
-    "brain/_Obsidian Info/How to implement GIT in Obsidian/The Plan to Implement GIT S.md",
-    "brain/_Obsidian Info/Plugin Notes.md",
-    "brain/_Obsidian Info/Obsidian Tricks.md",
-    "brain/Systems Engineering/attachments/Pasted image 20220319182409.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319181846.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319182250.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319181441.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319181034.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319180535.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319175937.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319180100.png",
-    "brain/Systems Engineering/attachments/Pasted image 20220319175907.png",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/neo4j.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/Py4J.md",
-    "brain/Statistics/Standard Deviation.md",
-    "brain/Statistics/Variance.md",
-    "brain/Statistics/Mean.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/ModelCenter.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/MagicDraw.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/Full System Info.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/JPype.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/IO Standardization.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/Gaphor.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/AWB Interfacing - BLUF.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/AWB.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/AWB Interfacing Summary.md",
-    "brain/Systems Engineering/System of Systems Theory/Analytic Workbench/12312021_Dees_Meeting.md",
-    "brain/Systems Engineering/SysML & Visual Modeling/SysML V2 - Copy.md",
-    "brain/Systems Engineering/SysML & Visual Modeling/SysML V1.md",
-    "brain/Systems Engineering/DOORS.md",
-    "brain/Math/Acronyms/Higher Order Terms.md",
-    "brain/Math/Acronyms/Left Hand Side.md",
-    "brain/LEGO/LEGO Hub.canvas",
-    "brain/LEGO Design/LEGO Hub.canvas",
-    "brain/Home.canvas",
-    "brain/Game Dev/Tech Art/Beginners Guide to VFX/Beginners Guide to VFX Hub.canvas",
-    "brain/Game Dev/Tech Art/Tech Art Hub.canvas",
-    "brain/Game Dev/Game Dev Hub.canvas",
-    "Homepage.canvas",
+    "brain_inbox/4. Modeling Languages/SysML/Elements/Parameter.md",
+    "00. Daily Notes/DN_06-02-2025_Mon.md",
+    "00. Daily Notes/DN_05-30-2025_Fri.md",
+    "1. Projects/AMF/_AMF Resources/Demo Videos/AmfExportDemo.mp4",
+    "1. Projects/AMF/_AMF Resources/Demo Videos/Media1.mp4",
+    "1. Projects/AMF/_AMF Resources/Demo Videos/AmfExportDemoGIF.gif",
+    "00. Daily Notes/DN_05-29-2025_Thu.md",
+    "00. Daily Notes/_Notes To Inbox.md",
+    "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.6b.9 Release Notes.md",
+    "brain_inbox/4. Modeling Languages/SysML/Elements/Method.md",
+    "2. Tools & Software/Cameo/Cameo Scripting Templates Cheatsheet.md",
+    "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.7b.0 Release Notes.md",
+    "00. Daily Notes/Daily Dashboard.md",
+    "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.5b.0 Release Notes.md",
+    "00. Daily Notes/DN_05-28-2025_Wed.md",
+    "1. Projects/AMF/AMF Repo.lnk",
+    "1. Projects/AMF/CAPL Development Folder.lnk",
+    "00. Daily Notes/DN_05-27-2025_Tue.md",
+    "00. Daily Notes/DN_05-22-2025_Thu.md",
+    "0b. NGC Career & Learning/Important Links Quick Reference.md",
+    "00. Daily Notes/DN_05-21-2025_Wed.md",
+    "00. Daily Notes/DN_05-12-2025_Mon.md",
+    "00. Daily Notes/DN_05-13-2025_Tue.md",
+    "00. Daily Notes/DN_05-14-2025_Wed.md",
+    "00. Daily Notes/DN_05-15-2025_Thu.md",
+    "00. Daily Notes/DN_05-16-2025_Fri.md",
+    "00. Daily Notes/DN_05-19-2025_Mon.md",
+    "00. Daily Notes/DN_05-20-2025_Tue.md",
+    "00. Daily Notes/attachments/DN_05-22-2025_Thu--StartingPoint.png",
+    "00. Daily Notes/attachments",
+    "brain_inbox/4. Modeling Languages/UML/Dependency (UML).md",
+    "brain_inbox/4. Modeling Languages/UML/Abstraction (UML).md",
+    "brain_inbox/4. Modeling Languages/UML/DirectedRelationship (UML).md",
+    "00. Daily Notes/2025/05",
+    "0b. NGC Career & Learning/z-Onboarding & Training/attachments/Building Maps/RM Facilities Maps - 500-600_7.30.20.pdf",
+    "0b. NGC Career & Learning/z-Onboarding & Training/attachments/Building Maps/900 map.pdf",
+    "1. Projects/AMF/__AMF_DEV/Notepad++ AFSIM Grammar Files",
+    "1. Projects/AMF/_AMF Resources/Research/~$detection-scheduling-commands-table.xlsx",
+    "Task Management.canvas",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSideFighterPlatformTypeAttributes.png",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - RedSideFighterPlatformTypeDiagram.png",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - RedSideLaydownDiagrams.png",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSideFighterPlatformTypeDiagram.png",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSideLaydownDiagram.png",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSidePlatformsLibrary.png",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - OV1_Context.png",
+    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - OV5_Actors_Table.png",
+    "2. Tools & Software/Cameo/Custom Hotkeys CheatSheet.canvas",
     "1. Projects/AMF/AMF Release Flowchart.canvas",
-    "1. Projects/AMF/AMPEX Flowchart.canvas"
+    "1. Projects/AMF/AMF Hub.canvas",
+    "1. Projects/LITENING LA Phase 3/LITENING Hub.canvas",
+    "Homepage.canvas",
+    "1. Projects/xLITENING LA Phase 3 - 2024/LITENING Hub.canvas",
+    "2. Tools & Software/Cameo/Cameo Custom Hotkeys.canvas",
+    "2. Tools & Software/Cameo/Opaque Expression Evaluation Flowchart.canvas"
   ]
 }

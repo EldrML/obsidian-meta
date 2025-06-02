@@ -98,7 +98,8 @@
   "editor:fold-all": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
       "key": "-"
     }
@@ -106,7 +107,8 @@
   "editor:unfold-all": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
       "key": "+"
     }
@@ -135,22 +137,6 @@
         "Mod"
       ],
       "key": "R"
-    }
-  ],
-  "editor:toggle-blockquote": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "."
-    }
-  ],
-  "editor:toggle-code": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "`"
     }
   ],
   "ink:create-handwritten-section": [
@@ -204,18 +190,9 @@
     }
   ],
   "switcher:open": [],
-  "omnisearch:show-modal-infile": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "F"
-    }
-  ],
   "editor:open-search": [
     {
       "modifiers": [
-        "Alt",
         "Mod"
       ],
       "key": "F"
@@ -235,12 +212,94 @@
       "key": ","
     }
   ],
+  "omnisearch:show-modal-infile": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "F"
+    }
+  ],
+  "global-search:open": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "F"
+    }
+  ],
+  "canvas:jump-to-group": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "1"
+    }
+  ],
+  "editor:toggle-code": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "`"
+    }
+  ],
+  "blockquote-levels:blockquote-levels-increase": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "."
+    }
+  ],
+  "blockquote-levels:blockquote-levels-decrease": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "."
+    }
+  ],
+  "obsidian-fullscreen-plugin:fullscreen-focus": [
+    {
+      "modifiers": [],
+      "key": "F11"
+    }
+  ],
+  "daily-notes": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "3"
+    }
+  ],
+  "daily-notes:goto-prev": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "2"
+    }
+  ],
+  "daily-notes:goto-next": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "4"
+    }
+  ],
   "editor:toggle-source": [
     {
       "modifiers": [
-        "Meta"
+        "Alt",
+        "Shift"
       ],
-      "key": "*"
+      "key": "1"
     }
   ]
 }

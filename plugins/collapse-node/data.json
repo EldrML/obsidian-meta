@@ -1,7 +1,7 @@
 {
-  "collapsableFileNode": false,
-  "collapsableAttachmentNode": false,
-  "collapsableGroupNode": false,
+  "collapsableFileNode": true,
+  "collapsableAttachmentNode": true,
+  "collapsableGroupNode": true,
   "collapsableLinkNode": true,
   "collapsableTextNode": true,
   "minLineAmount": 0,

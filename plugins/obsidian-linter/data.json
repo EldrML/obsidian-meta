@@ -46,14 +46,16 @@
       "yaml-sort-order-for-other-keys": "None"
     },
     "yaml-timestamp": {
-      "enabled": false,
+      "enabled": true,
       "date-created": false,
       "date-created-key": "date created",
-      "force-retention-of-create-value": false,
-      "date-modified": false,
-      "date-modified-key": "date modified",
-      "format": "dddd, MMMM Do YYYY, h:mm:ss a",
-      "convert-to-utc": false
+      "date-modified": true,
+      "date-modified-key": "last modified",
+      "format": "MM-DD-YYYY",
+      "convert-to-utc": false,
+      "date-created-source-of-truth": "file system",
+      "date-modified-source-of-truth": "user or Linter edits",
+      "update-on-file-contents-updated": "never"
     },
     "yaml-title": {
       "enabled": false,
@@ -99,7 +101,9 @@
     },
     "auto-correct-common-misspellings": {
       "enabled": false,
-      "ignore-words": ""
+      "ignore-words": "",
+      "skip-words-with-multiple-capitals": false,
+      "extra-auto-correct-files": []
     },
     "convert-bullet-list-markers": {
       "enabled": true
@@ -281,6 +285,9 @@
       "enabled": false,
       "characters-to-remove-space-before": ",!?;:).’”]",
       "characters-to-remove-space-after": "¿¡‘“(["
+    },
+    "empty-line-around-horizontal-rules": {
+      "enabled": false
     }
   },
   "lintOnSave": true,
@@ -290,8 +297,7 @@
   "displayLintOnFileChangeNotice": false,
   "settingsConvertedToConfigKeyValues": true,
   "foldersToIgnore": [
-    "Templates",
-    "_NGC_Glossary"
+    "+Vault Metadata (IP)/Templates"
   ],
   "filesToIgnore": [],
   "linterLocale": "system-default",

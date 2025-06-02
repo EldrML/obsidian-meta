@@ -28,41 +28,7 @@ __export(canvasCollapseIndex_exports, {
   default: () => CanvasCollapsePlugin
 });
 module.exports = __toCommonJS(canvasCollapseIndex_exports);
-var import_obsidian3 = require("obsidian");
-
-// node_modules/monkey-around/mjs/index.js
-function around(obj, factories) {
-  const removers = Object.keys(factories).map((key) => around1(obj, key, factories[key]));
-  return removers.length === 1 ? removers[0] : function() {
-    removers.forEach((r) => r());
-  };
-}
-function around1(obj, method, createWrapper) {
-  const original = obj[method], hadOwn = obj.hasOwnProperty(method);
-  let current = createWrapper(original);
-  if (original)
-    Object.setPrototypeOf(current, original);
-  Object.setPrototypeOf(wrapper, current);
-  obj[method] = wrapper;
-  return remove;
-  function wrapper(...args) {
-    if (current === original && obj[method] === wrapper)
-      remove();
-    return current.apply(this, args);
-  }
-  function remove() {
-    if (obj[method] === wrapper) {
-      if (hadOwn)
-        obj[method] = original;
-      else
-        delete obj[method];
-    }
-    if (current === original)
-      return;
-    current = original;
-    Object.setPrototypeOf(wrapper, original || Function);
-  }
-}
+var import_obsidian4 = require("obsidian");
 
 // src/ControlHeader.ts
 var import_obsidian = require("obsidian");
@@ -85,8 +51,6 @@ var CollapseControlHeader = class extends import_obsidian.Component {
     this.updateNodesInGroup();
     this.updateNode();
     this.registerEvent(this.plugin.app.vault.on("rename", (file, oldPath) => {
-      var _a;
-      console.log(file, oldPath, this.node, (_a = this.node.file) == null ? void 0 : _a.path);
       if (oldPath === this.oldFilePath) {
         this.titleEl.setText(file.name.split(".")[0]);
         this.oldFilePath = file.path;
@@ -266,7 +230,6 @@ var CollapseControlHeader = class extends import_obsidian.Component {
   }
   updateEdgesInGroup(node, triggerCollapsed) {
     const edges = this.node.canvas.getEdgesForNode(node);
-    console.log(edges);
     edges.forEach((edge) => {
       var _a, _b, _c, _d;
       (_b = (_a = edge.labelElement) == null ? void 0 : _a.wrapperEl) == null ? void 0 : _b.classList.toggle("group-edges-collapsed", triggerCollapsed || this.collapsed);
@@ -429,120 +392,56 @@ var getSelectionCoords = (dom) => {
 
 // src/canvasCollapseIndex.ts
 var import_view = require("@codemirror/view");
-var DEFAULT_SETTINGS = {
-  collapsableFileNode: true,
-  collapsableAttachmentNode: true,
-  collapsableGroupNode: true,
-  collapsableLinkNode: true,
-  collapsableTextNode: true,
-  minLineAmount: 0,
-  minimalControlHeader: false
-};
-var DynamicUpdateControlHeader = (plugin) => {
-  return import_view.EditorView.updateListener.of((v) => {
-    var _a;
-    if (v.docChanged) {
-      const editor = v.state.field(import_obsidian3.editorInfoField);
-      const node = editor.node;
-      if (node) {
-        if (node.unknownData.type === "text" && !plugin.settings.collapsableTextNode)
-          return;
-        if (node.unknownData.type === "file" && !plugin.settings.collapsableFileNode)
-          return;
-        if (node.unknownData.type === "text" || node.unknownData.type === "file" && node.file.extension === "md") {
-          const content = v.view.state.doc.toString();
-          if (node.headerComponent && plugin.settings.minLineAmount > 0 && content.split("\n").length < plugin.settings.minLineAmount) {
-            (_a = node.headerComponent) == null ? void 0 : _a.unload();
-            node.headerComponent = void 0;
-            return;
-          } else if (!node.headerComponent && plugin.settings.minLineAmount > 0 && content.split("\n").length >= plugin.settings.minLineAmount) {
-            node.headerComponent = new CollapseControlHeader(plugin, node);
-            node.containerEl.prepend(node.headerComponent.onload());
-          }
-        }
-      }
+
+// node_modules/monkey-around/mjs/index.js
+function around(obj, factories) {
+  const removers = Object.keys(factories).map((key) => around1(obj, key, factories[key]));
+  return removers.length === 1 ? removers[0] : function() {
+    removers.forEach((r) => r());
+  };
+}
+function around1(obj, method, createWrapper) {
+  const original = obj[method], hadOwn = obj.hasOwnProperty(method);
+  let current = createWrapper(original);
+  if (original)
+    Object.setPrototypeOf(current, original);
+  Object.setPrototypeOf(wrapper, current);
+  obj[method] = wrapper;
+  return remove;
+  function wrapper(...args) {
+    if (current === original && obj[method] === wrapper)
+      remove();
+    return current.apply(this, args);
+  }
+  function remove() {
+    if (obj[method] === wrapper) {
+      if (hadOwn)
+        obj[method] = original;
+      else
+        delete obj[method];
     }
-  });
-};
-var CanvasCollapsePlugin = class extends import_obsidian3.Plugin {
-  constructor() {
-    super(...arguments);
-    this.triggerByPlugin = false;
-    this.patchSucceed = false;
+    if (current === original)
+      return;
+    current = original;
+    Object.setPrototypeOf(wrapper, original || Function);
   }
-  async onload() {
-    this.loadSettings();
-    this.addSettingTab(new CollapseSettingTab(this.app, this));
-    this.registerCommands();
-    this.registerCanvasEvents();
-    this.registerCustomIcons();
-    this.patchCanvas();
-    this.patchCanvasMenu();
-    this.patchCanvasInteraction();
-    this.patchCanvasNode(this);
-    this.registerEditorExtension([DynamicUpdateControlHeader(this)]);
-    this.initGlobalCss();
-  }
-  onunload() {
-    console.log("unloading plugin");
-    refreshAllCanvasView(this.app);
-  }
-  registerCommands() {
-    this.addCommand({
-      id: "fold-all-nodes",
-      name: "Fold all nodes",
-      checkCallback: (checking) => handleNodesViaCommands(this, checking, true, true)
-    });
-    this.addCommand({
-      id: "expand-all-nodes",
-      name: "Expand all nodes",
-      checkCallback: (checking) => handleNodesViaCommands(this, checking, true, false)
-    });
-    this.addCommand({
-      id: "fold-selected-nodes",
-      name: "Fold selected nodes",
-      checkCallback: (checking) => handleNodesViaCommands(this, checking, false, true)
-    });
-    this.addCommand({
-      id: "expand-selected-nodes",
-      name: "Expand selected nodes",
-      checkCallback: (checking) => handleNodesViaCommands(this, checking, false, false)
-    });
-  }
-  registerCanvasEvents() {
-    this.registerEvent(this.app.workspace.on("collapse-node:patched-canvas", () => {
-      refreshAllCanvasView(this.app);
-    }));
-    this.registerEvent(this.app.workspace.on("canvas:selection-menu", (menu, canvas) => {
-      handleSelectionContextMenu(this, menu, canvas);
-    }));
-    this.registerEvent(this.app.workspace.on("canvas:node-menu", (menu, node) => {
-      handleNodeContextMenu(this, menu, node);
-    }));
-  }
-  registerCustomIcons() {
-    (0, import_obsidian3.addIcon)("fold-vertical", `<g id="surface1"><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 22.000312 L 12 16.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 7.999687 L 12 1.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 4.000312 12 L 1.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 10.000312 12 L 7.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 16.000312 12 L 13.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 22.000312 12 L 19.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 19.000312 L 12 16.000312 L 9 19.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 4.999687 L 12 7.999687 L 9 4.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/></g>`);
-    (0, import_obsidian3.addIcon)("unfold-vertical", `<g id="surface1"><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 22.000312 L 12 16.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 7.999687 L 12 1.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 4.000312 12 L 1.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 10.000312 12 L 7.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 16.000312 12 L 13.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 22.000312 12 L 19.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 19.000312 L 12 22.000312 L 9 19.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 4.999687 L 12 1.999687 L 9 4.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/></g>`);
-  }
-  patchCanvas() {
+}
+
+// src/patchUtils.ts
+var import_obsidian3 = require("obsidian");
+var aroundCanvasMethods = (plugin) => {
+  const patchCanvasMethod = (canvasView) => {
     const checkCoords = (e, t) => {
       return e.minX <= t.minX && e.minY <= t.minY && e.maxX >= t.maxX && e.maxY >= t.maxY;
     };
     const checkTriggerByPlugin = () => {
-      return this.triggerByPlugin;
+      return plugin.triggerByPlugin;
     };
     const toggleTriggerByPlugin = () => {
-      this.triggerByPlugin = !this.triggerByPlugin;
+      plugin.triggerByPlugin = !plugin.triggerByPlugin;
     };
-    const patchCanvas = () => {
-      var _a;
-      const canvasView = (_a = this.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
-      if (!canvasView)
-        return false;
-      const canvas = canvasView == null ? void 0 : canvasView.canvas;
-      if (!canvas)
-        return false;
-      const uninstaller = around(canvas.constructor.prototype, {
+    const patchCanvas = (canvas) => {
+      const uninstaller2 = around(canvas.constructor.prototype, {
         getContainingNodes: (next) => function(e) {
           const result = next.call(this, e);
           const checkExistGroupNode = this.nodeIndex.search(e).find((t) => t.unknownData.type === "group" || t.label);
@@ -598,14 +497,14 @@ var CanvasCollapsePlugin = class extends import_obsidian3.Plugin {
           return next.call(this, e);
         },
         createTextNode: (next) => function(args) {
-          var _a2, _b, _c, _d;
+          var _a, _b, _c, _d;
           if (args.size === void 0 && args.pos) {
             return next.call(this, {
               ...args,
               pos: {
                 x: args.pos.x,
                 y: args.pos.y,
-                width: ((_a2 = args == null ? void 0 : args.size) == null ? void 0 : _a2.width) || 250,
+                width: ((_a = args == null ? void 0 : args.size) == null ? void 0 : _a.width) || 250,
                 height: ((_b = args == null ? void 0 : args.size) == null ? void 0 : _b.height) || 140
               },
               size: {
@@ -619,14 +518,14 @@ var CanvasCollapsePlugin = class extends import_obsidian3.Plugin {
           return next.call(this, args);
         },
         createGroupNode: (next) => function(args) {
-          var _a2, _b, _c, _d;
+          var _a, _b, _c, _d;
           if (args.size !== void 0 && args.pos) {
             return next.call(this, {
               ...args,
               pos: {
                 x: args.pos.x,
                 y: args.pos.y - 30,
-                width: (_a2 = args == null ? void 0 : args.size) == null ? void 0 : _a2.width,
+                width: (_a = args == null ? void 0 : args.size) == null ? void 0 : _a.width,
                 height: ((_b = args == null ? void 0 : args.size) == null ? void 0 : _b.height) + 30
               },
               size: {
@@ -640,214 +539,349 @@ var CanvasCollapsePlugin = class extends import_obsidian3.Plugin {
           return next.call(this, args);
         }
       });
-      this.register(uninstaller);
-      this.patchSucceed = true;
+      plugin.register(uninstaller2);
+      plugin.patchSucceed = true;
       console.log("Obsidian-Collapse-Node: canvas patched");
       return true;
     };
-    this.app.workspace.onLayoutReady(() => {
-      if (!patchCanvas()) {
-        const evt = this.app.workspace.on("layout-change", () => {
-          patchCanvas() && this.app.workspace.offref(evt);
+    patchCanvas(canvasView.canvas);
+  };
+  const uninstaller = around(import_obsidian3.WorkspaceLeaf.prototype, {
+    setViewState(next) {
+      return function(state, ...rest) {
+        var _a, _b, _c;
+        if ((_a = state.state) == null ? void 0 : _a.file) {
+          if (((_b = state.state) == null ? void 0 : _b.file) && ((_c = state.state) == null ? void 0 : _c.file).endsWith(".canvas")) {
+            setTimeout(() => {
+              if (this.view.canvas) {
+                patchCanvasMethod(this.view);
+                uninstaller();
+              }
+            }, 400);
+          }
+        }
+        return next.apply(this, [state, ...rest]);
+      };
+    }
+  });
+  plugin.register(uninstaller);
+};
+var patchCanvasMenu = (plugin) => {
+  const triggerPlugin = () => {
+    plugin.triggerByPlugin = true;
+  };
+  const patchMenu = () => {
+    var _a;
+    const canvasView = (_a = plugin.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
+    if (!canvasView)
+      return false;
+    const menu = canvasView == null ? void 0 : canvasView.canvas.menu;
+    if (!menu)
+      return false;
+    const selection = menu.selection;
+    if (!selection)
+      return false;
+    const menuUninstaller = around(menu.constructor.prototype, {
+      render: (next) => function(...args) {
+        const result = next.call(this, ...args);
+        if (this.menuEl.querySelector(".collapse-node-menu-item"))
+          return result;
+        const buttonEl = createEl("button", "clickable-icon collapse-node-menu-item");
+        (0, import_obsidian3.setTooltip)(buttonEl, "Fold selected nodes", {
+          placement: "top"
         });
-        this.registerEvent(evt);
+        (0, import_obsidian3.setIcon)(buttonEl, "lucide-chevrons-left-right");
+        this.menuEl.appendChild(buttonEl);
+        buttonEl.addEventListener("click", () => {
+          const pos = buttonEl.getBoundingClientRect();
+          if (!buttonEl.hasClass("has-active-menu")) {
+            buttonEl.toggleClass("has-active-menu", true);
+            const menu2 = new import_obsidian3.Menu();
+            const containingNodes = this.canvas.getContainingNodes(this.selection.bbox);
+            handleCanvasMenu(menu2, async (isFold) => {
+              var _a2;
+              triggerPlugin();
+              const currentSelection = this.canvas.selection;
+              containingNodes.length > 1 ? handleMultiNodesViaNodes(this.canvas, containingNodes, isFold) : currentSelection ? handleSingleNode((_a2 = Array.from(currentSelection)) == null ? void 0 : _a2.first(), isFold) : "";
+              buttonEl.toggleClass("has-active-menu", false);
+            });
+            menu2.setParentElement(this.menuEl).showAtPosition({
+              x: pos.x,
+              y: pos.bottom,
+              width: pos.width,
+              overlap: true
+            });
+          }
+        });
+        return result;
       }
+    });
+    plugin.register(menuUninstaller);
+    plugin.app.workspace.trigger("collapse-node:patched-canvas");
+    console.log("Obsidian-Collapse-Node: canvas history patched");
+    return true;
+  };
+  plugin.app.workspace.onLayoutReady(() => {
+    if (!patchMenu()) {
+      const evt = plugin.app.workspace.on("layout-change", () => {
+        patchMenu() && plugin.app.workspace.offref(evt);
+      });
+      plugin.registerEvent(evt);
+    }
+  });
+};
+var patchCanvasInteraction = (plugin) => {
+  const patchInteraction = () => {
+    var _a;
+    const canvasView = (_a = plugin.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
+    if (!canvasView)
+      return false;
+    const canvas = canvasView == null ? void 0 : canvasView.canvas.nodeInteractionLayer;
+    if (!canvas)
+      return false;
+    const uninstaller = around(canvas.constructor.prototype, {
+      render: (next) => function(...args) {
+        const result = next.call(this, ...args);
+        if (!this.target)
+          return result;
+        const isCollapsed = this.target.nodeEl.hasClass("collapsed");
+        const isGroupNodesCollapsed = this.target.nodeEl.hasClass("group-nodes-collapsed");
+        if (this.target.unknownData) {
+          this.interactionEl.toggleClass("collapsed-interaction", isCollapsed);
+        }
+        this.interactionEl.toggleClass("group-nodes-collapsed", isGroupNodesCollapsed);
+        return result;
+      }
+    });
+    plugin.register(uninstaller);
+    console.log("Obsidian-Collapse-Node: canvas history patched");
+    return true;
+  };
+  plugin.app.workspace.onLayoutReady(() => {
+    if (!patchInteraction()) {
+      const evt = plugin.app.workspace.on("layout-change", () => {
+        patchInteraction() && plugin.app.workspace.offref(evt);
+      });
+      plugin.registerEvent(evt);
+    }
+  });
+};
+var initControlHeader = (plugin, node) => {
+  return new CollapseControlHeader(plugin, node);
+};
+var renderNodeWithHeader = (plugin, node) => {
+  var _a;
+  if (node.headerComponent)
+    return;
+  if (!plugin.settings.collapsableFileNode && node.unknownData.type === "file" && node.file.extension === "md")
+    return;
+  if (!plugin.settings.collapsableAttachmentNode && node.unknownData.type === "file" && node.file.extension !== "md")
+    return;
+  if (!plugin.settings.collapsableGroupNode && node.unknownData.type === "group")
+    return;
+  if (!plugin.settings.collapsableLinkNode && node.unknownData.type === "link")
+    return;
+  if (!plugin.settings.collapsableTextNode && node.unknownData.type === "text")
+    return;
+  if (plugin.settings.minLineAmount > 0 && (node.unknownData.type === "text" || node.unknownData.type === "file")) {
+    if (typeof node.text === "string" && node.text.split("\n").length < plugin.settings.minLineAmount)
+      return;
+    if (node.file && node.file.extension === "md" && node.child && ((_a = node.child.data) == null ? void 0 : _a.split("\n").length) < plugin.settings.minLineAmount)
+      return;
+  }
+  node.headerComponent = initControlHeader(plugin, node);
+  node.nodeEl.setAttribute("data-node-type", node.unknownData.type);
+  const addHeader = () => {
+    if (!node.containerEl) {
+      setTimeout(addHeader, 0);
+      return;
+    }
+    node.containerEl.prepend(node.headerComponent.onload());
+  };
+  addHeader();
+  if (node.unknownData.collapsed) {
+    node.nodeEl.toggleClass("collapsed", true);
+    node.headerComponent.updateEdges();
+  }
+};
+var updateAllNodeWithHeader = (plugin) => {
+  var _a;
+  const canvasLeaves = plugin.app.workspace.getLeavesOfType("canvas");
+  for (const canvasLeaf of canvasLeaves) {
+    const canvas = (_a = canvasLeaf.view) == null ? void 0 : _a.canvas;
+    if (!canvas)
+      continue;
+    const nodes = canvas.nodes.values();
+    for (const node of nodes) {
+      renderNodeWithHeader(plugin, node);
+    }
+  }
+};
+var patchCanvasNode = (plugin) => {
+  const patchNode = () => {
+    var _a, _b;
+    const canvasView = (_a = plugin.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
+    if (!canvasView)
+      return false;
+    const canvas = canvasView == null ? void 0 : canvasView.canvas;
+    if (!canvas)
+      return false;
+    const node = ((_b = plugin.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _b.view).canvas.nodes.values().next().value;
+    if (!node)
+      return false;
+    let prototype = Object.getPrototypeOf(node);
+    while (prototype && prototype !== Object.prototype) {
+      prototype = Object.getPrototypeOf(prototype);
+      if (prototype.renderZIndex) {
+        break;
+      }
+    }
+    if (!prototype)
+      return false;
+    const uninstaller = around(prototype, {
+      render: (next) => function(...args) {
+        const result = next.call(this, ...args);
+        renderNodeWithHeader(plugin, this);
+        return result;
+      },
+      getBBox: (next) => function(containing) {
+        const result = next.call(this);
+        if (containing !== true && this.nodeEl.hasClass("collapsed")) {
+          const x = this.x;
+          const y = this.y;
+          const width = this.width;
+          const height = 40;
+          return {
+            minX: x,
+            minY: y,
+            maxX: x + width,
+            maxY: y + height
+          };
+        }
+        return result;
+      },
+      setData: (next) => function(data) {
+        var _a2;
+        if (data.collapsed !== void 0) {
+          (_a2 = this.headerComponent) == null ? void 0 : _a2.setCollapsed(data.collapsed);
+        }
+        return next.call(this, data);
+      }
+    });
+    plugin.register(uninstaller);
+    updateAllNodeWithHeader(plugin);
+    console.log("Obsidian-Collapse-Node: canvas node patched");
+    return true;
+  };
+  plugin.app.workspace.onLayoutReady(() => {
+    if (!patchNode()) {
+      const evt = plugin.app.workspace.on("layout-change", () => {
+        patchNode() && plugin.app.workspace.offref(evt);
+      });
+      plugin.registerEvent(evt);
+    }
+  });
+};
+
+// src/canvasCollapseIndex.ts
+var DEFAULT_SETTINGS = {
+  collapsableFileNode: true,
+  collapsableAttachmentNode: true,
+  collapsableGroupNode: true,
+  collapsableLinkNode: true,
+  collapsableTextNode: true,
+  minLineAmount: 0,
+  minimalControlHeader: false
+};
+var DynamicUpdateControlHeader = (plugin) => {
+  return import_view.EditorView.updateListener.of((v) => {
+    var _a;
+    if (v.docChanged) {
+      const editor = v.state.field(import_obsidian4.editorInfoField);
+      const node = editor.node;
+      if (node) {
+        if (node.unknownData.type === "text" && !plugin.settings.collapsableTextNode)
+          return;
+        if (node.unknownData.type === "file" && !plugin.settings.collapsableFileNode)
+          return;
+        if (node.unknownData.type === "text" || node.unknownData.type === "file" && node.file.extension === "md") {
+          const content = v.view.state.doc.toString();
+          if (node.headerComponent && plugin.settings.minLineAmount > 0 && content.split("\n").length < plugin.settings.minLineAmount) {
+            (_a = node.headerComponent) == null ? void 0 : _a.unload();
+            node.headerComponent = void 0;
+            return;
+          } else if (!node.headerComponent && plugin.settings.minLineAmount > 0 && content.split("\n").length >= plugin.settings.minLineAmount) {
+            node.headerComponent = new CollapseControlHeader(plugin, node);
+            node.containerEl.prepend(node.headerComponent.onload());
+          }
+        }
+      }
+    }
+  });
+};
+var CanvasCollapsePlugin = class extends import_obsidian4.Plugin {
+  constructor() {
+    super(...arguments);
+    this.triggerByPlugin = false;
+    this.patchSucceed = false;
+  }
+  async onload() {
+    this.loadSettings();
+    this.addSettingTab(new CollapseSettingTab(this.app, this));
+    this.registerCommands();
+    this.registerCanvasEvents();
+    this.registerCustomIcons();
+    aroundCanvasMethods(this);
+    patchCanvasMenu(this);
+    patchCanvasInteraction(this);
+    patchCanvasNode(this);
+    this.registerEditorExtension([DynamicUpdateControlHeader(this)]);
+    this.initGlobalCss();
+  }
+  onunload() {
+    console.log("unloading plugin");
+    refreshAllCanvasView(this.app);
+  }
+  registerCommands() {
+    this.addCommand({
+      id: "fold-all-nodes",
+      name: "Fold all nodes",
+      checkCallback: (checking) => handleNodesViaCommands(this, checking, true, true)
+    });
+    this.addCommand({
+      id: "expand-all-nodes",
+      name: "Expand all nodes",
+      checkCallback: (checking) => handleNodesViaCommands(this, checking, true, false)
+    });
+    this.addCommand({
+      id: "fold-selected-nodes",
+      name: "Fold selected nodes",
+      checkCallback: (checking) => handleNodesViaCommands(this, checking, false, true)
+    });
+    this.addCommand({
+      id: "expand-selected-nodes",
+      name: "Expand selected nodes",
+      checkCallback: (checking) => handleNodesViaCommands(this, checking, false, false)
     });
   }
-  patchCanvasMenu() {
-    const triggerPlugin = () => {
-      this.triggerByPlugin = true;
-    };
-    const patchMenu = () => {
-      var _a;
-      const canvasView = (_a = this.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
-      if (!canvasView)
-        return false;
-      const menu = canvasView == null ? void 0 : canvasView.canvas.menu;
-      if (!menu)
-        return false;
-      const selection = menu.selection;
-      if (!selection)
-        return false;
-      const menuUninstaller = around(menu.constructor.prototype, {
-        render: (next) => function(...args) {
-          const result = next.call(this, ...args);
-          if (this.menuEl.querySelector(".collapse-node-menu-item"))
-            return result;
-          const buttonEl = createEl("button", "clickable-icon collapse-node-menu-item");
-          (0, import_obsidian3.setTooltip)(buttonEl, "Fold selected nodes", {
-            placement: "top"
-          });
-          (0, import_obsidian3.setIcon)(buttonEl, "lucide-chevrons-left-right");
-          this.menuEl.appendChild(buttonEl);
-          buttonEl.addEventListener("click", () => {
-            const pos = buttonEl.getBoundingClientRect();
-            if (!buttonEl.hasClass("has-active-menu")) {
-              buttonEl.toggleClass("has-active-menu", true);
-              const menu2 = new import_obsidian3.Menu();
-              const containingNodes = this.canvas.getContainingNodes(this.selection.bbox);
-              handleCanvasMenu(menu2, async (isFold) => {
-                var _a2;
-                triggerPlugin();
-                const currentSelection = this.canvas.selection;
-                containingNodes.length > 1 ? handleMultiNodesViaNodes(this.canvas, containingNodes, isFold) : currentSelection ? handleSingleNode((_a2 = Array.from(currentSelection)) == null ? void 0 : _a2.first(), isFold) : "";
-                buttonEl.toggleClass("has-active-menu", false);
-              });
-              menu2.setParentElement(this.menuEl).showAtPosition({
-                x: pos.x,
-                y: pos.bottom,
-                width: pos.width,
-                overlap: true
-              });
-            }
-          });
-          return result;
-        }
-      });
-      this.register(menuUninstaller);
-      this.app.workspace.trigger("collapse-node:patched-canvas");
-      console.log("Obsidian-Collapse-Node: canvas history patched");
-      return true;
-    };
-    this.app.workspace.onLayoutReady(() => {
-      if (!patchMenu()) {
-        const evt = this.app.workspace.on("layout-change", () => {
-          patchMenu() && this.app.workspace.offref(evt);
-        });
-        this.registerEvent(evt);
-      }
-    });
+  registerCanvasEvents() {
+    this.registerEvent(this.app.workspace.on("collapse-node:patched-canvas", () => {
+      refreshAllCanvasView(this.app);
+    }));
+    this.registerEvent(this.app.workspace.on("canvas:selection-menu", (menu, canvas) => {
+      handleSelectionContextMenu(this, menu, canvas);
+    }));
+    this.registerEvent(this.app.workspace.on("canvas:node-menu", (menu, node) => {
+      handleNodeContextMenu(this, menu, node);
+    }));
   }
-  patchCanvasInteraction() {
-    const patchInteraction = () => {
-      var _a;
-      const canvasView = (_a = this.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
-      if (!canvasView)
-        return false;
-      const canvas = canvasView == null ? void 0 : canvasView.canvas.nodeInteractionLayer;
-      if (!canvas)
-        return false;
-      const uninstaller = around(canvas.constructor.prototype, {
-        render: (next) => function(...args) {
-          const result = next.call(this, ...args);
-          if (!this.target)
-            return result;
-          const isCollapsed = this.target.nodeEl.hasClass("collapsed");
-          const isGroupNodesCollapsed = this.target.nodeEl.hasClass("group-nodes-collapsed");
-          if (this.target.unknownData) {
-            this.interactionEl.toggleClass("collapsed-interaction", isCollapsed);
-          }
-          this.interactionEl.toggleClass("group-nodes-collapsed", isGroupNodesCollapsed);
-          return result;
-        }
-      });
-      this.register(uninstaller);
-      console.log("Obsidian-Collapse-Node: canvas history patched");
-      return true;
-    };
-    this.app.workspace.onLayoutReady(() => {
-      if (!patchInteraction()) {
-        const evt = this.app.workspace.on("layout-change", () => {
-          patchInteraction() && this.app.workspace.offref(evt);
-        });
-        this.registerEvent(evt);
-      }
-    });
-  }
-  patchCanvasNode(plugin) {
-    const initControlHeader = (node) => {
-      return new CollapseControlHeader(plugin, node);
-    };
-    const patchNode = () => {
-      var _a, _b;
-      const canvasView = (_a = this.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _a.view;
-      if (!canvasView)
-        return false;
-      const canvas = canvasView == null ? void 0 : canvasView.canvas;
-      if (!canvas)
-        return false;
-      const node = ((_b = this.app.workspace.getLeavesOfType("canvas").first()) == null ? void 0 : _b.view).canvas.nodes.values().next().value;
-      if (!node)
-        return false;
-      let prototype = Object.getPrototypeOf(node);
-      while (prototype && prototype !== Object.prototype) {
-        prototype = Object.getPrototypeOf(prototype);
-        if (prototype.renderZIndex) {
-          break;
-        }
-      }
-      if (!prototype)
-        return false;
-      const uninstaller = around(prototype, {
-        render: (next) => function(...args) {
-          var _a2;
-          const result = next.call(this, ...args);
-          if (this.headerComponent)
-            return result;
-          if (!plugin.settings.collapsableFileNode && this.unknownData.type === "file" && this.file.extension === "md")
-            return result;
-          if (!plugin.settings.collapsableAttachmentNode && this.unknownData.type === "file" && this.file.extension !== "md")
-            return result;
-          if (!plugin.settings.collapsableGroupNode && this.unknownData.type === "group")
-            return result;
-          if (!plugin.settings.collapsableLinkNode && this.unknownData.type === "link")
-            return result;
-          if (!plugin.settings.collapsableTextNode && this.unknownData.type === "text")
-            return result;
-          if (plugin.settings.minLineAmount > 0 && (this.unknownData.type === "text" || this.unknownData.type === "file")) {
-            if (typeof this.text === "string" && this.text.split("\n").length < plugin.settings.minLineAmount)
-              return result;
-            if (this.file && this.file.extension === "md" && this.child && ((_a2 = this.child.data) == null ? void 0 : _a2.split("\n").length) < plugin.settings.minLineAmount)
-              return result;
-          }
-          this.headerComponent = initControlHeader(this);
-          this.nodeEl.setAttribute("data-node-type", this.unknownData.type);
-          this.containerEl.prepend(this.headerComponent.onload());
-          if (this.unknownData.collapsed) {
-            this.nodeEl.toggleClass("collapsed", true);
-            this.headerComponent.updateEdges();
-          }
-          return result;
-        },
-        getBBox: (next) => function(containing) {
-          const result = next.call(this);
-          if (containing !== true && this.nodeEl.hasClass("collapsed")) {
-            const x = this.x;
-            const y = this.y;
-            const width = this.width;
-            const height = 40;
-            return {
-              minX: x,
-              minY: y,
-              maxX: x + width,
-              maxY: y + height
-            };
-          }
-          return result;
-        },
-        setData: (next) => function(data) {
-          var _a2;
-          if (data.collapsed !== void 0) {
-            (_a2 = this.headerComponent) == null ? void 0 : _a2.setCollapsed(data.collapsed);
-          }
-          return next.call(this, data);
-        }
-      });
-      this.register(uninstaller);
-      console.log("Obsidian-Collapse-Node: canvas node patched");
-      return true;
-    };
-    this.app.workspace.onLayoutReady(() => {
-      if (!patchNode()) {
-        const evt = this.app.workspace.on("layout-change", () => {
-          patchNode() && this.app.workspace.offref(evt);
-        });
-        this.registerEvent(evt);
-      }
-    });
+  registerCustomIcons() {
+    (0, import_obsidian4.addIcon)("fold-vertical", `<g id="surface1"><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 22.000312 L 12 16.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 7.999687 L 12 1.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 4.000312 12 L 1.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 10.000312 12 L 7.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 16.000312 12 L 13.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 22.000312 12 L 19.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 19.000312 L 12 16.000312 L 9 19.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 4.999687 L 12 7.999687 L 9 4.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/></g>`);
+    (0, import_obsidian4.addIcon)("unfold-vertical", `<g id="surface1"><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 22.000312 L 12 16.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 12 7.999687 L 12 1.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 4.000312 12 L 1.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 10.000312 12 L 7.999687 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 16.000312 12 L 13.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 22.000312 12 L 19.999688 12 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 19.000312 L 12 22.000312 L 9 19.000312 " transform="matrix(4.166667,0,0,4.166667,0,0)"/><path style="fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:4;" d="M 15 4.999687 L 12 1.999687 L 9 4.999687 " transform="matrix(4.166667,0,0,4.166667,0,0)"/></g>`);
   }
   initGlobalCss() {
-    document.body.toggleClass("minimal-control-header", this.settings.minimalControlHeader);
+    var _a;
+    document.body.toggleClass("minimal-control-header", (_a = this.settings) == null ? void 0 : _a.minimalControlHeader);
   }
   async loadSettings() {
     this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
@@ -856,7 +890,7 @@ var CanvasCollapsePlugin = class extends import_obsidian3.Plugin {
     await this.saveData(this.settings);
   }
 };
-var CollapseSettingTab = class extends import_obsidian3.PluginSettingTab {
+var CollapseSettingTab = class extends import_obsidian4.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -864,14 +898,14 @@ var CollapseSettingTab = class extends import_obsidian3.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    new import_obsidian3.Setting(containerEl).setHeading().setName("Enable nodes to be collapsable");
+    new import_obsidian4.Setting(containerEl).setHeading().setName("Enable nodes to be collapsable");
     this.createCollapsableSetting(this.plugin, containerEl, "File node", "", "collapsableFileNode");
     this.createCollapsableSetting(this.plugin, containerEl, "Attachment node", "", "collapsableAttachmentNode");
     this.createCollapsableSetting(this.plugin, containerEl, "Group node", "", "collapsableGroupNode");
     this.createCollapsableSetting(this.plugin, containerEl, "Link node", "", "collapsableLinkNode");
     this.createCollapsableSetting(this.plugin, containerEl, "Text node", "", "collapsableTextNode");
-    new import_obsidian3.Setting(containerEl).setHeading().setName("Detail settings");
-    new import_obsidian3.Setting(containerEl).setName("Line amount the enable node to be collapsed").setDesc("The amount of lines that will be shown when the node is collapsed").addText((text) => {
+    new import_obsidian4.Setting(containerEl).setHeading().setName("Detail settings");
+    new import_obsidian4.Setting(containerEl).setName("Line amount the enable node to be collapsed").setDesc("The amount of lines that will be shown when the node is collapsed").addText((text) => {
       text.setValue(this.plugin.settings.minLineAmount.toString()).onChange(async (value) => {
         if (!isNaN(Number(value))) {
           this.plugin.settings.minLineAmount = Number(value);
@@ -879,7 +913,7 @@ var CollapseSettingTab = class extends import_obsidian3.PluginSettingTab {
         }
       });
     });
-    new import_obsidian3.Setting(containerEl).setName("Minimal control header").setDesc("Hide the text and also icon in the control header of the node").addToggle((toggle) => {
+    new import_obsidian4.Setting(containerEl).setName("Minimal control header").setDesc("Hide the text and also icon in the control header of the node").addToggle((toggle) => {
       toggle.setValue(this.plugin.settings.minimalControlHeader).onChange(async (value) => {
         this.plugin.settings.minimalControlHeader = value;
         document.body.toggleClass("minimal-control-header", value);
@@ -888,7 +922,7 @@ var CollapseSettingTab = class extends import_obsidian3.PluginSettingTab {
     });
   }
   createCollapsableSetting(plugin, containerEl, name, desc, settingKey) {
-    new import_obsidian3.Setting(containerEl).setName(name).setDesc(desc).addToggle((toggle) => {
+    new import_obsidian4.Setting(containerEl).setName(name).setDesc(desc).addToggle((toggle) => {
       toggle.setValue(plugin.settings[settingKey]).onChange(async (value) => {
         plugin.settings[settingKey] = value;
         await plugin.saveSettings();

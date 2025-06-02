@@ -1246,13 +1246,13 @@ var require_lodash = __commonJS({
           }
           return true;
         }
-        function baseDelay(func, wait, args) {
+        function baseDelay(func, wait2, args) {
           if (typeof func != "function") {
             throw new TypeError2(FUNC_ERROR_TEXT);
           }
-          return setTimeout(function() {
+          return setTimeout2(function() {
             func.apply(undefined2, args);
-          }, wait);
+          }, wait2);
         }
         function baseDifference(array, values2, iteratee2, comparator) {
           var index = -1, includes2 = arrayIncludes, isCommon = true, length = array.length, result2 = [], valuesLength = values2.length;
@@ -3081,8 +3081,8 @@ var require_lodash = __commonJS({
           return object[key];
         }
         var setData = shortOut(baseSetData);
-        var setTimeout = ctxSetTimeout || function(func, wait) {
-          return root.setTimeout(func, wait);
+        var setTimeout2 = ctxSetTimeout || function(func, wait2) {
+          return root.setTimeout(func, wait2);
         };
         var setToString = shortOut(baseSetToString);
         function setWrapToString(wrapper, reference, bitmask) {
@@ -3660,7 +3660,7 @@ var require_lodash = __commonJS({
           var func = isArray2(collection) ? arrayFilter : baseFilter;
           return func(collection, getIteratee(predicate, 3));
         }
-        var find = createFind(findIndex);
+        var find2 = createFind(findIndex);
         var findLast = createFind(findLastIndex);
         function flatMap(collection, iteratee2) {
           return baseFlatten(map5(collection, iteratee2), 1);
@@ -3852,16 +3852,16 @@ var require_lodash = __commonJS({
           result2.placeholder = curryRight.placeholder;
           return result2;
         }
-        function debounce(func, wait, options) {
+        function debounce(func, wait2, options) {
           var lastArgs, lastThis, maxWait, result2, timerId, lastCallTime, lastInvokeTime = 0, leading = false, maxing = false, trailing = true;
           if (typeof func != "function") {
             throw new TypeError2(FUNC_ERROR_TEXT);
           }
-          wait = toNumber(wait) || 0;
+          wait2 = toNumber(wait2) || 0;
           if (isObject(options)) {
             leading = !!options.leading;
             maxing = "maxWait" in options;
-            maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+            maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait2) : maxWait;
             trailing = "trailing" in options ? !!options.trailing : trailing;
           }
           function invokeFunc(time) {
@@ -3873,23 +3873,23 @@ var require_lodash = __commonJS({
           }
           function leadingEdge(time) {
             lastInvokeTime = time;
-            timerId = setTimeout(timerExpired, wait);
+            timerId = setTimeout2(timerExpired, wait2);
             return leading ? invokeFunc(time) : result2;
           }
           function remainingWait(time) {
-            var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime, timeWaiting = wait - timeSinceLastCall;
+            var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime, timeWaiting = wait2 - timeSinceLastCall;
             return maxing ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
           }
           function shouldInvoke(time) {
             var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime;
-            return lastCallTime === undefined2 || timeSinceLastCall >= wait || timeSinceLastCall < 0 || maxing && timeSinceLastInvoke >= maxWait;
+            return lastCallTime === undefined2 || timeSinceLastCall >= wait2 || timeSinceLastCall < 0 || maxing && timeSinceLastInvoke >= maxWait;
           }
           function timerExpired() {
             var time = now();
             if (shouldInvoke(time)) {
               return trailingEdge(time);
             }
-            timerId = setTimeout(timerExpired, remainingWait(time));
+            timerId = setTimeout2(timerExpired, remainingWait(time));
           }
           function trailingEdge(time) {
             timerId = undefined2;
@@ -3920,12 +3920,12 @@ var require_lodash = __commonJS({
               }
               if (maxing) {
                 clearTimeout(timerId);
-                timerId = setTimeout(timerExpired, wait);
+                timerId = setTimeout2(timerExpired, wait2);
                 return invokeFunc(lastCallTime);
               }
             }
             if (timerId === undefined2) {
-              timerId = setTimeout(timerExpired, wait);
+              timerId = setTimeout2(timerExpired, wait2);
             }
             return result2;
           }
@@ -3936,8 +3936,8 @@ var require_lodash = __commonJS({
         var defer = baseRest(function(func, args) {
           return baseDelay(func, 1, args);
         });
-        var delay = baseRest(function(func, wait, args) {
-          return baseDelay(func, toNumber(wait) || 0, args);
+        var delay = baseRest(function(func, wait2, args) {
+          return baseDelay(func, toNumber(wait2) || 0, args);
         });
         function flip(func) {
           return createWrap(func, WRAP_FLIP_FLAG);
@@ -4023,7 +4023,7 @@ var require_lodash = __commonJS({
             return apply(func, this, otherArgs);
           });
         }
-        function throttle(func, wait, options) {
+        function throttle(func, wait2, options) {
           var leading = true, trailing = true;
           if (typeof func != "function") {
             throw new TypeError2(FUNC_ERROR_TEXT);
@@ -4032,9 +4032,9 @@ var require_lodash = __commonJS({
             leading = "leading" in options ? !!options.leading : leading;
             trailing = "trailing" in options ? !!options.trailing : trailing;
           }
-          return debounce(func, wait, {
+          return debounce(func, wait2, {
             "leading": leading,
-            "maxWait": wait,
+            "maxWait": wait2,
             "trailing": trailing
           });
         }
@@ -4058,7 +4058,7 @@ var require_lodash = __commonJS({
           customizer = typeof customizer == "function" ? customizer : undefined2;
           return baseClone(value, CLONE_SYMBOLS_FLAG, customizer);
         }
-        function cloneDeep(value) {
+        function cloneDeep2(value) {
           return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
         }
         function cloneDeepWith(value, customizer) {
@@ -5184,7 +5184,7 @@ var require_lodash = __commonJS({
         lodash.ceil = ceil;
         lodash.clamp = clamp;
         lodash.clone = clone;
-        lodash.cloneDeep = cloneDeep;
+        lodash.cloneDeep = cloneDeep2;
         lodash.cloneDeepWith = cloneDeepWith;
         lodash.cloneWith = cloneWith;
         lodash.conformsTo = conformsTo;
@@ -5196,7 +5196,7 @@ var require_lodash = __commonJS({
         lodash.escape = escape;
         lodash.escapeRegExp = escapeRegExp;
         lodash.every = every;
-        lodash.find = find;
+        lodash.find = find2;
         lodash.findIndex = findIndex;
         lodash.findKey = findKey;
         lodash.findLast = findLast;
@@ -5520,7 +5520,7 @@ __export(main_exports, {
   default: () => ConfluenceLink
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian8 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 
 // lib/settings.ts
 var import_obsidian4 = require("obsidian");
@@ -5547,6 +5547,93 @@ function concatenateUint8Arrays(arrays) {
   }
   return result;
 }
+var MardownLgToConfluenceLgMap = {
+  js: "javascript",
+  bash: "shell",
+  abap: "abap",
+  actionscript: "actionscript",
+  ada: "ada",
+  applescript: "applescript",
+  arduino: "arduino",
+  autoit: "autoit",
+  c: "c",
+  "c++": "cpp",
+  clojure: "clojure",
+  coffeescript: "coffeescript",
+  coldfusion: "coldfusion",
+  csharp: "csharp",
+  css: "css",
+  cuda: "cuda",
+  d: "d",
+  dart: "dart",
+  diff: "diff",
+  elixir: "elixir",
+  erlang: "erlang",
+  fortran: "fortran",
+  foxpro: "foxpro",
+  go: "go",
+  graphql: "graphql",
+  groovy: "groovy",
+  haskell: "haskell",
+  haxe: "haxe",
+  html: "html",
+  java: "java",
+  javafx: "javafx",
+  javascript: "javascript",
+  json: "json",
+  jsx: "jsx",
+  julia: "julia",
+  kotlin: "kotlin",
+  livescript: "livescript",
+  lua: "lua",
+  mathematica: "mathematica",
+  matlab: "matlab",
+  "objective-c": "objective-c",
+  "objective-j": "objective-j",
+  ocaml: "ocaml",
+  octave: "cctave",
+  pascal: "pascal",
+  perl: "perl",
+  php: "php",
+  plaintext: "text",
+  powershell: "powershell",
+  prolog: "prolog",
+  puppet: "puppet",
+  python: "python",
+  qml: "qml",
+  r: "r",
+  racket: "racket",
+  restructuredtext: "restructuredtext",
+  ruby: "ruby",
+  rust: "rust",
+  sass: "sass",
+  scala: "scala",
+  scheme: "scheme",
+  shell: "bash",
+  smalltalk: "smalltalk",
+  splunkspl: "splunkspl",
+  sql: "sql",
+  standardml: "standardml",
+  swift: "swift",
+  tcl: "tcl",
+  tex: "tex",
+  tsx: "tsx",
+  typescript: "typescript",
+  vala: "vala",
+  vbnet: "vbnet",
+  verilog: "verilog",
+  vhdl: "vhdl",
+  visualbasic: "visualbasic",
+  xml: "xml",
+  xquery: "xquery",
+  yaml: "yaml"
+};
+var wait = async (ms = 1e3) => {
+  await new Promise((resolve) => setTimeout(resolve, ms));
+};
+var isRecentlyModified = (mtime, thresholdMs = 1e3) => {
+  return Date.now() - mtime <= thresholdMs;
+};
 
 // lib/confluence/base.ts
 var BaseClient = class {
@@ -6005,11 +6092,12 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
+    this.showToken = false;
   }
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    new import_obsidian4.Setting(containerEl).setName("Confluence domain").setDesc("Confluence domain eg: https://test.attlasian.net").addText(
+    new import_obsidian4.Setting(containerEl).setName("Confluence domain").setDesc("eg: https://test.attlasian.net").addText(
       (text) => text.setValue(this.plugin.settings.confluenceDomain).onChange(async (value) => {
         this.plugin.settings.confluenceDomain = value;
         await this.plugin.saveSettings();
@@ -6023,12 +6111,39 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
         }
       );
     });
-    new import_obsidian4.Setting(containerEl).setName("Atlassian api token").setDesc("Api token").addText((text) => {
+    new import_obsidian4.Setting(containerEl).setName("Atlassian api token").setDesc(
+      createFragment((el) => {
+        el.appendChild(
+          createEl("a", {
+            text: "Official documentation",
+            href: "https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/"
+          })
+        );
+      })
+    ).addExtraButton(
+      (button) => button.setTooltip("Copy token").setIcon("copy").onClick(async () => {
+        if (this.plugin.settings.atlassianApiToken) {
+          await navigator.clipboard.writeText(
+            this.plugin.settings.atlassianApiToken
+          );
+          new import_obsidian4.Notice("Token copied");
+        }
+      })
+    ).addExtraButton(
+      (button) => button.setIcon(this.showToken ? "eye-off" : "eye").onClick(() => {
+        this.showToken = !this.showToken;
+        this.display();
+      }).setTooltip(this.showToken ? "Hide token" : "Show token")
+    ).addText((text) => {
       text.setValue(this.plugin.settings.atlassianApiToken).onChange(
         async (value) => {
           this.plugin.settings.atlassianApiToken = value;
           await this.plugin.saveSettings();
         }
+      );
+      text.inputEl.setAttr(
+        "type",
+        this.showToken ? "text" : "password"
       );
     });
     new import_obsidian4.Setting(containerEl).addButton(
@@ -6062,7 +6177,7 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
         button.setDisabled(false);
       })
     );
-    new import_obsidian4.Setting(containerEl).setName("Confluence default space").setDesc("Default spaceId to save the files").addExtraButton((button) => {
+    new import_obsidian4.Setting(containerEl).setName("Confluence default space").setDesc("Default spaceId to create the files").addExtraButton((button) => {
       button.setTooltip("Choose default spaceId").onClick(() => {
         const {
           atlassianUsername,
@@ -6094,7 +6209,7 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
         ).open();
       });
     }).addText((text) => {
-      let wait = null;
+      let wait2 = null;
       text.setValue(
         this.plugin.settings.confluenceDefaultSpaceId
       ).onChange(async (value) => {
@@ -6102,10 +6217,10 @@ var ConfluenceLinkSettingsTab = class extends import_obsidian4.PluginSettingTab 
           this.plugin.settings.confluenceDefaultSpaceId = value;
           await this.plugin.saveSettings();
         } else {
-          if (wait) {
-            window.clearTimeout(wait);
+          if (wait2) {
+            window.clearTimeout(wait2);
           }
-          wait = window.setTimeout(() => {
+          wait2 = window.setTimeout(() => {
             this.display();
             new import_obsidian4.Notice("Please enter a valid space id.");
           }, 500);
@@ -12395,7 +12510,7 @@ ${stringify3(this.properties)}
 };
 
 // lib/adaptors/file.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 
 // lib/builder/adf.ts
 var ADFBuilder = class {
@@ -12465,10 +12580,10 @@ var ADFBuilder = class {
       marks: [this.markStrike()]
     };
   }
-  codeBlockItem(codeText) {
+  codeBlockItem(codeText, language = "") {
     return {
       type: "codeBlock",
-      attrs: { language: "" },
+      attrs: { language },
       content: [{ type: "text", text: codeText }]
     };
   }
@@ -12556,8 +12671,8 @@ var ADFBuilder = class {
       ]
     };
   }
-  mediaItem(id, collection) {
-    return {
+  mediaItem(id, collection, width = null, height = null) {
+    const media = {
       type: "media",
       attrs: {
         type: "file",
@@ -12565,11 +12680,19 @@ var ADFBuilder = class {
         collection
       }
     };
+    if (width) {
+      media.attrs.width = width;
+      media.attrs.widthType = "pixel";
+    }
+    if (height) {
+      media.attrs.height = height;
+    }
+    return media;
   }
-  mediaSingleItem(id, collection, layout = "center") {
+  mediaSingleItem(id, collection, layout = "center", width = null, height = null) {
     return {
       type: "mediaSingle",
-      content: [this.mediaItem(id, collection)],
+      content: [this.mediaItem(id, collection, width, height)],
       attrs: {
         layout
       }
@@ -12609,6 +12732,10 @@ var ADFBuilder = class {
   build() {
     return this.adf;
   }
+  clear() {
+    this.adf = [];
+    return this;
+  }
 };
 
 // lib/directors/media.ts
@@ -12628,10 +12755,8 @@ var MediaDirector = class {
     if (!(file instanceof import_obsidian5.TFile)) {
       return null;
     }
+    const src = node.getAttr("src");
     const canvasEmbed = node.classList.contains("canvas-embed");
-    if (canvasEmbed) {
-      return null;
-    }
     const imageEmbed = node.classList.contains("image-embed");
     const pdfEmbed = node.classList.contains("pdf-embed");
     const videoEmbed = node.classList.contains("video-embed");
@@ -12639,8 +12764,16 @@ var MediaDirector = class {
     const fileData = await this.app.vault.read(file);
     const props = new PropertiesAdaptor().loadProperties(fileData);
     const pageId = props.properties.pageId;
-    const src = node.getAttr("src");
-    if (imageEmbed) {
+    let width = null;
+    let height = null;
+    let layout = "center";
+    if (canvasEmbed) {
+      return null;
+    } else if (imageEmbed) {
+      const wrap = node.getAttr("alt");
+      width = node.getAttr("width") ? parseInt(node.getAttr("width")) : null;
+      height = node.getAttr("height") ? parseInt(node.getAttr("height")) : null;
+      layout = wrap == "inL" ? "wrap-left" : wrap == "inR" ? "wrap-right" : "center";
       const imgFile = this.app.metadataCache.getFirstLinkpathDest(
         src,
         "."
@@ -12649,25 +12782,30 @@ var MediaDirector = class {
         console.error("not know path", node);
         return null;
       }
-      const fileData2 = new File(
-        [await this.app.vault.readBinary(imgFile)],
-        imgFile.name
+      formData.append(
+        "file",
+        new File(
+          [await this.app.vault.readBinary(imgFile)],
+          imgFile.name
+        )
       );
-      formData.append("file", fileData2);
     } else if (pdfEmbed || videoEmbed) {
+      const fileSrc = src.split("#")[0];
       const fileEmbed = this.app.metadataCache.getFirstLinkpathDest(
-        src,
+        fileSrc,
         "."
       );
       if (!fileEmbed) {
         console.error("not know path", node);
         return null;
       }
-      const fileData2 = new File(
-        [await this.app.vault.readBinary(fileEmbed)],
-        fileEmbed.name
+      formData.append(
+        "file",
+        new File(
+          [await this.app.vault.readBinary(fileEmbed)],
+          fileEmbed.name
+        )
       );
-      formData.append("file", fileData2);
     }
     const attachmentResponse = await this.client.attachement.uploadFile(
       pageId,
@@ -12676,45 +12814,14 @@ var MediaDirector = class {
     const { extensions } = attachmentResponse.results[0];
     return this.builder.mediaSingleItem(
       extensions.fileId,
-      extensions.collectionName
+      extensions.collectionName,
+      layout,
+      width,
+      height
     );
   }
 };
 var media_default = MediaDirector;
-
-// lib/directors/label.ts
-var import_lodash6 = __toESM(require_lodash());
-var import_obsidian6 = require("obsidian");
-var LabelDirector = class {
-  constructor(app, client) {
-    this.app = app;
-    this.client = client;
-  }
-  async addTags(filePath, uploadTags, htmlTags = []) {
-    if (!uploadTags) {
-      return null;
-    }
-    const file = this.app.metadataCache.getFirstLinkpathDest(filePath, ".");
-    if (!(file instanceof import_obsidian6.TFile)) {
-      return null;
-    }
-    let allTags = [];
-    const fileData = await this.app.vault.read(file);
-    const propAdaptor = new PropertiesAdaptor().loadProperties(fileData);
-    const { pageId, tags } = propAdaptor.properties;
-    if (!(0, import_lodash6.isEmpty)(tags)) {
-      allTags = tags;
-    }
-    for (const tag of htmlTags) {
-      allTags.push(tag.textContent);
-    }
-    if (allTags.length == 0) {
-      return null;
-    }
-    await this.client.label.addLabel(pageId, allTags);
-    return;
-  }
-};
 
 // lib/directors/link.ts
 var LinkDirector = class {
@@ -12722,16 +12829,30 @@ var LinkDirector = class {
     this.builder = builder;
     this.fileAdaptor = fileAdaptor;
   }
-  async build_item(node, followLinks) {
+  async build_item(node, followLinks, filePath) {
     const classList = node.classList;
-    if (classList.contains("tag")) {
-      return null;
-    }
+    const isExternalLink = classList.contains("external-link");
+    const linkPath = node.getAttr("href");
     if (!followLinks) {
-      return null;
+      if (isExternalLink) {
+        if (node.getAttr("data-tooltip-position")) {
+          return this.builder.cardItem(linkPath);
+        }
+        return this.builder.linkItem(node.textContent, linkPath);
+      }
+      const paths = linkPath.split("#").filter((string2) => string2.trim() != "");
+      const samePageLink = paths.length == 1;
+      if (linkPath.includes(filePath.replace(".md", "")) || samePageLink && linkPath.includes("#")) {
+        const href2 = await this.findLink(node);
+        return this.builder.cardItem(href2);
+      }
+      return this.builder.linkItem(node.text, "#");
     }
     const href = await this.findLink(node);
-    if (classList.contains("internal-link") && node.getAttr("href") == node.getAttr("data-href")) {
+    if (href == "#") {
+      return this.builder.linkItem(node.textContent, "#");
+    }
+    if (classList.contains("internal-link") || isExternalLink && node.getAttr("data-tooltip-position")) {
       return this.builder.cardItem(href);
     }
     return this.builder.linkItem(node.textContent, href);
@@ -12741,7 +12862,7 @@ var LinkDirector = class {
     if (linkEl.classList.contains("internal-link")) {
       const dataLink = linkEl.getAttr("data-href");
       if (dataLink.contains("#")) {
-        const paths = dataLink.split("#");
+        const paths = dataLink.split("#").filter((string2) => string2.trim() != "");
         const newPageLink = paths.length > 1;
         if (newPageLink) {
           href = await this.fileAdaptor.getConfluenceLink(
@@ -12764,33 +12885,33 @@ var link_default = LinkDirector;
 
 // lib/directors/paragraph.ts
 var ParagraphDirector = class {
-  constructor(builder, fileAdaptor, app, client, settings) {
+  constructor(builder, fileAdaptor, app, client, settings, labelDirector) {
     this.builder = builder;
     this.fileAdaptor = fileAdaptor;
     this.app = app;
     this.client = client;
     this.settings = settings;
+    this.labelDirector = labelDirector;
   }
   async addItems(node, filePath, ignoreTags = false) {
     const pItem = this.builder.paragraphItem();
-    const tags = node.querySelectorAll('a[class="tag"]');
-    if (!ignoreTags && tags.length > 0 && tags.length == node.children.length) {
-      new LabelDirector(this.app, this.client).addTags(
-        filePath,
-        this.settings.uploadTags,
+    if (!ignoreTags && this.settings.uploadTags && this.isTagOnlyParagraph(node)) {
+      const tags = node.querySelectorAll('a[class="tag"]');
+      this.labelDirector.addTags(
         tags
       );
       return;
     }
     for (const innerNode of Array.from(node.childNodes)) {
-      if (innerNode.nodeType === Node.TEXT_NODE) {
+      if (innerNode.nodeType === Node.TEXT_NODE || this.isTagNode(innerNode)) {
         const textItem = this.builder.textItem(innerNode.textContent);
         pItem.content.push(textItem);
         continue;
       }
       if (innerNode.nodeType === Node.ELEMENT_NODE && innerNode.nodeName !== "SPAN") {
         const nestedItem = await this.findNestedItem(
-          innerNode
+          innerNode,
+          filePath
         );
         if (nestedItem) {
           pItem.content.push(nestedItem);
@@ -12816,16 +12937,23 @@ var ParagraphDirector = class {
     }
     this.builder.addItem(pItem);
   }
-  async findNestedItem(node) {
+  isTagNode(node) {
+    return node.nodeType === Node.ELEMENT_NODE && node.nodeName === "A" && node.classList.contains("tag");
+  }
+  async findNestedItem(node, filePath) {
     let item = null;
     switch (node.nodeName) {
       case "A":
+        if (node.classList.contains("tag")) {
+          break;
+        }
         item = await new link_default(
           this.builder,
           this.fileAdaptor
         ).build_item(
           node,
-          this.settings.followLinks
+          this.settings.followLinks,
+          filePath
         );
         break;
       case "STRONG":
@@ -12841,6 +12969,7 @@ var ParagraphDirector = class {
         item = this.builder.underlineItem(node.textContent);
         break;
       case "S":
+      case "DEL":
         item = this.builder.strikeItem(node.textContent);
         break;
     }
@@ -12893,6 +13022,22 @@ var ParagraphDirector = class {
     }
     return marks;
   }
+  isTagOnlyParagraph(node) {
+    var _a;
+    const childNodes = Array.from(node.childNodes);
+    let hasText = false;
+    let hasTag = false;
+    for (const child of childNodes) {
+      if (child.nodeType === Node.TEXT_NODE && ((_a = child.textContent) == null ? void 0 : _a.trim()) !== "") {
+        hasText = true;
+      } else if (child.nodeType === Node.ELEMENT_NODE && child.classList.contains("tag")) {
+        hasTag = true;
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        hasText = true;
+      }
+    }
+    return hasTag && !hasText;
+  }
 };
 var paragraph_default = ParagraphDirector;
 
@@ -12920,6 +13065,105 @@ var TableDirector = class extends paragraph_default {
 var table_default = TableDirector;
 
 // lib/adaptors/file.ts
+var import_lodash7 = __toESM(require_lodash());
+
+// lib/directors/list.ts
+var ListDirector = class extends paragraph_default {
+  async addList(node, filePath) {
+    this.builder.addItem(await this.buildList(node, filePath));
+  }
+  async buildList(node, filePath) {
+    const isTaskList = this.isTasklist(node);
+    let list = this.builder.bulletListItem([]);
+    if (node.nodeName == "OL") {
+      list = this.builder.orderedListItem([]);
+    }
+    if (isTaskList) {
+      list = this.builder.taskListItem([]);
+    }
+    await this.buildListItems(node, isTaskList, filePath, list);
+    return list;
+  }
+  async buildListItems(node, isTaskList, filePath, list) {
+    const items = await Promise.all(
+      Array.from(node.children).map(async (li) => {
+        var _a;
+        const itemsAdfBuilder = new ADFBuilder();
+        const paragraphDirector = new paragraph_default(
+          itemsAdfBuilder,
+          this.fileAdaptor,
+          this.app,
+          this.client,
+          this.settings,
+          this.labelDirector
+        );
+        if (isTaskList) {
+          return this.builder.taskItem(
+            (_a = li.textContent) == null ? void 0 : _a.trim(),
+            Boolean(li.getAttr("data-task"))
+          );
+        }
+        let p = createEl("p");
+        let subList = null;
+        for (const child of Array.from(li.childNodes)) {
+          if (child.nodeType === Node.ELEMENT_NODE && ["OL", "UL"].includes(child.nodeName)) {
+            subList = await this.buildList(
+              child,
+              filePath
+            );
+          } else {
+            if (child.textContent == "\n") {
+              continue;
+            }
+            if (child.nodeType == Node.ELEMENT_NODE && child.nodeName == "P") {
+              p = child;
+              continue;
+            }
+            p.append(child);
+          }
+        }
+        await paragraphDirector.addItems(p, filePath, true);
+        const listItem = this.builder.listItem(itemsAdfBuilder.build());
+        if (subList) {
+          listItem.content.push(subList);
+        }
+        return listItem;
+      })
+    );
+    if (items) {
+      list.content.push(...items);
+    }
+  }
+  isTasklist(node) {
+    return node.querySelectorAll("li").length === node.querySelectorAll('input[type="checkbox"]').length;
+  }
+};
+var list_default = ListDirector;
+
+// lib/directors/label.ts
+var import_lodash6 = __toESM(require_lodash());
+var LabelDirector = class {
+  constructor(client, propertiesAdaptor) {
+    this.client = client;
+    this.propertiesAdaptor = propertiesAdaptor;
+    this.allTags = propertiesAdaptor.properties.tags ? (0, import_lodash6.cloneDeep)(propertiesAdaptor.properties.tags) : [];
+  }
+  async addTags(htmlTags = []) {
+    for (const tag of htmlTags) {
+      if (!this.allTags.includes(tag.textContent)) {
+        this.allTags.push(tag.textContent);
+      }
+    }
+  }
+  async updateConfluencePage() {
+    await this.client.label.addLabel(
+      this.propertiesAdaptor.properties.pageId,
+      this.allTags
+    );
+  }
+};
+
+// lib/adaptors/file.ts
 var FileAdaptor = class {
   constructor(app, client, spaceId, settings) {
     this.app = app;
@@ -12927,28 +13171,37 @@ var FileAdaptor = class {
     this.spaceId = spaceId;
     this.settings = settings;
   }
-  async convertObs2Adf(text, path) {
+  async convertObs2Adf(text, path, propertiesAdaptor) {
     const container = document.createElement("div");
-    import_obsidian7.MarkdownRenderer.render(
+    import_obsidian6.MarkdownRenderer.render(
       this.app,
       text,
       container,
       path,
-      new import_obsidian7.Component()
+      new import_obsidian6.Component()
     );
-    const adf = await this.htmlToAdf(container, path);
+    const adf = await this.htmlToAdf(container, path, propertiesAdaptor);
     return adf;
   }
-  async htmlToAdf(container, filePath) {
+  async htmlToAdf(container, filePath, propertiesAdaptor) {
     const builder = new ADFBuilder();
+    const labelDirector = new LabelDirector(this.client, propertiesAdaptor);
     for (const node of Array.from(container.childNodes)) {
-      await this.traverse(node, builder, filePath);
+      await this.traverse(
+        node,
+        builder,
+        filePath,
+        labelDirector
+      );
+    }
+    if (this.settings.uploadTags && labelDirector.allTags.length > 0) {
+      await labelDirector.updateConfluencePage();
     }
     return builder.build();
   }
   async getConfluenceLink(path) {
     const file = this.app.metadataCache.getFirstLinkpathDest(path, ".");
-    if (!(file instanceof import_obsidian7.TFile)) {
+    if (!(file instanceof import_obsidian6.TFile)) {
       return "#";
     }
     const fileData = await this.app.vault.read(file);
@@ -12959,7 +13212,7 @@ var FileAdaptor = class {
     }
     const response = await this.client.page.createPage({
       spaceId: this.spaceId,
-      pageTitle: file.name
+      pageTitle: file.basename
     });
     confluenceUrl = response._links.base + response._links.webui;
     propAdaptor.addProperties({
@@ -12968,16 +13221,16 @@ var FileAdaptor = class {
       confluenceUrl
     });
     await this.app.vault.modify(file, propAdaptor.toFile(fileData));
-    const adf = await this.convertObs2Adf(fileData, path);
+    const adf = await this.convertObs2Adf(fileData, path, propAdaptor);
     await this.client.page.updatePage({
       pageId: propAdaptor.properties.pageId,
-      pageTitle: file.name,
+      pageTitle: file.basename,
       adf
     });
-    new import_obsidian7.Notice(`Page Created: ${file.name}`);
+    new import_obsidian6.Notice(`Page Created: ${file.basename}`);
     return confluenceUrl;
   }
-  async traverse(node, builder, filePath) {
+  async traverse(node, builder, filePath, labelDirector) {
     switch (node.nodeName) {
       case "H1":
       case "H2":
@@ -13005,7 +13258,8 @@ var FileAdaptor = class {
                     this,
                     this.app,
                     this.client,
-                    this.settings
+                    this.settings,
+                    labelDirector
                   );
                   await director.addItems(
                     cell,
@@ -13022,10 +13276,21 @@ var FileAdaptor = class {
         break;
       case "PRE":
         const codeElement = node.querySelector("code");
-        if (codeElement && !codeElement.classList.contains("language-yaml")) {
-          const codeText = codeElement.textContent || "";
-          builder.addItem(builder.codeBlockItem(codeText));
+        if (node.classList.contains("frontmatter") || !codeElement) {
+          break;
         }
+        if (codeElement.classList.contains("language-mermaid")) {
+          break;
+        }
+        const codeText = codeElement.textContent || "";
+        const codeLg = (0, import_lodash7.find)(
+          Array.from(codeElement.classList.values()),
+          (cls) => {
+            return cls.startsWith("language-");
+          }
+        );
+        const confluenceLg = codeLg ? MardownLgToConfluenceLgMap[codeLg.replace("language-", "")] : "";
+        builder.addItem(builder.codeBlockItem(codeText, confluenceLg));
         break;
       case "P":
         const paragraphDirector = new paragraph_default(
@@ -13033,7 +13298,8 @@ var FileAdaptor = class {
           this,
           this.app,
           this.client,
-          this.settings
+          this.settings,
+          labelDirector
         );
         await paragraphDirector.addItems(
           node,
@@ -13042,46 +13308,17 @@ var FileAdaptor = class {
         break;
       case "OL":
       case "UL":
-        const isTaskList = node.querySelectorAll("li").length === node.querySelectorAll('input[type="checkbox"]').length;
-        const listItems = await Promise.all(
-          Array.from(node.children).map(async (li) => {
-            var _a;
-            const listAdf = new ADFBuilder();
-            const listDirector = new paragraph_default(
-              listAdf,
-              this,
-              this.app,
-              this.client,
-              this.settings
-            );
-            if (isTaskList) {
-              return builder.taskItem(
-                (_a = li.textContent) == null ? void 0 : _a.trim(),
-                Boolean(li.getAttr("data-task"))
-              );
-            }
-            const p = createEl("p");
-            for (const child of Array.from(li.childNodes)) {
-              p.append(child);
-            }
-            await listDirector.addItems(p, filePath);
-            return builder.listItem(listAdf.build());
-          })
+        const listDirector = new list_default(
+          builder,
+          this,
+          this.app,
+          this.client,
+          this.settings,
+          labelDirector
         );
-        if (isTaskList) {
-          builder.addItem(
-            builder.taskListItem(listItems)
-          );
-          break;
-        }
-        if (node.nodeName == "OL") {
-          builder.addItem(
-            builder.orderedListItem(listItems)
-          );
-          break;
-        }
-        builder.addItem(
-          builder.bulletListItem(listItems)
+        await listDirector.addList(
+          node,
+          filePath
         );
         break;
       case "BLOCKQUOTE":
@@ -13095,7 +13332,7 @@ var FileAdaptor = class {
 };
 
 // main.ts
-var ConfluenceLink = class extends import_obsidian8.Plugin {
+var ConfluenceLink = class extends import_obsidian7.Plugin {
   async onload() {
     await this.loadSettings();
     this.addSettingTab(new ConfluenceLinkSettingsTab(this.app, this));
@@ -13113,7 +13350,7 @@ var ConfluenceLink = class extends import_obsidian8.Plugin {
               confluenceDefaultSpaceId
             );
           },
-          (_a = ctx.file) == null ? void 0 : _a.name
+          (_a = ctx.file) == null ? void 0 : _a.basename
         );
       }
     });
@@ -13127,14 +13364,14 @@ var ConfluenceLink = class extends import_obsidian8.Plugin {
             var _a2;
             return this.uploadFile(((_a2 = ctx.file) == null ? void 0 : _a2.path) || "", null);
           },
-          (_a = ctx.file) == null ? void 0 : _a.name
+          (_a = ctx.file) == null ? void 0 : _a.basename
         );
       }
     });
   }
   async addProgress(callback, filename) {
     const statusBar = this.addStatusBarItem();
-    (0, import_obsidian8.setIcon)(statusBar, "loader");
+    (0, import_obsidian7.setIcon)(statusBar, "loader");
     const loader = statusBar.querySelector("svg");
     statusBar.createEl("span", {
       text: `Uploading ${filename}`,
@@ -13161,14 +13398,12 @@ var ConfluenceLink = class extends import_obsidian8.Plugin {
       await callback();
     } catch (e) {
       console.error(e);
-      statusBar.detach();
-      return;
     }
     statusBar.detach();
   }
   getActiveCanvas() {
     var _a;
-    let currentView = (_a = this.app.workspace) == null ? void 0 : _a.getActiveViewOfType(import_obsidian8.FileView);
+    let currentView = (_a = this.app.workspace) == null ? void 0 : _a.getActiveViewOfType(import_obsidian7.FileView);
     if ((currentView == null ? void 0 : currentView.getViewType()) !== "canvas") {
       return null;
     }
@@ -13177,14 +13412,17 @@ var ConfluenceLink = class extends import_obsidian8.Plugin {
   async uploadFile(filePath, spaceId) {
     const { atlassianUsername, atlassianApiToken, confluenceDomain } = this.settings;
     if (!atlassianApiToken || !atlassianUsername || !confluenceDomain) {
-      new import_obsidian8.Notice(
+      new import_obsidian7.Notice(
         "Settings not set up. Please open the settings page of the plugin"
       );
       return;
     }
     const file = this.app.vault.getAbstractFileByPath(filePath || "");
-    if (!(file instanceof import_obsidian8.TFile)) {
+    if (!(file instanceof import_obsidian7.TFile)) {
       throw new Error("Not a TFile");
+    }
+    if (isRecentlyModified(file.stat.mtime)) {
+      await wait(2e3);
     }
     const fileData = await this.app.vault.read(file);
     const client = new ConfluenceClient({
@@ -13195,7 +13433,7 @@ var ConfluenceLink = class extends import_obsidian8.Plugin {
       }
     });
     const propAdaptor = new PropertiesAdaptor().loadProperties(fileData);
-    const { pageId, tags } = propAdaptor.properties;
+    const { pageId } = propAdaptor.properties;
     let response = null;
     if (!spaceId && !pageId) {
       await new Promise((resolve) => {
@@ -13208,7 +13446,7 @@ var ConfluenceLink = class extends import_obsidian8.Plugin {
     if (!pageId) {
       response = await client.page.createPage({
         spaceId,
-        pageTitle: file.name.replace(".md", "")
+        pageTitle: file.basename
       });
       propAdaptor.addProperties({
         pageId: response.id,
@@ -13222,19 +13460,13 @@ var ConfluenceLink = class extends import_obsidian8.Plugin {
       client,
       spaceId,
       this.settings
-    ).convertObs2Adf(fileData, filePath || "");
+    ).convertObs2Adf(fileData, filePath, propAdaptor);
     client.page.updatePage({
       pageId: propAdaptor.properties.pageId,
-      pageTitle: file.name.replace(".md", ""),
+      pageTitle: file.basename,
       adf
     });
-    if (tags) {
-      new LabelDirector(this.app, client).addTags(
-        filePath,
-        this.settings.uploadTags
-      );
-    }
-    new import_obsidian8.Notice(`File uploaded to confluence`);
+    new import_obsidian7.Notice(`${file.basename} file uploaded to confluence`);
   }
   async onunload() {
   }

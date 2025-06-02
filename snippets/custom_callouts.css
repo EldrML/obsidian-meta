@@ -1,0 +1,97 @@
+/* Use this: https://bernaferrari.github.io/color-studio/#/ */
+
+.theme-light .my-colors{
+  --red: rgb(243, 158, 159);
+  --orange: rgb(230, 167, 127);
+  --yellow: rgb(192, 184, 98);
+  --gold: rgb(188, 139, 0);
+  --green: #00ab14;
+  --teal:  #00a774;
+  --sky:   #00a3ac;
+  --sapphire:rgb(101, 181, 223);
+  --blue: rgb(133, 185, 241);
+  --lavender: rgb(171, 176, 244);
+  --purple: rgb(219, 160, 236);
+  --pink: rgb(242, 153, 207);
+  --text: rgb(87, 82, 121);
+  --maroon: rgb(180, 99, 122);
+  --peach: rgb(214, 129, 125);
+  --base: #eee6dd;
+  --mantle: rgb(230, 219, 209);
+  --crust: rgb(221, 208, 198);
+}
+
+/* Custom Callout Colors
+
+  
+  
+  --ctp-pink: var(--ctp-custom-pink, var(--ctp-ext-pink, 144, 122, 169));
+  --ctp-mauve: 144, 122, 169));
+  --ctp-red: 180, 99, 122));
+  --ctp-maroon: var(--ctp-custom-maroon, var(--ctp-ext-maroon, 180, 99, 122));
+  --ctp-peach: var(--ctp-custom-peach, var(--ctp-ext-peach, 214, 129, 125));
+  --ctp-yellow: var(--ctp-custom-yellow, var(--ctp-ext-yellow, 234, 157, 52));
+  --ctp-green: var(--ctp-custom-green, var(--ctp-ext-green, 86, 148, 159));
+  --ctp-teal: var(--ctp-custom-teal, var(--ctp-ext-teal, 86, 148, 159));
+  --ctp-sky: var(--ctp-custom-sky, var(--ctp-ext-sky, 40, 105, 131));
+  --ctp-sapphire: var(--ctp-custom-sapphire, var(--ctp-ext-sapphire, 40, 105, 131));
+  --ctp-blue: var(--ctp-custom-blue, var(--ctp-ext-blue, 40, 105, 131));
+  --ctp-lavender: var(--ctp-custom-lavender, var(--ctp-ext-lavender, 144, 122, 169));
+  --ctp-text: var(--ctp-custom-text, var(--ctp-ext-text, 87, 82, 121));
+  --ctp-subtext1: var(--ctp-custom-subtext1, var(--ctp-ext-subtext1, 97, 92, 132));
+  --ctp-subtext0: var(--ctp-custom-subtext0, var(--ctp-ext-subtext0, 121, 117, 147));
+  --ctp-overlay2: var(--ctp-custom-overlay2, var(--ctp-ext-overlay2, 128, 124, 153));
+  --ctp-overlay1: var(--ctp-custom-overlay1, var(--ctp-ext-overlay1, 152, 147, 165));
+  --ctp-overlay0: var(--ctp-custom-overlay0, var(--ctp-ext-overlay0, 161, 156, 173));
+  --ctp-surface2: var(--ctp-custom-surface2, var(--ctp-ext-surface2, 202, 193, 185));
+  --ctp-surface1: var(--ctp-custom-surface1, var(--ctp-ext-surface1, 209, 201, 194));
+  --ctp-surface0: var(--ctp-custom-surface0, var(--ctp-ext-surface0, 220, 211, 203));
+  --ctp-base: var(--ctp-custom-base, var(--ctp-ext-base, 238, 230, 221));
+  --ctp-mantle: var(--ctp-custom-mantle, var(--ctp-ext-mantle, 230, 219, 209));
+  --ctp-crust: var(--ctp-custom-crust, var(--ctp-ext-crust, 221, 208, 198));
+*/
+
+.callout[data-callout="example"] {
+	--callout-color: 134, 196, 119;
+	--callout-icon: lucide-list-todo;
+}
+
+.callout[data-callout="note"] {
+	--callout-color: 192, 184, 98;
+	--callout-icon: lucide-sticky-note;
+}
+
+.callout[data-callout="abstract"] {
+	--callout-color: 158, 158, 158;
+	--callout-icon: lucide-clipboard-list;
+}
+
+.callout[data-callout="summary"] {
+	--callout-color: 158, 158, 158;
+	--callout-icon: lucide-clipboard-list;
+}
+
+.callout[data-callout="important"] {
+	--callout-color: 158, 158, 158;
+	--callout-icon: lucide-clipboard-list;
+}
+
+.callout[data-callout="attention"] {
+	--callout-color: 158, 158, 158;
+	--callout-icon: lucide-clipboard-list;
+}
+
+.callout[data-callout="abstract"] {
+	--callout-color: 158, 158, 158;
+	--callout-icon: lucide-clipboard-list;
+}
+
+.callout[data-callout="help"] {
+	--callout-color: 158, 158, 158;
+	--callout-icon: lucide-clipboard-list;
+}
+
+.callout[data-callout="quote"] {
+	--callout-color: 158, 158, 158;
+	--callout-icon: lucide-clipboard-list;
+}

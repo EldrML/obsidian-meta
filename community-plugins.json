@@ -9,7 +9,6 @@
   "templater-obsidian",
   "homepage",
   "obsidian-hover-editor",
-  "advanced-canvas",
   "hide-folders",
   "callout-suggestions",
   "callout-manager",
@@ -18,7 +17,15 @@
   "image-inline",
   "obsidian-paste-image-rename",
   "code-styler",
-  "make-md",
+  "pdf-plus",
+  "text-extractor",
+  "snsvrno-tags",
+  "virtual-linker",
+  "advanced-canvas",
   "collapse-node",
-  "pdf-plus"
+  "dataview",
+  "obsidian-list-callouts",
+  "various-complements",
+  "blockquote-levels",
+  "obsidian-fullscreen-plugin"
 ]
