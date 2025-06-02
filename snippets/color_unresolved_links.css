@@ -1,0 +1,7 @@
+.theme-light, .theme-dark {
+     --link-unresolved-color: var(--color-red);
+     --link-unresolved-opacity: 1;
+     --link-unresolved-filter: none;
+     --link-unresolved-decoration-style: dotted;
+     --link-unresolved-decoration-color: var(--color-red);
+ }
