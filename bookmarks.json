@@ -3,24 +3,121 @@
     {
       "type": "group",
       "ctime": 1723224737471,
-      "items": [],
+      "items": [
+        {
+          "type": "file",
+          "ctime": 1723141005429,
+          "path": "2. Tools & Software/AFSIM/AFSIM Hub.md",
+          "title": "AFSIM Hub"
+        },
+        {
+          "type": "folder",
+          "ctime": 1723134797135,
+          "path": "1. Projects/AMF"
+        },
+        {
+          "type": "file",
+          "ctime": 1752072721181,
+          "path": "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.7b.0 Release Notes.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1752072745005,
+          "path": "1. Projects/AMF/AMF Release Flowchart.canvas",
+          "title": "AMF Release Flowchart Canvas"
+        },
+        {
+          "type": "file",
+          "ctime": 1759428431893,
+          "path": "1. Projects/AMF/_AMF References/JFEO References/STRATCOM Tasking List.md"
+        },
+        {
+          "type": "folder",
+          "ctime": 1759428461542,
+          "path": "1. Projects/AMF/_AMF Deliverables/1. Release Documentation",
+          "title": "AMF Release Notes"
+        },
+        {
+          "type": "file",
+          "ctime": 1759440848977,
+          "path": "1. Projects/AMF/_AMF Deliverables/1. Release Documentation/AMF v0.7b.2 Release Notes.md",
+          "title": "Next AMF Profile Version - Release Notes (v0.7.2-beta)"
+        },
+        {
+          "type": "file",
+          "ctime": 1759510470917,
+          "path": "1. Projects/AMF/_AMF Deliverables/0. STRATCOM Progress Report Documents/_STRATCOM Monthly Update Procedure.md",
+          "title": "AMF.STRATCOM Financial Forecast Notes"
+        },
+        {
+          "type": "file",
+          "ctime": 1765221631609,
+          "path": "1. Projects/AMF/AMF Homepage.base",
+          "title": "AMF Database"
+        }
+      ],
       "title": "AMF"
     },
     {
-      "type": "folder",
-      "ctime": 1723134797135,
-      "path": "1. Projects/AMF"
+      "type": "group",
+      "ctime": 1752072542159,
+      "items": [
+        {
+          "type": "file",
+          "ctime": 1752072594134,
+          "path": "00. Dashboard/Dashboard-2025.md",
+          "title": "Daily Dashboard"
+        },
+        {
+          "type": "file",
+          "ctime": 1752072652446,
+          "path": "1. Projects/AMF/Sandbox/AMF Notional Style Guides.md"
+        },
+        {
+          "type": "file",
+          "ctime": 1752072699861,
+          "path": "1. Projects/AMF/_AMF Resources/STRATCOM Document Updates/_STRATCOM Monthly Update Procedure.md",
+          "title": "STRATCOM How-To-Report-Spending"
+        },
+        {
+          "type": "file",
+          "ctime": 1759428178903,
+          "path": "2. Tools & Software/Cameo/Dassault Interactions/+Dassault & Cameo References Dashboard.md",
+          "title": "Dassault/Cameo Information Dashboard"
+        },
+        {
+          "type": "file",
+          "ctime": 1759433015722,
+          "path": "00. Dashboard/Dashboard Subpages/NGC Personal Personnel Directory.md",
+          "title": "Contacts List"
+        },
+        {
+          "type": "file",
+          "ctime": 1765221023577,
+          "path": "00. Daily Notes/Daily Notes Database.base",
+          "title": "Daily Notes Database"
+        }
+      ],
+      "title": "Daily KeyDocs"
     },
     {
-      "type": "file",
-      "ctime": 1723141005429,
-      "path": "2. Tools & Software/AFSIM/AFSIM Hub.md",
-      "title": "AFSIM Hub"
-    },
-    {
-      "type": "folder",
-      "ctime": 1723224716147,
-      "path": "+Vault Metadata/Obsidian Metaknowledge"
+      "type": "group",
+      "ctime": 1759437296775,
+      "items": [
+        {
+          "type": "file",
+          "ctime": 1752072530118,
+          "path": "00. Dashboard/Dashboard Subpages/_Observations Inbox.md",
+          "title": "Observations Inbox"
+        },
+        {
+          "type": "file",
+          "ctime": 1752072628429,
+          "path": "+Vault Metadata (IP)/Templates/_DN_Template.md",
+          "title": "DailyNote Template"
+        }
+      ],
+      "title": "Meta"
     }
   ]
 }

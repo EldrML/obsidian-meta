@@ -2,7 +2,7 @@
   "version": 4,
   "homepages": {
     "Main Homepage": {
-      "value": "1. Projects/AMF/AMF Progress Trackers/Internal ToDo Inbox",
+      "value": "00. Dashboard/Dashboard",
       "kind": "File",
       "openOnStartup": true,
       "openMode": "Keep open notes",
@@ -14,7 +14,12 @@
       "autoCreate": false,
       "autoScroll": false,
       "pin": true,
-      "commands": [],
+      "commands": [
+        {
+          "id": "daily-notes",
+          "period": "Startup only"
+        }
+      ],
       "alwaysApply": false,
       "hideReleaseNotes": false
     }

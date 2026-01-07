@@ -4,17 +4,16 @@
   "matchAnyPartsOfWords": false,
   "matchEndOfWords": false,
   "matchBeginningOfWords": true,
-  "suppressSuffixForSubWords": true,
-  "includeAllFiles": true,
-  "linkerDirectories": [
-    "Glossary"
-  ],
+  "suppressSuffixForSubWords": false,
+  "includeAllFiles": false,
+  "linkerDirectories": [],
   "excludedDirectories": [],
   "excludedDirectoriesForLinking": [],
-  "virtualLinkSuffix": "",
-  "virtualLinkAliasSuffix": "",
+  "virtualLinkSuffix": "V",
+  "virtualLinkAliasSuffix": "Va",
   "useMarkdownLinks": false,
   "linkFormat": "shortest",
+  "defaultUseMarkdownLinks": false,
   "defaultLinkFormat": "shortest",
   "useDefaultLinkStyleForConversion": true,
   "applyDefaultLinkStyling": true,
@@ -26,12 +25,12 @@
   "propertyNameToMatchCase": "linker-match-case",
   "propertyNameToIgnoreCase": "linker-ignore-case",
   "tagToExcludeFile": "linker-exclude",
-  "tagToIncludeFile": "linkable",
+  "tagToIncludeFile": "term-virtual",
   "excludeLinksToOwnNote": true,
   "fixIMEProblem": false,
   "excludeLinksInCurrentLine": false,
   "onlyLinkOnce": true,
   "excludeLinksToRealLinkedFiles": true,
   "includeAliases": true,
-  "alwaysShowMultipleReferences": true
+  "alwaysShowMultipleReferences": false
 }

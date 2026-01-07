@@ -4,88 +4,60 @@
     "type": "split",
     "children": [
       {
-        "id": "277538f7faec3a8c",
+        "id": "5e862868e47eb32d",
         "type": "tabs",
         "children": [
           {
-            "id": "309fda078e162945",
+            "id": "d6f58efc0e7d7eb3",
             "type": "leaf",
             "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00. Daily Notes/Daily Dashboard.md",
-                "mode": "preview",
+                "file": "00. Dashboard/Dashboard.md",
+                "mode": "source",
+                "source": true,
                 "backlinks": true,
-                "source": true
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "pinned": true,
               "icon": "lucide-file",
-              "title": "Daily Dashboard"
+              "title": "Dashboard"
             }
           },
           {
-            "id": "11216378b1c5e6ff",
+            "id": "3c5061350c6f0162",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00. Daily Notes/_Notes To Inbox.md",
+                "file": "00. Daily Notes/DN_01-07-2026_Wed.md",
                 "mode": "source",
+                "source": true,
                 "backlinks": true,
-                "source": true
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "icon": "lucide-file",
-              "title": "_Notes To Inbox"
-            }
-          },
-          {
-            "id": "7f94b4237e5b0366",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00. Daily Notes/DN_06-02-2025_Mon.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "DN_06-02-2025_Mon"
-            }
-          },
-          {
-            "id": "10241f35e10367e0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.6b.9 Release Notes.md",
-                "mode": "preview",
-                "backlinks": true,
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "AMF v0.6b.9 Release Notes"
-            }
-          },
-          {
-            "id": "35655aa3a87d2584",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "2. Tools & Software/Cameo/Cameo Scripting Templates Cheatsheet.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "Cameo Scripting Templates Cheatsheet"
+              "title": "DN_01-07-2026_Wed"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,12 +71,23 @@
         "type": "tabs",
         "children": [
           {
+            "id": "b771012b55088628",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
             "id": "10eb3f53632ddf2c",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -128,39 +111,20 @@
             }
           },
           {
-            "id": "b771012b55088628",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
-            }
-          },
-          {
-            "id": "ba5af774fa82a1ad",
-            "type": "leaf",
-            "state": {
-              "type": "mk-path-view",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
-            }
-          },
-          {
             "id": "8ef38787c35df149",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
-                "sortOrder": "frequency",
+                "sortOrder": "alphabetical",
                 "useHierarchy": true
               },
               "icon": "lucide-tags",
               "title": "Tags"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -173,7 +137,7 @@
       {
         "id": "a5ef160326779de8",
         "type": "tabs",
-        "dimension": 32.95652173913044,
+        "dimension": 44.952380952380956,
         "children": [
           {
             "id": "7d42e3bc8a201be4",
@@ -181,15 +145,15 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "00. Daily Notes/DN_06-02-2025_Mon.md",
+                "file": "00. Daily Notes/DN_01-06-2026_Tue.md",
                 "options": {
-                  "collapse-filter": true,
+                  "collapse-filter": false,
                   "search": "",
                   "localJumps": 1,
                   "localBacklinks": true,
                   "localForelinks": true,
                   "localInterlinks": false,
-                  "showTags": false,
+                  "showTags": true,
                   "showAttachments": false,
                   "hideUnresolved": false,
                   "collapse-color-groups": true,
@@ -204,12 +168,12 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 0.6906394964510804,
+                  "scale": 0.2506243500026463,
                   "close": true
                 }
               },
               "icon": "lucide-git-fork",
-              "title": "Graph of DN_06-02-2025_Mon"
+              "title": "Graph of DN_01-06-2026_Tue"
             }
           }
         ]
@@ -217,7 +181,7 @@
       {
         "id": "35ac08e2183267e1",
         "type": "tabs",
-        "dimension": 67.04347826086956,
+        "dimension": 55.047619047619044,
         "children": [
           {
             "id": "7bff4c23fd0d00f5",
@@ -258,10 +222,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00. Daily Notes/DN_06-02-2025_Mon.md"
+                "file": "00. Daily Notes/DN_01-06-2026_Tue.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of DN_06-02-2025_Mon"
+              "title": "Outline of DN_01-06-2026_Tue"
             }
           }
         ],
@@ -274,6 +241,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "hide-folders:Hide hidden folders again": false,
       "pdf-plus:PDF++: Toggle auto-copy": false,
       "pdf-plus:PDF++: Toggle auto-focus": false,
@@ -294,62 +262,62 @@
       "daily-notes:Open today's daily note": false
     }
   },
-  "active": "7f94b4237e5b0366",
+  "active": "d6f58efc0e7d7eb3",
   "lastOpenFiles": [
-    "brain_inbox/4. Modeling Languages/SysML/Elements/Parameter.md",
-    "00. Daily Notes/DN_06-02-2025_Mon.md",
-    "00. Daily Notes/DN_05-30-2025_Fri.md",
-    "1. Projects/AMF/_AMF Resources/Demo Videos/AmfExportDemo.mp4",
-    "1. Projects/AMF/_AMF Resources/Demo Videos/Media1.mp4",
-    "1. Projects/AMF/_AMF Resources/Demo Videos/AmfExportDemoGIF.gif",
-    "00. Daily Notes/DN_05-29-2025_Thu.md",
-    "00. Daily Notes/_Notes To Inbox.md",
-    "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.6b.9 Release Notes.md",
-    "brain_inbox/4. Modeling Languages/SysML/Elements/Method.md",
-    "2. Tools & Software/Cameo/Cameo Scripting Templates Cheatsheet.md",
-    "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.7b.0 Release Notes.md",
-    "00. Daily Notes/Daily Dashboard.md",
-    "1. Projects/AMF/_AMF Resources/Release Notes/AMF v0.5b.0 Release Notes.md",
-    "00. Daily Notes/DN_05-28-2025_Wed.md",
-    "1. Projects/AMF/AMF Repo.lnk",
-    "1. Projects/AMF/CAPL Development Folder.lnk",
-    "00. Daily Notes/DN_05-27-2025_Tue.md",
-    "00. Daily Notes/DN_05-22-2025_Thu.md",
-    "0b. NGC Career & Learning/Important Links Quick Reference.md",
-    "00. Daily Notes/DN_05-21-2025_Wed.md",
-    "00. Daily Notes/DN_05-12-2025_Mon.md",
-    "00. Daily Notes/DN_05-13-2025_Tue.md",
-    "00. Daily Notes/DN_05-14-2025_Wed.md",
-    "00. Daily Notes/DN_05-15-2025_Thu.md",
-    "00. Daily Notes/DN_05-16-2025_Fri.md",
-    "00. Daily Notes/DN_05-19-2025_Mon.md",
-    "00. Daily Notes/DN_05-20-2025_Tue.md",
-    "00. Daily Notes/attachments/DN_05-22-2025_Thu--StartingPoint.png",
-    "00. Daily Notes/attachments",
-    "brain_inbox/4. Modeling Languages/UML/Dependency (UML).md",
-    "brain_inbox/4. Modeling Languages/UML/Abstraction (UML).md",
-    "brain_inbox/4. Modeling Languages/UML/DirectedRelationship (UML).md",
-    "00. Daily Notes/2025/05",
-    "0b. NGC Career & Learning/z-Onboarding & Training/attachments/Building Maps/RM Facilities Maps - 500-600_7.30.20.pdf",
-    "0b. NGC Career & Learning/z-Onboarding & Training/attachments/Building Maps/900 map.pdf",
-    "1. Projects/AMF/__AMF_DEV/Notepad++ AFSIM Grammar Files",
-    "1. Projects/AMF/_AMF Resources/Research/~$detection-scheduling-commands-table.xlsx",
-    "Task Management.canvas",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSideFighterPlatformTypeAttributes.png",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - RedSideFighterPlatformTypeDiagram.png",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - RedSideLaydownDiagrams.png",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSideFighterPlatformTypeDiagram.png",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSideLaydownDiagram.png",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - BlueSidePlatformsLibrary.png",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - OV1_Context.png",
-    "1. Projects/AMF/_AMF Resources/Outreach/STRATCOM-Demo-Images/USSTRATCOM_2025 - OV5_Actors_Table.png",
-    "2. Tools & Software/Cameo/Custom Hotkeys CheatSheet.canvas",
-    "1. Projects/AMF/AMF Release Flowchart.canvas",
+    "+Vault Metadata (IP)/Templates/_DN_Template.md",
+    "00. Dashboard/Dashboard.md",
+    "00. Daily Notes/DN_01-07-2026_Wed.md",
+    "00. Daily Notes/_attachments/DN_05-22-2025_Thu--StartingPoint.png",
+    "00. Daily Notes/DN_01-06-2026_Tue.md",
+    "00. Dashboard/Dashboard-2025.md",
     "1. Projects/AMF/AMF Hub.canvas",
-    "1. Projects/LITENING LA Phase 3/LITENING Hub.canvas",
+    "00. Dashboard/Vault File Queries.base",
+    "00. Dashboard/Vault Base Queries/Untitled.md",
+    "00. Dashboard/Dashboard Subpages/Important Links Quick Reference.md",
+    "00. Dashboard/Dashboard Subpages/Tasking Trash Bin.md",
+    "00. Dashboard/Vault Base Queries",
+    "1. Projects/AMF/__AMF_DEV/Notepadpp-AFSIM-Grammar-Files.workspace",
+    "1. Projects/AMF/__AMF_DEV/Notepadpp-AFSIM-Grammar-Files.xml",
+    "1. Projects/AMF/_AMF Deliverables/_STRATCOM Monthly Update Procedure.md",
+    "Resources/Specs/SysML 2.0 Spec.pdf",
+    "00. Dashboard/Dashboard Subpages/NGC Personal Personnel Directory.md",
+    "00. Dashboard/Dashboard Subpages/NGC Charge Codes.md",
+    "00. Dashboard/Dashboard Subpages/Logs Info.md",
+    "00. Dashboard/Dashboard Subpages/_Observations Inbox.md",
+    "1. Projects/2023-2024 Archive/SPARK Proposal 2026.md",
+    "1. Projects/2023-2024 Archive/2023 SysML2 Spark Proposal/Reference Notes.md",
+    "1. Projects/2023-2024 Archive/2023 SysML2 Spark Proposal/Planning Meeting.md",
+    "1. Projects/2023-2024 Archive/2023 SysML2 Spark Proposal/_proposal_main.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/attachments/Pasted image 20220815135924.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/attachments",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/08-29-2022 - SME Stakeholder Review.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/08-22-2022 - Sensor Squad SME Stakeholder Review.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/07-14-2022 - Turn On Power SEQ - SME Review.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/08-15-2022 - Sensor Squad SME Review Session.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/06-29-2022 - Updating PI Plan.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Meetings/06-29-2022 - PI10 Opening.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Reference_SW_Architecture.pdf",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Pasted image 20220906124939.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Pasted image 20220906124904.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Pasted image 20220906124857.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Pasted image 20220906124846.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Pasted image 20220906122115.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Pasted image 20220906100436.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Pasted image 20220629161322.png",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/IRSIM_Overview.pptx",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/07152022 - StandUp Proposal Slide.pptx",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/attachments/Annotation 2022-06-27 150547.png",
+    "1. Projects/2023-2024 Archive/LITENING LA Phase 3 - Q42024/source docs/154-004534_revP01 (PSU ICD reference).pdf",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/SyDECAR.md",
+    "1. Projects/2023-2024 Archive/z-Sensor Squad/Reference Software Architecture.md",
+    "1. Projects/2023-2024 Archive/LITENING LA Phase 3 - Q42024/LITENING Hub.canvas",
+    "1. Projects/2023-2024 Archive/LITENING LA Phase 3 - Q42024/LITENING Hub.canvas",
+    "Task Management.canvas",
+    "1. Projects/AMF/AMF Release Flowchart.canvas",
+    "brain_inbox/tools&software/Eclipse/Eclipse.canvas",
+    "2. Tools & Software/Cameo/Cameo Power User Notes/Custom Hotkeys CheatSheet.canvas",
     "Homepage.canvas",
     "1. Projects/xLITENING LA Phase 3 - 2024/LITENING Hub.canvas",
-    "2. Tools & Software/Cameo/Cameo Custom Hotkeys.canvas",
-    "2. Tools & Software/Cameo/Opaque Expression Evaluation Flowchart.canvas"
+    "2. Tools & Software/Cameo/Cameo Custom Hotkeys.canvas"
   ]
 }

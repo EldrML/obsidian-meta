@@ -1,97 +1,94 @@
-/* Use this: https://bernaferrari.github.io/color-studio/#/ */
-
-.theme-light .my-colors{
-  --red: rgb(243, 158, 159);
-  --orange: rgb(230, 167, 127);
-  --yellow: rgb(192, 184, 98);
-  --gold: rgb(188, 139, 0);
-  --green: #00ab14;
-  --teal:  #00a774;
-  --sky:   #00a3ac;
-  --sapphire:rgb(101, 181, 223);
-  --blue: rgb(133, 185, 241);
-  --lavender: rgb(171, 176, 244);
-  --purple: rgb(219, 160, 236);
-  --pink: rgb(242, 153, 207);
-  --text: rgb(87, 82, 121);
-  --maroon: rgb(180, 99, 122);
-  --peach: rgb(214, 129, 125);
-  --base: #eee6dd;
-  --mantle: rgb(230, 219, 209);
-  --crust: rgb(221, 208, 198);
-}
-
-/* Custom Callout Colors
-
-  
-  
-  --ctp-pink: var(--ctp-custom-pink, var(--ctp-ext-pink, 144, 122, 169));
-  --ctp-mauve: 144, 122, 169));
-  --ctp-red: 180, 99, 122));
-  --ctp-maroon: var(--ctp-custom-maroon, var(--ctp-ext-maroon, 180, 99, 122));
-  --ctp-peach: var(--ctp-custom-peach, var(--ctp-ext-peach, 214, 129, 125));
-  --ctp-yellow: var(--ctp-custom-yellow, var(--ctp-ext-yellow, 234, 157, 52));
-  --ctp-green: var(--ctp-custom-green, var(--ctp-ext-green, 86, 148, 159));
-  --ctp-teal: var(--ctp-custom-teal, var(--ctp-ext-teal, 86, 148, 159));
-  --ctp-sky: var(--ctp-custom-sky, var(--ctp-ext-sky, 40, 105, 131));
-  --ctp-sapphire: var(--ctp-custom-sapphire, var(--ctp-ext-sapphire, 40, 105, 131));
-  --ctp-blue: var(--ctp-custom-blue, var(--ctp-ext-blue, 40, 105, 131));
-  --ctp-lavender: var(--ctp-custom-lavender, var(--ctp-ext-lavender, 144, 122, 169));
-  --ctp-text: var(--ctp-custom-text, var(--ctp-ext-text, 87, 82, 121));
-  --ctp-subtext1: var(--ctp-custom-subtext1, var(--ctp-ext-subtext1, 97, 92, 132));
-  --ctp-subtext0: var(--ctp-custom-subtext0, var(--ctp-ext-subtext0, 121, 117, 147));
-  --ctp-overlay2: var(--ctp-custom-overlay2, var(--ctp-ext-overlay2, 128, 124, 153));
-  --ctp-overlay1: var(--ctp-custom-overlay1, var(--ctp-ext-overlay1, 152, 147, 165));
-  --ctp-overlay0: var(--ctp-custom-overlay0, var(--ctp-ext-overlay0, 161, 156, 173));
-  --ctp-surface2: var(--ctp-custom-surface2, var(--ctp-ext-surface2, 202, 193, 185));
-  --ctp-surface1: var(--ctp-custom-surface1, var(--ctp-ext-surface1, 209, 201, 194));
-  --ctp-surface0: var(--ctp-custom-surface0, var(--ctp-ext-surface0, 220, 211, 203));
-  --ctp-base: var(--ctp-custom-base, var(--ctp-ext-base, 238, 230, 221));
-  --ctp-mantle: var(--ctp-custom-mantle, var(--ctp-ext-mantle, 230, 219, 209));
-  --ctp-crust: var(--ctp-custom-crust, var(--ctp-ext-crust, 221, 208, 198));
-*/
-
-.callout[data-callout="example"] {
-	--callout-color: 134, 196, 119;
-	--callout-icon: lucide-list-todo;
-}
-
-.callout[data-callout="note"] {
-	--callout-color: 192, 184, 98;
-	--callout-icon: lucide-sticky-note;
+:root{
+	--custom-callout-pink: 238, 124, 158; 		/*#ee7c9e*/
+	--custom-callout-purple: 183, 141, 234; 	/*#b78dea*/
+	--custom-callout-blurple: 151, 152, 234; 	/*#9798ea*/
+	--custom-callout-blue: 84, 168, 218; 		/*#54a8da*/
+	--custom-callout-teal: 77, 177, 146; 		/*#4db192*/
+	--custom-callout-green: 104, 177, 73; 		/*#68b149*/
+	--custom-callout-yellow: 188, 156, 16; 		/*#*/
+	--custom-callout-orange: 237, 132, 74; 		/*#ed844a*/
+	--custom-callout-red: 239, 127, 121; 		/*#ef7f79*/
+	--custom-callout-lightgray: 160, 160, 160; 	/*#a0a0a0*/
+	--custom-callout-midgray: 120, 120, 120; 	/*#787878*/
+	--custom-callout-darkgray: 90, 90, 90; 		/*#5A5A5A*/
 }
 
 .callout[data-callout="abstract"] {
-	--callout-color: 158, 158, 158;
-	--callout-icon: lucide-clipboard-list;
-}
-
-.callout[data-callout="summary"] {
-	--callout-color: 158, 158, 158;
-	--callout-icon: lucide-clipboard-list;
-}
-
-.callout[data-callout="important"] {
-	--callout-color: 158, 158, 158;
+	--callout-color: var(--custom-callout-blurple);
 	--callout-icon: lucide-clipboard-list;
 }
 
 .callout[data-callout="attention"] {
-	--callout-color: 158, 158, 158;
-	--callout-icon: lucide-clipboard-list;
+	--callout-color:  var(--custom-callout-orange);
+	--callout-icon: lucide-alert-triangle;
 }
 
-.callout[data-callout="abstract"] {
-	--callout-color: 158, 158, 158;
-	--callout-icon: lucide-clipboard-list;
+.callout[data-callout="bug"] {
+	--callout-color: var(--custom-callout-red); 
+	--callout-icon: lucide-bug;
+}	
+
+.callout[data-callout="caution"] {
+	--callout-color: var(--custom-callout-red);
+	--callout-icon: lucide-triangle-alert;
 }
 
-.callout[data-callout="help"] {
-	--callout-color: 158, 158, 158;
-	--callout-icon: lucide-clipboard-list;
+.callout[data-callout="error"] {
+	--callout-color: var(--custom-callout-red);
+	--callout-icon: lucide-shield-x;
+}
+
+.callout[data-callout="example"] {
+	--callout-color: var(--custom-callout-teal); 
+	--callout-icon: lucide-scan-eye;
+}
+
+.callout[data-callout="important"] {
+	--callout-color: var(--custom-callout-orange); 
+	--callout-icon: lucide-flame;
+}
+
+.callout[data-callout="info"] {
+	--callout-color: var(--custom-callout-darkgray);
+	--callout-icon: lucide-info;
+}
+
+.callout[data-callout="note"] {
+	--callout-color: var(--custom-callout-lightgray); 
+	--callout-icon: lucide-sticky-note;
+}
+
+.callout[data-callout="question"] {
+	--callout-color: var(--custom-callout-pink); 
+	--callout-icon: shield-question;
 }
 
 .callout[data-callout="quote"] {
-	--callout-color: 158, 158, 158;
-	--callout-icon: lucide-clipboard-list;
+	--callout-color: var(--custom-callout-midgray);
+	--callout-icon: lucide-quote;
+}
+
+.callout[data-callout="source"] {
+	--callout-color: var(--custom-callout-blue); 
+	--callout-icon: link;
+}
+
+.callout[data-callout="summary"] {
+	--callout-color: var(--custom-callout-purple);
+	--callout-icon: lucide-subtitles;
+}
+
+.callout[data-callout="tip"] {
+	--callout-color: var(--custom-callout-green);
+	--callout-icon: lucide-info;
+}
+	
+.callout[data-callout="todo"] {
+	--callout-color: var(--custom-callout-orange);
+	--callout-icon: lucide-list-todo;
+}
+	
+.callout[data-callout="warning"] {
+	--callout-color: var(--custom-callout-yellow); 
+	--callout-icon: lucide-triangle-alert;
 }

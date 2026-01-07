@@ -1,13 +1,13 @@
 {
   "cssTheme": "AnuPpuccin",
   "enabledCssSnippets": [
+    "headerIndentsSnippet",
+    "custom_callouts",
     "clean_embed",
     "color_unresolved_links",
-    "custom_canvas_colors",
-    "custom_callouts",
-    "extended-colorschemes",
-    "headerIndentsSnippet"
+    "custom_canvas_colors"
   ],
   "theme": "system",
-  "accentColor": "#a783fb"
+  "accentColor": "#a783fb",
+  "showRibbon": false
 }

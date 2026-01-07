@@ -29,7 +29,7 @@
       "force-yaml-escape-keys": ""
     },
     "format-tags-in-yaml": {
-      "enabled": false
+      "enabled": true
     },
     "insert-yaml-attributes": {
       "enabled": false,
@@ -40,7 +40,7 @@
       "yaml-keys-to-remove": ""
     },
     "yaml-key-sort": {
-      "enabled": false,
+      "enabled": true,
       "yaml-key-priority-sort-order": "",
       "priority-keys-at-start-of-yaml": true,
       "yaml-sort-order-for-other-keys": "None"
@@ -51,7 +51,7 @@
       "date-created-key": "date created",
       "date-modified": true,
       "date-modified-key": "last modified",
-      "format": "MM-DD-YYYY",
+      "format": "YYYY-MM-DD",
       "convert-to-utc": false,
       "date-created-source-of-truth": "file system",
       "date-modified-source-of-truth": "user or Linter edits",
@@ -204,7 +204,7 @@
     },
     "trailing-spaces": {
       "enabled": true,
-      "twp-space-line-break": false
+      "two-space-line-break": false
     },
     "add-blockquote-indentation-on-paste": {
       "enabled": false
@@ -231,33 +231,33 @@
       "enabled": false
     },
     "add-blank-line-after-yaml": {
-      "enabled": false
+      "enabled": true
     },
     "dedupe-yaml-array-values": {
       "enabled": false,
-      "dedupe-alias-key": false,
-      "dedupe-tag-key": false,
-      "dedupe-array-keys": false,
+      "dedupe-alias-key": true,
+      "dedupe-tag-key": true,
+      "dedupe-array-keys": true,
       "ignore-keys": ""
     },
     "format-yaml-array": {
-      "enabled": false,
+      "enabled": true,
       "alias-key": true,
       "tag-key": true,
-      "default-array-style": "single-line",
+      "default-array-style": "multi-line",
       "default-array-keys": true,
       "force-single-line-array-style": "",
-      "force-multi-line-array-style": ""
+      "force-multi-line-array-style": "tags\naliases"
     },
     "move-tags-to-yaml": {
-      "enabled": false,
+      "enabled": true,
       "how-to-handle-existing-tags": "Nothing",
-      "tags-to-ignore": ""
+      "tags-to-ignore": "TODO/CONDENSE\nTODO"
     },
     "sort-yaml-array-values": {
       "enabled": false,
-      "sort-alias-key": true,
-      "sort-tag-key": true,
+      "sort-alias-key": false,
+      "sort-tag-key": false,
       "sort-array-keys": true,
       "ignore-keys": "",
       "sort-order": "Ascending Alphabetical"
